@@ -81,7 +81,6 @@ public class Edgar090505Entity extends EdgarRobotEntity {
 
     @Override
     protected void spawnSpecialDrops() {
-        final int playerCnt = this.bossInfo.getPlayers().size();
         for (int i = 0; i < 2; ++i) {
             JewelEntity jewel = EntityRegister.JEWEL.get().create(level);
             EntityUtil.onEntityRandomPosSpawn(level, jewel, blockPosition().above(5), 4);

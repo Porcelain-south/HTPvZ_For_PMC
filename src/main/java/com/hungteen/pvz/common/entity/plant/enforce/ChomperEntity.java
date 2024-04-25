@@ -80,7 +80,7 @@ public class ChomperEntity extends PVZPlantEntity {
 		//stop rest.
 		this.setRestTick(0);
 		//summon ground chomper
-		final float range = 10F;
+		final float range = 5F;
 		int cnt = this.getSuperAttackCnt();
 		for (LivingEntity target : EntityUtil.getTargetableLivings(this, EntityUtil.getEntityAABB(this, range, range))) {
 			if(! target.isOnGround()) {
@@ -138,7 +138,7 @@ public class ChomperEntity extends PVZPlantEntity {
 	 * how many ground chomper to summon.
 	 */
 	public int getSuperAttackCnt() {
-		return 4;
+		return 2;
 	}
 	
 	/**
