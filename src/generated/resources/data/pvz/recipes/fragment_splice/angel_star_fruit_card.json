@@ -1,0 +1,24 @@
+{
+  "type": "pvz:fragment_splice",
+  "pattern": [
+    "AAAAA",
+    "ABBBA",
+    "ABCBA",
+    "ABBBA",
+    "AAAAA"
+  ],
+  "key": {
+    "A": {
+      "item": "pvz:appease_essence"
+    },
+    "B": {
+      "item": "pvz:angel_star_fruit_enjoy_card"
+    },
+    "C": {
+      "tag": "pvz:card/purple_cards"
+    }
+  },
+  "result": {
+    "item": "pvz:angel_star_fruit_card"
+  }
+}

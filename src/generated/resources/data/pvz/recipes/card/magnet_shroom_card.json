@@ -1,0 +1,22 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "AAA",
+    "ABA",
+    "ACA"
+  ],
+  "key": {
+    "A": {
+      "item": "pvz:assist_essence"
+    },
+    "B": {
+      "item": "pvz:spore"
+    },
+    "C": {
+      "tag": "pvz:card/purple_cards"
+    }
+  },
+  "result": {
+    "item": "pvz:magnet_shroom_card"
+  }
+}

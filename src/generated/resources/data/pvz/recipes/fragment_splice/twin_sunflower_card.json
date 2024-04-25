@@ -1,0 +1,24 @@
+{
+  "type": "pvz:fragment_splice",
+  "pattern": [
+    "AAAAA",
+    "ABBBA",
+    "ABCBA",
+    "ABBBA",
+    "AAAAA"
+  ],
+  "key": {
+    "A": {
+      "item": "pvz:light_essence"
+    },
+    "B": {
+      "item": "pvz:twin_sunflower_enjoy_card"
+    },
+    "C": {
+      "tag": "pvz:card/gold_cards"
+    }
+  },
+  "result": {
+    "item": "pvz:twin_sunflower_card"
+  }
+}

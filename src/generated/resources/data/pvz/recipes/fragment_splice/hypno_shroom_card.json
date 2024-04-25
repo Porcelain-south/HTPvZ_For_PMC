@@ -1,0 +1,24 @@
+{
+  "type": "pvz:fragment_splice",
+  "pattern": [
+    "AAAAA",
+    "ABBBA",
+    "ABCBA",
+    "ABBBA",
+    "AAAAA"
+  ],
+  "key": {
+    "A": {
+      "item": "pvz:magic_essence"
+    },
+    "B": {
+      "item": "pvz:hypno_shroom_enjoy_card"
+    },
+    "C": {
+      "tag": "pvz:card/blue_cards"
+    }
+  },
+  "result": {
+    "item": "pvz:hypno_shroom_card"
+  }
+}

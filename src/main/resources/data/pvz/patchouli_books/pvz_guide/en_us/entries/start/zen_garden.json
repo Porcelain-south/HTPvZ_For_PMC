@@ -1,0 +1,43 @@
+{
+    "name": "禅境花园",
+    "icon": "pvz:nut_sapling",
+    "category": "pvz:start",
+    "pages": [
+        {
+            "type": "text",
+            "text": "$(l)禅境花园$()是$(l)主世界$()的一个生物群系，那是一片植物的圣地，$(l)但是却徘徊着大量幽灵$()。$(br)你能在这找到大量其他地方无法遇见的稀有植物$(l)（包括食人花与倭瓜）$()"
+        },
+        {
+            "type": "spotlight",
+            "item": "pvz:chomper",
+            "title": "食人花",
+            "text": "$(l)食人花$()非常稀有，要想找到它们需要花费不少功夫。"
+        },
+        {
+            "type": "spotlight",
+            "item": "bhtpvz:squash",
+            "title": "倭瓜",
+            "text": "$(l)倭瓜$()同样非常稀有，并且拥有极佳的保护色，曾多次在僵尸的眼皮底下逃之夭夭。"
+        },
+        {
+            "type": "spotlight",
+            "item": "pvz:nut",
+            "title": "坚果树",
+            "text": "$(l)坚果树$()中好像有一种特殊的磁力，合理引导或许对我们有所帮助。"
+        },
+        {
+            "type": "spotlight",
+            "item": "bhtpvz:cherry",
+            "title": "樱桃树",
+            "text": "$(l)樱桃树$()上结满了多汁的樱桃，这看着就很好吃。"
+        },
+        {
+            "type": "spotlight",
+            "item": "bhtpvz:starfruit",
+            "title": "杨桃树",
+            "text": "$(l)杨桃树$()树上遍布了丰满的杨桃，这看着就很好吃"
+        }
+    ],
+    "advancement": "pvz:adventure/root",
+    "sortnum": 2
+}

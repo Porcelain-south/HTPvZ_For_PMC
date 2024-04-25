@@ -1,0 +1,24 @@
+{
+  "type": "pvz:fragment_splice",
+  "pattern": [
+    "AAAAA",
+    "ABBBA",
+    "ABCBA",
+    "ABBBA",
+    "AAAAA"
+  ],
+  "key": {
+    "A": {
+      "item": "pvz:appease_essence"
+    },
+    "B": {
+      "item": "pvz:three_peater_enjoy_card"
+    },
+    "C": {
+      "tag": "pvz:card/green_cards"
+    }
+  },
+  "result": {
+    "item": "pvz:three_peater_card"
+  }
+}

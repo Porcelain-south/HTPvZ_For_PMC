@@ -1,0 +1,36 @@
+{
+	"type": "minecraft:crafting_shapeless",
+	"ingredients": [
+		{
+			"item": "minecraft:gold_ingot"
+		},
+		{
+			"item": "minecraft:sand"
+		},
+		{
+			"item": "minecraft:sand"
+		},
+		{
+			"item": "minecraft:sand"
+		},
+		{
+			"item": "minecraft:sand"
+		},
+		{
+			"item": "minecraft:glowstone_dust"
+		},
+		{
+			"item": "minecraft:glowstone_dust"
+		},
+		{
+			"item": "minecraft:glowstone_dust"
+		},
+		{
+			"item": "minecraft:glowstone_dust"
+		}
+	],
+	"result": {
+	  "item": "pvz:lunar_stone",
+	  "count": 4
+	}
+  }

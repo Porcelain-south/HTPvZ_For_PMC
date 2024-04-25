@@ -1,0 +1,51 @@
+{
+    "name": "万藏设定集",
+    "icon": "pvz:time_source",
+    "category": "pvz:intro",
+    "pages": [
+        {
+            "type": "spotlight",
+            "item": "pvz:imitater_card",
+            "title": "薏米（imi）",
+            "text": "植物世界核心角色之一$(br)剧情核心引导人物$(br)$(br)设定：$(br)智慧、神秘、魔法$(br)有着一定的预知权能$(br)心怀世界、为植物世界死而后已$(br)认识到植物世界的本质：PvZ$(br)$(br)心中地位：植物世界 > 植物种族 > 僵尸种族 > 自己"
+        },
+        {
+            "type": "spotlight",
+            "item": "pvz:edgar_doll",
+            "title": "僵王博士",
+            "text": "植物世界核心角色之一$(br)直接出场较少$(br)$(br)设定：$(br)强大、偏执、科技$(br)有着强大的生物改造技术，可以令生灵死而复生$(br)对科技一刻未停的深入使他在世界破灭之前发现了世界的真相$(br)心中只有对真相的渴望，延续世界只是为了有更长的时间探索万藏的真相"
+        },
+        {
+            "type": "spotlight",
+            "item": "pvz:edgar_doll",
+            "title": "僵王博士",
+            "text": "$(br)与薏米达成交易$(br)合作上演一场特殊的舞台戏$(br)$(br)交易内容：$(br)薏米分享关于万藏真相的信息$(br)僵王合作演出并遵守规则"
+        },
+        {
+            "type": "spotlight",
+            "item": "minecraft:player_head",
+            "title": "史蒂夫（玩家？）",
+            "text": "高维傀儡$(br)玩家可以干预$(br)世界的核心$(br)植物世界万藏本源（智慧树）的寄生体$(br)玩家对时间片的记忆会强化这个时间片的万藏本源$(br)$(br)来自玩家的吐槽：$(br)为什么？难道万藏本质上真的是一棵以记忆为养分的高维世界树（？"
+        },
+        {
+            "type": "spotlight",
+            "item": "projecte:collector_mk2",
+            "title": "来自异界的空灵声音",
+            "text": "$(br)另一个万藏分支可能的高维生物$(br)$(br)高维在万藏世界观意味着：$(br)意识到自己的世界仅为万藏的一个分支，且拥有跨分支的能力"
+        },
+        {
+            "type": "spotlight",
+            "item": "cataclysm:music_disc_ignis",
+            "title": "异界恶魔",
+            "text": "$(br)被“王”传送过来的掠夺者，为了抢夺万藏本源"
+        },
+        {
+            "type": "spotlight",
+            "item": "bhtpvz:wisdom_sapling",
+            "title": "万藏本源",
+            "text": "时间的推进意味着世界线的无限分裂，同时也带走了大量的万藏本源$(br)$(br)每过一段时间，万藏的大量时间片会因为本源之力的稀疏而破灭，逸散的本源之力会重新汇聚到万藏本身，长出新的树干$(br)$(br)在世界不断的产生和消逝中，万藏会逐渐只剩下强大而能一直延续的世界线"
+        }
+    ],
+    "advancement": "pvz:adventure/good_game",
+    "sortnum": 7
+}

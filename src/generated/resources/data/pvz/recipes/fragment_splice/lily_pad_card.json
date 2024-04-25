@@ -1,0 +1,24 @@
+{
+  "type": "pvz:fragment_splice",
+  "pattern": [
+    "AAAAA",
+    "ABBBA",
+    "ABCBA",
+    "ABBBA",
+    "AAAAA"
+  ],
+  "key": {
+    "A": {
+      "item": "pvz:assist_essence"
+    },
+    "B": {
+      "item": "pvz:lily_pad_enjoy_card"
+    },
+    "C": {
+      "tag": "pvz:card/white_cards"
+    }
+  },
+  "result": {
+    "item": "pvz:lily_pad_card"
+  }
+}

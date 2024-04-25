@@ -1,0 +1,27 @@
+modLoader="javafml" 
+license="GNU LESSER GENERAL PUBLIC LICENSE" 
+loaderVersion="[36,)" 
+issueTrackerURL="https://github.com/HungTeen/pvzmod/issues"
+
+[[mods]]
+modId="pvz"
+version="0.6.5_qing"
+displayName="Plants vs Zombies"
+authors="_HungTeen_, Wolf__Crystal, Grass_Carp, Qing"
+logoFile="logo.png" 
+displayURL="https://space.bilibili.com/362855464" 
+credits="Qing"
+description="A mod that brings Plants vs Zombies to Minecraft !"
+configBackground="pvz:textures/block/amethyst_block.png"
+
+[[dependencies.pvz]]
+    modId="forge"
+    mandatory=true
+    versionRange="[36.2.39,)"
+    
+[[dependencies.pvz]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16,)"
+    ordering="NONE"
+    side="BOTH"

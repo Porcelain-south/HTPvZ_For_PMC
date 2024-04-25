@@ -1,0 +1,19 @@
+{
+    "name": "僵尸遗迹",
+    "icon": "minecraft:stone",
+    "category": "pvz:start",
+    "pages": [
+        {
+            "type": "text",
+            "text": "$(l)僵尸遗迹$()只在主世界生成，目前有$(bred)铁桶遗迹、海豚遗迹、传说之墓$()。僵尸遗迹的奖励箱里面一般会有着丰富的$(bred)体验卡$()，但是奖励同时伴随着危险，这里也有$(bred)僵尸的刷怪笼$()。这也是僵尸生成的另一种形式。"
+        },
+        {
+            "type": "crafting",
+            "recipe": "pvz:food/sun_storage_sapling",
+            "title": "古遗迹指南针",
+            "text": "完成关卡2-9后利用怨灵之力升级群系指南针，可指引玩家快速找到古代遗迹"
+        }
+    ],
+    "advancement": "pvz:adventure/root",
+    "sortnum": 3
+}

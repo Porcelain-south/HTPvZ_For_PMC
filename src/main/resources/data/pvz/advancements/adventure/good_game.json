@@ -1,0 +1,25 @@
+{
+  "display": {
+    "icon": {
+      "item": "pvz:diamond_sunflower_trophy"
+    },
+    "title": {
+      "translate": "advancement.pvz.good_game"
+    },
+    "description": {
+      "translate": "advancement.pvz.good_game.desc"
+    },
+    "frame": "challenge",
+    "background": "bhtpvz:textures/block/damson_crystal_block.png",
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "in_world": {
+      "trigger": "minecraft:impossible"
+    }
+  },
+  "rewards": {
+    "experience": 100000
+  }
+}

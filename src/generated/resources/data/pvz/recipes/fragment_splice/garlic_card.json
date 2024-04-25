@@ -1,0 +1,24 @@
+{
+  "type": "pvz:fragment_splice",
+  "pattern": [
+    "AAAAA",
+    "ABBBA",
+    "ABCBA",
+    "ABBBA",
+    "AAAAA"
+  ],
+  "key": {
+    "A": {
+      "item": "pvz:defence_essence"
+    },
+    "B": {
+      "item": "pvz:garlic_enjoy_card"
+    },
+    "C": {
+      "tag": "pvz:card/green_cards"
+    }
+  },
+  "result": {
+    "item": "pvz:garlic_card"
+  }
+}
