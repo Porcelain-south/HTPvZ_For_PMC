@@ -7,7 +7,10 @@ import com.hungteen.pvz.utils.MathUtil;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.boss.dragon.EnderDragonEntity;
+import net.minecraft.entity.boss.dragon.EnderDragonPartEntity;
 import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.util.DamageSource;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.EntityRayTraceResult;
 import net.minecraft.util.math.MathHelper;
@@ -72,7 +75,7 @@ public abstract class PultBulletEntity extends AbstractBulletEntity implements I
 			Entity target = ((EntityRayTraceResult) result).getEntity();
 			if (this.shouldHit(target)) {
 				target.invulnerableTime = 0;
-				this.dealDamage(target); // attack 
+				this.dealDamage(target); // attack
 				flag = true;
 			}
 		}

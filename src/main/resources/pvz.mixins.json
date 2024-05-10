@@ -4,8 +4,9 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "pvz.refmap.json",
   "mixins": [
-    "MixinPlayerWaystoneManager",
-    "MixinEntity"
+    "EnderDragonMixin",
+    "MixinEntity",
+    "MixinPlayerWaystoneManager"
   ],
   "client": [
   ],
