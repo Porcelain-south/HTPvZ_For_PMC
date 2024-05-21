@@ -142,6 +142,9 @@ public abstract class SummonCardItem extends Item{
 	protected enum PlacementErrors{
 		SUN_ERROR("sun"),
 		MULTIPLE_SUN_ERROR("multiple_sun"),
+		SUN_ERROR100000("multiple_sun100000"),
+		SUN_ERROR100001("multiple_sun100001"),
+		SUN_ERROR100002("multiple_sun100002"),
 		CD_ERROR("cd"),
 		LOCK_ERROR("lock"),
 		UPGRADE_ERROR("upgrade"),

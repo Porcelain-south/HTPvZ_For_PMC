@@ -490,6 +490,15 @@ public class PlantCardItem extends SummonCardItem {
 			if (sunCost == cardItem.getBasisSunCost(stack)) {
 				cardItem.notifyPlayerAndCD(player, stack, PlacementErrors.SUN_ERROR, sunCost);
 			}
+			else if (sunCost == 100000) {
+				cardItem.notifyPlayerAndCD(player, stack, PlacementErrors.SUN_ERROR100000, sunCost);
+			}
+			else if (sunCost == 100001) {
+				cardItem.notifyPlayerAndCD(player, stack, PlacementErrors.SUN_ERROR100001, sunCost);
+			}
+			else if (sunCost == 100002) {
+				cardItem.notifyPlayerAndCD(player, stack, PlacementErrors.SUN_ERROR100002, sunCost);
+			}
 			else {
 				cardItem.notifyPlayerAndCD(player, stack, PlacementErrors.MULTIPLE_SUN_ERROR, sunCost);
 			}
@@ -617,7 +626,7 @@ public class PlantCardItem extends SummonCardItem {
 			if (EntityUtil.getFriendlyLivings(player, EntityUtil.getEntityAABB(player, range, 255))
 					.stream().filter(entity -> {
 						return entity instanceof PlantProducerEntity;
-					}).count() + 1 > 100)
+					}).count() - DenselyPlantEnchantment.getExtraPlantNum(stack) + 1 > 100)
 			{
 				return 100001;
 			}
@@ -629,7 +638,7 @@ public class PlantCardItem extends SummonCardItem {
 			if (EntityUtil.getFriendlyLivings(player, EntityUtil.getEntityAABB(player, range, 255))
 					.stream().filter(entity -> {
 						return entity instanceof PlantBomberEntity;
-					}).count() + 1 > 3)
+					}).count() - DenselyPlantEnchantment.getExtraPlantNum(stack)/5 + 1 > 3)
 			{
 				return 100002;
 			}
@@ -640,23 +649,23 @@ public class PlantCardItem extends SummonCardItem {
 		    .stream().filter(entity -> {
 				return entity instanceof PVZPlantEntity
 						&& !(entity instanceof PlantProducerEntity)
-						&& !(entity instanceof PlantBomberEntity)
-						&& ((PVZPlantEntity) entity).getOwnerUUID().isPresent()
-						&& ((PVZPlantEntity) entity).getOwnerUUID().get().equals(player.getUUID());
+						&& !(entity instanceof PlantBomberEntity);
+//						&& ((PVZPlantEntity) entity).getOwnerUUID().isPresent()
+//						&& ((PVZPlantEntity) entity).getOwnerUUID().get().equals(player.getUUID());
 			}).count() + 1;
 
 		int lvadd=0;
 		if (player.level.getDifficulty() == Difficulty.HARD)
 		{
 			if(PlayerUtil.getResource(ClientProxy.MC.player, Resources.TREE_LVL)>=120)
-				lvadd=10;
+				lvadd=20;
 			if(PlayerUtil.getResource(ClientProxy.MC.player, Resources.TREE_LVL)>=180)
-				lvadd+=50/ConfigUtil.getPlayerCount();
+				lvadd+=50;
 		}
 		else if (player.level.getDifficulty() == Difficulty.EASY)
 		{
-			lvadd=PlayerUtil.getResource(ClientProxy.MC.player, Resources.TREE_LVL)/10;
-			lvadd*=5;
+			lvadd=PlayerUtil.getResource(ClientProxy.MC.player, Resources.TREE_LVL)/20;
+			lvadd*=10;
 		}
 
 		final long multipy = Math.max(0, (count - ConfigUtil.getLimitPlantCount() - lvadd - DenselyPlantEnchantment.getExtraPlantNum(stack) + 1) / 2);
