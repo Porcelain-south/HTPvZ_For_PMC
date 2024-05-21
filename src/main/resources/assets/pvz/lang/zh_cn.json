@@ -791,7 +791,7 @@
 
   "invasion.pvz.start": "入侵开始了",
   "invasion.pvz.end": "入侵结束了",
-  "invasion.pvz.safe_day": "安全日剩余%s天",
+  "invasion.pvz.safe_day": "高难度世界额外安全日剩余%s天",
   "invasion.pvz.count_down": "距离下一次入侵还剩%d天",
   "invasion.pvz.bucket": "铁桶入侵",
   "invasion.pvz.newspaper": "报纸入侵",

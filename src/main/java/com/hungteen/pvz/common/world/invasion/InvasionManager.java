@@ -205,10 +205,7 @@ public class InvasionManager {
     }
 
     public static int getSafeDayLength(World world) {
-        final Difficulty difficulty = world.getDifficulty();
-        final int multiple = difficulty == Difficulty.HARD ? 0
-                : difficulty == Difficulty.NORMAL ? 1 : difficulty == Difficulty.EASY ? 2 : 3;
-        return PVZConfig.COMMON_CONFIG.InvasionSettings.SafeDayLength.get() * multiple;
+        return PVZConfig.COMMON_CONFIG.InvasionSettings.SafeDayLength.get();
     }
 
     public static Collection<InvasionType> getActiveResources() {
