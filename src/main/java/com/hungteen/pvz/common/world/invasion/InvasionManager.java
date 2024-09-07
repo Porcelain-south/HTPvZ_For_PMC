@@ -97,7 +97,7 @@ public class InvasionManager {
                         activateInvasionEvents(ev.world, count);//todo tmp MARK
                     } else {
                         PlayerUtil.sendMsgToAll(ev.world,
-                                new TranslationTextComponent("invasion.pvz.safe_day", String.format("%.1f", -dif * 1.0 / 24000))
+                                new TranslationTextComponent("invasion.pvz.safe_day", String.format("%.1f", -dif * 1.0 / 48000))
                                         .withStyle(TextFormatting.GREEN));
                     }
                     data.decCountDownDay();
@@ -201,7 +201,7 @@ public class InvasionManager {
      * if it is still in safe day, then the dif must less than 0.
      */
     private static long getSafeDayDif(World world) {
-        return world.getGameTime() - getSafeDayLength(world) * 24000;
+        return world.getGameTime() - getSafeDayLength(world) * 48000;
     }
 
     public static int getSafeDayLength(World world) {
