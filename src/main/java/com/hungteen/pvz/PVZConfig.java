@@ -102,8 +102,8 @@ public class PVZConfig {
 
                 RuleSettings.PlayerCount = builder
                         .translation("config.pvz.rule.player_count")
-                        .comment("for PMC.")
-                        .defineInRange("PlayerCount", 1, 1, 3);
+                        .comment("an experience multiplier for multiplayer games.")
+                        .defineInRange("PlayerCount", 1, 1, 6);
 
                 RuleSettings.KeepSunWhenDie = builder
                         .translation("config.pvz.rule.keep_sun")

@@ -57,7 +57,13 @@ public class PlayerUtil {
 	 * {@link PlayerDataManager#addResource(Resources, int)}
 	 */
 	public static int getPlayerLevelUpXp(int lvl){
-		if (ConfigUtil.getPlayerCount()==3)
+		if (ConfigUtil.getPlayerCount()==6)
+			return (int) round((500+100*lvl+50*log10(lvl)/log10(5)-10*log10(lvl)/log10(2))/5.0);
+		else if (ConfigUtil.getPlayerCount()==5)
+			return (int) round((500+100*lvl+50*log10(lvl)/log10(5)-10*log10(lvl)/log10(2))/4.2);
+		else if (ConfigUtil.getPlayerCount()==4)
+			return (int) round((500+100*lvl+50*log10(lvl)/log10(5)-10*log10(lvl)/log10(2))/3.4);
+		else if (ConfigUtil.getPlayerCount()==3)
 			return (int) round((500+100*lvl+50*log10(lvl)/log10(5)-10*log10(lvl)/log10(2))/2.6);
 		else if (ConfigUtil.getPlayerCount()==2)
 			return (int) round((500+100*lvl+50*log10(lvl)/log10(5)-10*log10(lvl)/log10(2))/1.8);
