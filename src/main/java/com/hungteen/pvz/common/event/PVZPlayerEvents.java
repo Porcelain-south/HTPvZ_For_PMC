@@ -105,7 +105,10 @@ public class PVZPlayerEvents {
 		if (!ev.getPlayer().level.isClientSide && ev.isLevelUp()) {
 			PlayerEventHandler.unLockPAZs(ev.getPlayer());
 			PlayerUtil.playClientSound(ev.getPlayer(), SoundRegister.PLANT_GROW.get());
-			PlayerUtil.addResource(ev.getPlayer(), Resources.LOTTERY_CHANCE, 3);
+			if(ev.getCurrentLevel()==200)
+				PlayerUtil.addResource(ev.getPlayer(), Resources.LOTTERY_CHANCE, 50);
+			else
+				PlayerUtil.addResource(ev.getPlayer(), Resources.LOTTERY_CHANCE, ((ev.getCurrentLevel()/20)+1)*3);
 		}
 	}
 	
