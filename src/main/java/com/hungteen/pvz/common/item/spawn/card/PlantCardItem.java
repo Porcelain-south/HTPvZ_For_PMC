@@ -4,7 +4,6 @@ import com.hungteen.pvz.PVZMod;
 import com.hungteen.pvz.api.types.ICoolDown;
 import com.hungteen.pvz.api.types.IPlantType;
 import com.hungteen.pvz.api.types.ISkillType;
-import com.hungteen.pvz.client.ClientProxy;
 import com.hungteen.pvz.common.advancement.trigger.PlayerPlacePAZTrigger;
 import com.hungteen.pvz.common.block.BlockRegister;
 import com.hungteen.pvz.common.enchantment.EnchantmentRegister;
@@ -657,14 +656,14 @@ public class PlantCardItem extends SummonCardItem {
 		int lvadd=0;
 		if (player.level.getDifficulty() == Difficulty.HARD)
 		{
-			if(PlayerUtil.getResource(ClientProxy.MC.player, Resources.TREE_LVL)>=120)
+			if(PlayerUtil.getResource(player, Resources.TREE_LVL)>=120)
 				lvadd=20;
-			if(PlayerUtil.getResource(ClientProxy.MC.player, Resources.TREE_LVL)>=180)
+			if(PlayerUtil.getResource(player, Resources.TREE_LVL)>=180)
 				lvadd+=50;
 		}
 		else if (player.level.getDifficulty() == Difficulty.EASY)
 		{
-			lvadd=PlayerUtil.getResource(ClientProxy.MC.player, Resources.TREE_LVL)/20;
+			lvadd=PlayerUtil.getResource(player, Resources.TREE_LVL)/20;
 			lvadd*=10;
 		}
 
