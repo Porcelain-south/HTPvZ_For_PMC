@@ -143,7 +143,13 @@ public abstract class PVZZombieEntity extends AbstractPAZEntity implements IZomb
 	protected void registerTargetGoals() {
 		this.targetSelector.addGoal(0, new PVZNearestTargetGoal(this, true, true, ZombieUtil.NORMAL_TARGET_RANGE, ZombieUtil.NORMAL_TARGET_HEIGHT));
 	}
-	
+
+	//pvz zombie mobtype
+	@Override
+	public CreatureAttribute getMobType() {
+		return CreatureAttribute.UNDEAD;
+	}
+
 	@Override
 	protected PathNavigator createNavigation(World world) {
 		return super.createNavigation(world);
