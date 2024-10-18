@@ -19,7 +19,7 @@ public class FireCrackerItem extends PVZToolItem {
 	public FireCrackerItem() {
 		super(new Item.Properties());
 	}
-	//爆竹-qing
+	//爆竹-PMC_Team
 	@Override
 	public ActionResult<ItemStack> use(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		ItemStack stack = playerIn.getItemInHand(handIn);

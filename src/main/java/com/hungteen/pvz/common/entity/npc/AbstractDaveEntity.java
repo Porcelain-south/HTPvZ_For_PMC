@@ -50,7 +50,7 @@ public abstract class AbstractDaveEntity extends CreatureEntity implements IHasG
 
 	private static final DataParameter<CompoundNBT> GOODS = EntityDataManager.defineId(AbstractDaveEntity.class, DataSerializers.COMPOUND_TAG);
 	private static final DataParameter<Integer> EXIST_TICK = EntityDataManager.defineId(AbstractDaveEntity.class, DataSerializers.INT);
-	private static final int REFRESH_CD = 24000;
+	private static final int REFRESH_CD = 12000;
 	protected ResourceLocation transactionResource = null;
 	private final Set<GoodType> set = new HashSet<>();
 	@Nullable

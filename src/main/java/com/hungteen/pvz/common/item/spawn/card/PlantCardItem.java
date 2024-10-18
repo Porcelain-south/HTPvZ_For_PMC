@@ -550,7 +550,10 @@ public class PlantCardItem extends SummonCardItem {
 				handlePlantCardCoolDown(player, heldStack, plantStack, item);
 			}
 		} else {
-			player.getCooldowns().addCooldown(heldStack.getItem(), 10);
+			if(player.level.getDifficulty() == Difficulty.PEACEFUL)
+				player.getCooldowns().addCooldown(heldStack.getItem(), 1);
+			else
+				player.getCooldowns().addCooldown(heldStack.getItem(), 10);
 		}
 		if(player instanceof ServerPlayerEntity) {
 			if(item.plantType.getUpgradeFrom().isPresent()){
@@ -757,11 +760,14 @@ public class PlantCardItem extends SummonCardItem {
 
 		if (cd < 2000 && !ChallengeManager.hasChallengeNearby((ServerWorld) player.level,player.blockPosition()))
 		{
-			if (player.level.getDifficulty() == Difficulty.EASY) {
+			if (player.level.getDifficulty() == Difficulty.HARD) {
+				cd /= 4;
+			}
+			else if (player.level.getDifficulty() == Difficulty.NORMAL) {
 				cd /= 10;
 			}
 			else {
-				cd /= 4;
+				cd /= 20;
 			}
 		}
 

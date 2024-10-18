@@ -19,17 +19,17 @@ public class RankTypes {
 	
 	public static final IRankType WHITE = new RankType("white", 14, 10, 1, () -> ItemRegister.WHITE_CARD.get(), () -> PVZItemTags.WHITE_CARDS, () -> PVZItemTags.WHITE_MATERIALS);
 	
-	public static final IRankType GREEN = new RankType("green", 12, 9, 2, () -> ItemRegister.GREEN_CARD.get(), () -> PVZItemTags.GREEN_CARDS, () -> PVZItemTags.GREEN_MATERIALS);
+	public static final IRankType GREEN = new RankType("green", 12, 9, 1, () -> ItemRegister.GREEN_CARD.get(), () -> PVZItemTags.GREEN_CARDS, () -> PVZItemTags.GREEN_MATERIALS);
 	
-	public static final IRankType BLUE = new RankType("blue", 12, 9, 3, () -> ItemRegister.BLUE_CARD.get(), () -> PVZItemTags.BLUE_CARDS, () -> PVZItemTags.BLUE_MATERIALS);
+	public static final IRankType BLUE = new RankType("blue", 12, 9, 2, () -> ItemRegister.BLUE_CARD.get(), () -> PVZItemTags.BLUE_CARDS, () -> PVZItemTags.BLUE_MATERIALS);
 	
-	public static final IRankType PURPLE = new RankType("purple", 10, 8, 3, () -> ItemRegister.PURPLE_CARD.get(), () -> PVZItemTags.PURPLE_CARDS, () -> PVZItemTags.PURPLE_MATERIALS);
+	public static final IRankType PURPLE = new RankType("purple", 10, 8, 2, () -> ItemRegister.PURPLE_CARD.get(), () -> PVZItemTags.PURPLE_CARDS, () -> PVZItemTags.PURPLE_MATERIALS);
 	
-	public static final IRankType GOLD = new RankType("gold", 10, 7, 3, () -> ItemRegister.GOLD_CARD.get(), () -> PVZItemTags.GOLD_CARDS, () -> PVZItemTags.GOLD_MATERIALS);
+	public static final IRankType GOLD = new RankType("gold", 10, 7, 2, () -> ItemRegister.GOLD_CARD.get(), () -> PVZItemTags.GOLD_CARDS, () -> PVZItemTags.GOLD_MATERIALS);
 	
-	public static final IRankType RED = new RankType("red", 8, 6, 4, () -> ItemRegister.RED_CARD.get(), () -> PVZItemTags.RED_CARDS, () -> PVZItemTags.RED_MATERIALS);
+	public static final IRankType RED = new RankType("red", 8, 6, 2, () -> ItemRegister.RED_CARD.get(), () -> PVZItemTags.RED_CARDS, () -> PVZItemTags.RED_MATERIALS);
 	
-	public static final IRankType BLACK = new RankType("black", 6, 5, 5, () -> ItemRegister.BLACK_CARD.get(), () -> PVZItemTags.BLACK_CARDS, () -> PVZItemTags.BLACK_MATERIALS);
+	public static final IRankType BLACK = new RankType("black", 6, 5, 3, () -> ItemRegister.BLACK_CARD.get(), () -> PVZItemTags.BLACK_CARDS, () -> PVZItemTags.BLACK_MATERIALS);
 
 	public static final IRankType MEGA = new RankType("mega", 0, 1, 10, () -> ItemRegister.MEGA_CARD.get(), () -> null, () -> null);
 
