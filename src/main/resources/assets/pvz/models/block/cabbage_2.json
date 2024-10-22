@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/crop",
-  "textures": {
-    "crop": "pvz:block/cabbage_2"
-  }
+	"parent": "pvz:block/cabbage_0",
+	"textures": {
+		"0": "pvz:block/cabbage_2",
+		"particle": "pvz:block/cabbage_2"
+	}
 }
