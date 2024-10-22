@@ -10,6 +10,7 @@ import com.hungteen.pvz.common.impl.SkillTypes;
 import com.hungteen.pvz.common.impl.plant.PVZPlants;
 import com.hungteen.pvz.common.misc.PVZEntityDamageSource;
 import com.hungteen.pvz.common.misc.sound.SoundRegister;
+import com.hungteen.pvz.utils.EffectUtil;
 import com.hungteen.pvz.utils.EntityUtil;
 import com.hungteen.pvz.utils.enums.PAZAlmanacs;
 import com.mojang.datafixers.util.Pair;
@@ -18,6 +19,7 @@ import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.datasync.DataParameter;
 import net.minecraft.network.datasync.DataSerializers;
 import net.minecraft.network.datasync.EntityDataManager;
+import net.minecraft.potion.Effects;
 import net.minecraft.world.World;
 
 import java.util.Arrays;
@@ -105,6 +107,7 @@ public class ChomperEntity extends PVZPlantEntity {
 		if (EntityUtil.getCurrentHealth(target) <= this.getAttackDamage()) {//can eat to death need rest
 			target.hurt(PVZEntityDamageSource.eat(this), damage);
 			this.setRestTick(this.getRestCD());
+			this.addEffect(EffectUtil.viewEffect(Effects.REGENERATION, this.getRestCD(), 0));
 		} else {
 			target.hurt(PVZEntityDamageSource.eat(this), damage / 50F);
 		}

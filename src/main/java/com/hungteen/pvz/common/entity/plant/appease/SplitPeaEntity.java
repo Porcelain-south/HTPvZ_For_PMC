@@ -104,7 +104,7 @@ public class SplitPeaEntity extends PeaShooterEntity{
 		if(entity instanceof DiggerZombieEntity){
 			return this.checkY(entity);
 		}
-		return super.canPAZTarget(entity);
+		return false;
 	}
 
 	@Override

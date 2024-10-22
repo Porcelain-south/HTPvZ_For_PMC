@@ -504,7 +504,7 @@ public abstract class PVZPlantEntity extends AbstractPAZEntity implements IPlant
 		} else{
 			this.heal(this.getLife() * percent);
 		}
-		this.addEffect(EffectUtil.viewEffect(Effects.REGENERATION, 60, 0));
+		this.addEffect(EffectUtil.viewEffect(Effects.REGENERATION, 10*20, 2));
 		this.getSpawnSound().ifPresent(s -> EntityUtil.playSound(this, s));
 	}
 
