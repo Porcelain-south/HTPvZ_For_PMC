@@ -73,7 +73,12 @@ public class SplitPeaEntity extends PeaShooterEntity{
 			}
 		}
 	}
-	
+
+	@Override
+	public float getAttackDamage() {
+		return this.getSkillValue(SkillTypes.PEA_DAMAGE) * 4;
+	}
+
 	private void rotateFacing() {
 		this.setRoundTick((this.getRoundTick() + 1) % MAX_ROUND_TIME);
 	}

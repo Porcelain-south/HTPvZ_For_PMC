@@ -107,7 +107,7 @@ public class ChomperEntity extends PVZPlantEntity {
 		if (EntityUtil.getCurrentHealth(target) <= this.getAttackDamage()) {//can eat to death need rest
 			target.hurt(PVZEntityDamageSource.eat(this), damage);
 			this.setRestTick(this.getRestCD());
-			this.addEffect(EffectUtil.viewEffect(Effects.REGENERATION, this.getRestCD(), 0));
+			this.addEffect(EffectUtil.viewEffect(Effects.REGENERATION, this.getRestCD(), 2));
 		} else {
 			target.hurt(PVZEntityDamageSource.eat(this), damage / 50F);
 		}
