@@ -16,7 +16,7 @@ public abstract class MixinPlayerWaystoneManager {
 
     @Inject(method = "tryTeleportToWaystone", at=@At("HEAD"), cancellable = true)
     private static void inject_tryTeleportToWaystone(Entity entity, IWaystone waystone, WarpMode warpMode, IWaystone fromWaystone, CallbackInfoReturnable<Boolean> cir) {
-        if(EntityUtil.isChallengeMob(entity)) {
+        if(entity != null && entity.getTags().contains("pvz:challenge_mob") && EntityUtil.isChallengeMob(entity)) {
             cir.setReturnValue(false);
         }
     }
