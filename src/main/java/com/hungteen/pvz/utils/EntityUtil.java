@@ -696,5 +696,18 @@ public class EntityUtil {
 		}
 		return entity.isInvulnerable();
 	}
-	
+
+	public static boolean isChallengeMob(Entity entity){
+		if(entity != null && entity.getPersistentData().contains("Summoner") &&
+				entity.getPersistentData().getString("Summoner").equals("Challenge")){
+			return true;
+		}
+		return false;
+	}
+
+	public static void setChallengeMob(Entity entity){
+		if(entity != null){
+			entity.getPersistentData().putString("Summoner", "Challenge");
+		}
+	}
 }

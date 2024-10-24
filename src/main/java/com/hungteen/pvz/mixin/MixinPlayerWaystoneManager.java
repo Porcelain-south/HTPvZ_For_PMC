@@ -1,6 +1,7 @@
 package com.hungteen.pvz.mixin;
 
 
+import com.hungteen.pvz.utils.EntityUtil;
 import net.blay09.mods.waystones.api.IWaystone;
 import net.blay09.mods.waystones.core.PlayerWaystoneManager;
 import net.blay09.mods.waystones.core.WarpMode;
@@ -15,7 +16,7 @@ public abstract class MixinPlayerWaystoneManager {
 
     @Inject(method = "tryTeleportToWaystone", at=@At("HEAD"), cancellable = true)
     private static void inject_tryTeleportToWaystone(Entity entity, IWaystone waystone, WarpMode warpMode, IWaystone fromWaystone, CallbackInfoReturnable<Boolean> cir) {
-        if(entity != null && entity.getTags().contains("pvz:challenge_mob")) {
+        if(EntityUtil.isChallengeMob(entity)) {
             cir.setReturnValue(false);
         }
     }

@@ -1,5 +1,6 @@
 package com.hungteen.pvz.mixin;
 
+import com.hungteen.pvz.utils.EntityUtil;
 import net.minecraft.entity.Entity;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -17,7 +18,7 @@ public abstract class MixinEntity {
 
     @Inject(method = "canChangeDimensions", at = @At("RETURN"), cancellable = true)
     private void inject_canChangeDimensions(CallbackInfoReturnable<Boolean> cir) {
-        if (this.getTags().contains("pvz:challenge_mob")) {
+        if (EntityUtil.isChallengeMob((Entity)(Object) this)) {
             cir.setReturnValue(false);
         }
     }

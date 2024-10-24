@@ -240,7 +240,8 @@ public class Challenge implements IChallenge {
 		for(int i = 0; i < count; ++ i) {
 			Entity entity = this.createEntity(spawn);
 			if(entity != null) {
-				entity.getTags().add("pvz:challenge_mob");
+//				entity.getTags().add("pvz:challenge_mob");
+				EntityUtil.setChallengeMob(entity);
 				this.raiders.add(entity);
 				if(entity instanceof MobEntity) {
 					// avoid despawn.
