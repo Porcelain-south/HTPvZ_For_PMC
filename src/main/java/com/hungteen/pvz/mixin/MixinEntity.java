@@ -18,7 +18,7 @@ public abstract class MixinEntity {
 
     @Inject(method = "canChangeDimensions", at = @At("RETURN"), cancellable = true)
     private void inject_canChangeDimensions(CallbackInfoReturnable<Boolean> cir) {
-        if (this.getTags().contains("pvz:challenge_mob") && EntityUtil.isChallengeMob((Entity)(Object) this)) {
+        if (this.getTags().contains("pvz:challenge_mob") /*&& EntityUtil.isChallengeMob((Entity)(Object) this)*/) {
             cir.setReturnValue(false);
         }
     }
