@@ -161,6 +161,7 @@
     "_comment3": "--------------------------------------------ToolTip-------------------------------------------",
     "tooltip.pvz.card_sun_cost":"Basic Sun Cost : %d",
     "tooltip.pvz.card_cd":"Basic CD : %s",
+    "tooltip.pvz.card_required_challenge":"Will be unlocked in challenge",
     "tooltip.pvz.card_required_level":"Required Level : %d",
     "tooltip.pvz.plant_card_info":"[Plant Card] : Right click to summon plant",
     "tooltip.pvz.upgrade_card":"Can only place on %s",

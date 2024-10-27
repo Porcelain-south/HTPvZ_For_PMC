@@ -9,7 +9,6 @@ import com.hungteen.pvz.client.model.entity.plant.arma.KernelPultModel;
 import com.hungteen.pvz.client.model.entity.plant.arma.MelonPultModel;
 import com.hungteen.pvz.client.model.entity.plant.assist.*;
 import com.hungteen.pvz.client.model.entity.plant.defence.GarlicModel;
-import com.hungteen.pvz.client.model.entity.plant.defence.PumpkinModel;
 import com.hungteen.pvz.client.model.entity.plant.defence.TallNutModel;
 import com.hungteen.pvz.client.model.entity.plant.defence.WallNutModel;
 import com.hungteen.pvz.client.model.entity.plant.enforce.ChomperModel;
@@ -78,7 +77,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType CHERRY_BOMB = new PVZPlants("cherry_bomb", new PlantFeatures()
-			.cost(150).requiredLevel(35)
+			.cost(150).requiredLevel(200)
 			.cd(CoolDowns.HUGE_SLOW).rank(RankTypes.GOLD).essence(EssenceTypes.EXPLOSION)
 			.entityType(() -> EntityRegister.CHERRY_BOMB.get())
 			.summonCard(() -> ItemRegister.CHERRY_BOMB_CARD.get())
@@ -88,7 +87,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType WALL_NUT = new PVZPlants("wall_nut", new PlantFeatures()
-			.cost(50).requiredLevel(10)
+			.cost(50).requiredLevel(200)
 			.cd(CoolDowns.LITTLE_SLOW).rank(RankTypes.WHITE).essence(EssenceTypes.DEFENCE)
 			.entityType(() -> EntityRegister.WALL_NUT.get())
 			.summonCard(() -> ItemRegister.WALL_NUT_CARD.get())
@@ -98,7 +97,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType POTATO_MINE = new PVZPlants("potato_mine", new PlantFeatures()
-			.cost(25).requiredLevel(10)
+			.cost(25).requiredLevel(200)
 			.cd(CoolDowns.NORMAL).rank(RankTypes.WHITE).essence(EssenceTypes.EXPLOSION)
 			.entityType(() -> EntityRegister.POTATO_MINE.get())
 			.summonCard(() -> ItemRegister.POTATO_MINE_CARD.get())
@@ -109,7 +108,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType SNOW_PEA = new PVZPlants("snow_pea", new PlantFeatures()
-			.cost(175).requiredLevel(20)
+			.cost(175).requiredLevel(200)
 			.cd(CoolDowns.VERY_FAST).rank(RankTypes.GREEN).essence(EssenceTypes.ICE)
 			.entityType(() -> EntityRegister.SNOW_PEA.get())
 			.summonCard(() -> ItemRegister.SNOW_PEA_CARD.get())
@@ -119,7 +118,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType CHOMPER = new PVZPlants("chomper", new PlantFeatures()
-			.cost(250).requiredLevel(30)
+			.cost(250).requiredLevel(200)
 			.cd(CoolDowns.NORMAL).rank(RankTypes.BLUE).essence(EssenceTypes.ENFORCE)
 			.entityType(() -> EntityRegister.CHOMPER.get())
 			.summonCard(() -> ItemRegister.CHOMPER_CARD.get())
@@ -129,7 +128,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType REPEATER = new PVZPlants("repeater", new PlantFeatures()
-			.cost(200).requiredLevel(30)
+			.cost(200).requiredLevel(200)
 			.cd(CoolDowns.VERY_FAST).rank(RankTypes.BLUE).essence(EssenceTypes.APPEASE)
 			.entityType(() -> EntityRegister.REPEATER.get())
 			.summonCard(() -> ItemRegister.REPEATER_CARD.get())
@@ -144,7 +143,7 @@ public final class PVZPlants extends PlantType {
 	 */
 	
 	public static final IPlantType PUFF_SHROOM = new PVZPlants("puff_shroom", new PlantFeatures().isShroomPlant()
-			.cost(5).requiredLevel(20)
+			.cost(5).requiredLevel(200)
 			.cd(CoolDowns.HUGE_FAST).rank(RankTypes.WHITE).essence(EssenceTypes.TOXIC)
 			.entityType(() -> EntityRegister.PUFF_SHROOM.get())
 			.summonCard(() -> ItemRegister.PUFF_SHROOM_CARD.get())
@@ -154,7 +153,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType SUN_SHROOM = new PVZPlants("sun_shroom", new PlantFeatures().isShroomPlant()
-			.cost(25).requiredLevel(20)
+			.cost(25).requiredLevel(200)
 			.cd(CoolDowns.HUGE_FAST).rank(RankTypes.GOLD).essence(EssenceTypes.LIGHT)
 			.entityType(() -> EntityRegister.SUN_SHROOM.get())
 			.summonCard(() -> ItemRegister.SUN_SHROOM_CARD.get())
@@ -164,7 +163,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType FUME_SHROOM = new PVZPlants("fume_shroom", new PlantFeatures().isShroomPlant()
-			.cost(100).requiredLevel(40)
+			.cost(100).requiredLevel(200)
 			.cd(CoolDowns.FAST).rank(RankTypes.BLUE).essence(EssenceTypes.TOXIC)
 			.entityType(() -> EntityRegister.FUME_SHROOM.get())
 			.summonCard(() -> ItemRegister.FUME_SHROOM_CARD.get())
@@ -175,7 +174,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType GRAVE_BUSTER = new PVZPlants("grave_buster", new PlantFeatures()
-			.cost(75).requiredLevel(25)
+			.cost(75).requiredLevel(200)
 			.cd(CoolDowns.HUGE_FAST).rank(RankTypes.WHITE).essence(EssenceTypes.ASSIST)
 			.entityType(() -> EntityRegister.GRAVE_BUSTER.get())
 			.summonCard(() -> ItemRegister.GRAVE_BUSTER_CARD.get())
@@ -185,7 +184,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType HYPNO_SHROOM = new PVZPlants("hypno_shroom", new PlantFeatures().isShroomPlant()
-			.cost(75).requiredLevel(45)
+			.cost(75).requiredLevel(200)
 			.cd(CoolDowns.NORMAL).rank(RankTypes.BLUE).essence(EssenceTypes.MAGIC)
 			.entityType(() -> EntityRegister.HYPNO_SHROOM.get())
 			.summonCard(() -> ItemRegister.HYPNO_SHROOM_CARD.get())
@@ -195,7 +194,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType SCAREDY_SHROOM = new PVZPlants("scaredy_shroom", new PlantFeatures().isShroomPlant()
-			.cost(25).requiredLevel(25)
+			.cost(25).requiredLevel(200)
 			.cd(CoolDowns.HUGE_FAST).rank(RankTypes.WHITE).essence(EssenceTypes.TOXIC)
 			.entityType(() -> EntityRegister.SCAREDY_SHROOM.get())
 			.summonCard(() -> ItemRegister.SCAREDY_SHROOM_CARD.get())
@@ -205,7 +204,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType ICE_SHROOM = new PVZPlants("ice_shroom", new PlantFeatures().isShroomPlant()
-			.cost(75).requiredLevel(45)
+			.cost(75).requiredLevel(200)
 			.cd(CoolDowns.LITTLE_SLOW).rank(RankTypes.BLUE).essence(EssenceTypes.ICE)
 			.entityType(() -> EntityRegister.ICE_SHROOM.get())
 			.summonCard(() -> ItemRegister.ICE_SHROOM_CARD.get())
@@ -215,7 +214,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType DOOM_SHROOM = new PVZPlants("doom_shroom", new PlantFeatures().isShroomPlant()
-			.cost(225).requiredLevel(55)
+			.cost(225).requiredLevel(200)
 			.cd(CoolDowns.SUPER_SLOW).rank(RankTypes.BLACK).essence(EssenceTypes.EXPLOSION)
 			.entityType(() -> EntityRegister.DOOM_SHROOM.get())
 			.summonCard(() -> ItemRegister.DOOM_SHROOM_CARD.get())
@@ -228,7 +227,7 @@ public final class PVZPlants extends PlantType {
 	 * pool day.
 	 */
 	public static final IPlantType LILY_PAD = new PVZPlants("lily_pad", new PlantFeatures().isWaterPlant()
-			.cost(25).requiredLevel(35)
+			.cost(25).requiredLevel(200)
 			.cd(CoolDowns.SUPER_FAST).rank(RankTypes.WHITE).essence(EssenceTypes.ASSIST)
 			.plantBlock(() -> BlockRegister.LILY_PAD.get())
 			.entityType(() -> EntityRegister.LILY_PAD.get())
@@ -240,7 +239,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType SQUASH = new PVZPlants("squash", new PlantFeatures()
-			.cost(50).requiredLevel(50)
+			.cost(50).requiredLevel(200)
 			.cd(CoolDowns.LITTLE_SLOW).rank(RankTypes.GREEN).essence(EssenceTypes.ENFORCE)
 			.entityType(() -> EntityRegister.SQUASH.get())
 			.summonCard(() -> ItemRegister.SQUASH_CARD.get())
@@ -250,7 +249,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType THREE_PEATER = new PVZPlants("three_peater", new PlantFeatures()
-			.cost(250).requiredLevel(60)
+			.cost(250).requiredLevel(200)
 			.cd(CoolDowns.FAST).rank(RankTypes.GREEN).essence(EssenceTypes.APPEASE)
 			.entityType(() -> EntityRegister.THREE_PEATER.get())
 			.summonCard(() -> ItemRegister.THREE_PEATER_CARD.get())
@@ -260,7 +259,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType TANGLE_KELP = new PVZPlants("tangle_kelp", new PlantFeatures().isWaterPlant()
-			.cost(25).requiredLevel(45)
+			.cost(25).requiredLevel(200)
 			.cd(CoolDowns.NORMAL).rank(RankTypes.WHITE).essence(EssenceTypes.ENFORCE)
 			.entityType(() -> EntityRegister.TANGLE_KELP.get())
 			.summonCard(() -> ItemRegister.TANGLE_KELP_CARD.get())
@@ -270,7 +269,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType JALAPENO = new PVZPlants("jalapeno", new PlantFeatures()
-			.cost(175).requiredLevel(70)
+			.cost(175).requiredLevel(200)
 			.cd(CoolDowns.HUGE_SLOW).rank(RankTypes.GOLD).essence(EssenceTypes.FLAME)
 			.entityType(() -> EntityRegister.JALAPENO.get())
 			.summonCard(() -> ItemRegister.JALAPENO_CARD.get())
@@ -280,7 +279,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType SPIKE_WEED = new PVZPlants("spike_weed", new PlantFeatures()
-			.cost(100).requiredLevel(60)
+			.cost(100).requiredLevel(200)
 			.cd(CoolDowns.FAST).rank(RankTypes.WHITE).essence(EssenceTypes.SPEAR)
 			.entityType(() -> EntityRegister.SPIKE_WEED.get())
 			.summonCard(() -> ItemRegister.SPIKE_WEED_CARD.get())
@@ -292,7 +291,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType TORCH_WOOD = new PVZPlants("torch_wood", new PlantFeatures()
-			.cost(200).requiredLevel(75)
+			.cost(200).requiredLevel(200)
 			.cd(CoolDowns.NORMAL).rank(RankTypes.GOLD).essence(EssenceTypes.FLAME)
 			.entityType(() -> EntityRegister.TORCH_WOOD.get())
 			.summonCard(() -> ItemRegister.TORCH_WOOD_CARD.get())
@@ -302,7 +301,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType TALL_NUT = new PVZPlants("tall_nut", new PlantFeatures()
-			.cost(125).requiredLevel(80)
+			.cost(125).requiredLevel(200)
 			.cd(CoolDowns.SLOW).rank(RankTypes.BLUE).essence(EssenceTypes.DEFENCE)
 			.entityType(() -> EntityRegister.TALL_NUT.get())
 			.summonCard(() -> ItemRegister.TALL_NUT_CARD.get())
@@ -315,7 +314,7 @@ public final class PVZPlants extends PlantType {
 	 * pool night.
 	 */
 	public static final IPlantType SEA_SHROOM = new PVZPlants("sea_shroom", new PlantFeatures().isShroomPlant().isWaterPlant()
-			.cost(5).requiredLevel(60)
+			.cost(5).requiredLevel(200)
 			.cd(CoolDowns.VERY_FAST).rank(RankTypes.WHITE).essence(EssenceTypes.TOXIC)
 			.entityType(() -> EntityRegister.SEA_SHROOM.get())
 			.summonCard(() -> ItemRegister.SEA_SHROOM_CARD.get())
@@ -325,7 +324,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType PLANTERN = new PVZPlants("plantern", new PlantFeatures()
-			.cost(75).requiredLevel(90)
+			.cost(75).requiredLevel(200)
 			.cd(CoolDowns.FAST).rank(RankTypes.GOLD).essence(EssenceTypes.LIGHT)
 			.entityType(() -> EntityRegister.PLANTERN.get())
 			.summonCard(() -> ItemRegister.PLANTERN_CARD.get())
@@ -335,7 +334,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType CACTUS = new PVZPlants("cactus", new PlantFeatures()
-			.cost(125).requiredLevel(85)
+			.cost(125).requiredLevel(200)
 			.cd(CoolDowns.HUGE_FAST).rank(RankTypes.GREEN).essence(EssenceTypes.SPEAR)
 			.entityType(() -> EntityRegister.CACTUS.get())
 			.summonCard(() -> ItemRegister.CACTUS_CARD.get())
@@ -346,7 +345,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType BLOVER = new PVZPlants("blover", new PlantFeatures()
-			.cost(50).requiredLevel(70)
+			.cost(50).requiredLevel(200)
 			.cd(CoolDowns.VERY_FAST).rank(RankTypes.GREEN).essence(EssenceTypes.ASSIST)
 			.entityType(() -> EntityRegister.BLOVER.get())
 			.summonCard(() -> ItemRegister.BLOVER_CARD.get())
@@ -356,7 +355,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType SPLIT_PEA = new PVZPlants("split_pea", new PlantFeatures()
-			.cost(125).requiredLevel(60)
+			.cost(125).requiredLevel(200)
 			.cd(CoolDowns.VERY_FAST).rank(RankTypes.GREEN).essence(EssenceTypes.APPEASE)
 			.entityType(() -> EntityRegister.SPLIT_PEA.get())
 			.summonCard(() -> ItemRegister.SPLIT_PEA_CARD.get())
@@ -366,7 +365,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType STAR_FRUIT = new PVZPlants("star_fruit", new PlantFeatures()
-			.cost(125).requiredLevel(90)
+			.cost(125).requiredLevel(200)
 			.cd(CoolDowns.FAST).rank(RankTypes.GREEN).essence(EssenceTypes.APPEASE)
 			.entityType(() -> EntityRegister.STAR_FRUIT.get())
 			.summonCard(() -> ItemRegister.STAR_FRUIT_CARD.get())
@@ -376,7 +375,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType PUMPKIN = new PVZPlants("pumpkin", new PlantFeatures()
-			.cost(125).requiredLevel(150)
+			.cost(125).requiredLevel(200)
 			.cd(CoolDowns.LITTLE_SLOW).rank(RankTypes.GOLD).essence(EssenceTypes.DEFENCE)
 			.outerPlant(() -> new PumpkinInfo())
 			.entityType(() -> EntityRegister.PUMPKIN.get())
@@ -387,7 +386,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType MAGNET_SHROOM = new PVZPlants("magnet_shroom", new PlantFeatures().isShroomPlant()
-			.cost(100).requiredLevel(75)
+			.cost(100).requiredLevel(200)
 			.cd(CoolDowns.LITTLE_FAST).rank(RankTypes.PURPLE).essence(EssenceTypes.ASSIST)
 			.entityType(() -> EntityRegister.MAGNET_SHROOM.get())
 			.summonCard(() -> ItemRegister.MAGNET_SHROOM_CARD.get())
@@ -401,7 +400,7 @@ public final class PVZPlants extends PlantType {
 	 * roof.
 	 */
 	public static final IPlantType CABBAGE_PULT = new PVZPlants("cabbage_pult", new PlantFeatures()
-			.cost(100).requiredLevel(80)
+			.cost(100).requiredLevel(200)
 			.cd(CoolDowns.VERY_FAST).rank(RankTypes.GREEN).essence(EssenceTypes.ARMA)
 			.entityType(() -> EntityRegister.CABBAGE_PULT.get())
 			.summonCard(() -> ItemRegister.CABBAGE_PULT_CARD.get())
@@ -423,7 +422,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType KERNEL_PULT = new PVZPlants("kernel_pult", new PlantFeatures()
-			.cost(125).requiredLevel(90)
+			.cost(125).requiredLevel(200)
 			.cd(CoolDowns.VERY_FAST).rank(RankTypes.BLUE).essence(EssenceTypes.ARMA)
 			.entityType(() -> EntityRegister.KERNEL_PULT.get())
 			.summonCard(() -> ItemRegister.KERNEL_PULT_CARD.get())
@@ -434,7 +433,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType COFFEE_BEAN = new PVZPlants("coffee_bean", new PlantFeatures()
-			.cost(75).requiredLevel(90)
+			.cost(75).requiredLevel(200)
 			.cd(CoolDowns.VERY_FAST).rank(RankTypes.PURPLE).essence(EssenceTypes.MAGIC)
 			.entityType(() -> EntityRegister.COFFEE_BEAN.get())
 			.summonCard(() -> ItemRegister.COFFEE_BEAN_CARD.get())
@@ -454,7 +453,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType UMBRELLA_LEAF = new PVZPlants("umbrella_leaf", new PlantFeatures()
-			.cost(100).requiredLevel(80)
+			.cost(100).requiredLevel(200)
 			.cd(CoolDowns.LITTLE_FAST).rank(RankTypes.GREEN).essence(EssenceTypes.ENFORCE)
 			.entityType(() -> EntityRegister.UMBRELLA_LEAF.get())
 			.summonCard(() -> ItemRegister.UMBRELLA_LEAF_CARD.get())
@@ -474,7 +473,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType MELON_PULT = new PVZPlants("melon_pult", new PlantFeatures()
-			.cost(400).requiredLevel(150)
+			.cost(400).requiredLevel(200)
 			.cd(CoolDowns.LITTLE_SLOW).rank(RankTypes.GOLD).essence(EssenceTypes.ARMA)
 			.entityType(() -> EntityRegister.MELON_PULT.get())
 			.summonCard(() -> ItemRegister.MELON_PULT_CARD.get())
@@ -488,7 +487,7 @@ public final class PVZPlants extends PlantType {
 	 * upgrade
 	 */
 	public static final IPlantType GATLING_PEA = new PVZPlants("gatling_pea", new PlantFeatures()
-			.cost(450).requiredLevel(75)
+			.cost(450).requiredLevel(200)
 			.cd(CoolDowns.VERY_SLOW).rank(RankTypes.RED).essence(EssenceTypes.APPEASE)
 			.entityType(() -> EntityRegister.GATLING_PEA.get())
 			.summonCard(() -> ItemRegister.GATLING_PEA_CARD.get())
@@ -499,7 +498,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType TWIN_SUNFLOWER = new PVZPlants("twin_sunflower", new PlantFeatures()
-			.cost(125).requiredLevel(35)
+			.cost(125).requiredLevel(200)
 			.cd(CoolDowns.NORMAL).rank(RankTypes.GOLD).essence(EssenceTypes.LIGHT)
 			.entityType(() -> EntityRegister.TWIN_SUNFLOWER.get())
 			.summonCard(() -> ItemRegister.TWIN_SUNFLOWER_CARD.get())
@@ -510,7 +509,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType GLOOM_SHROOM = new PVZPlants("gloom_shroom", new PlantFeatures().isShroomPlant()
-			.cost(250).requiredLevel(60)
+			.cost(250).requiredLevel(200)
 			.cd(CoolDowns.LITTLE_SLOW).rank(RankTypes.PURPLE).essence(EssenceTypes.TOXIC)
 			.entityType(() -> EntityRegister.GLOOM_SHROOM.get())
 			.summonCard(() -> ItemRegister.GLOOM_SHROOM_CARD.get())
@@ -521,7 +520,7 @@ public final class PVZPlants extends PlantType {
 	);
 	
 	public static final IPlantType CAT_TAIL = new PVZPlants("cat_tail", new PlantFeatures().isWaterPlant()
-			.cost(350).requiredLevel(125)
+			.cost(350).requiredLevel(200)
 			.cd(CoolDowns.VERY_SLOW).rank(RankTypes.RED).essence(EssenceTypes.SPEAR)
 			.placement(Placements.LILY_PAD)
 			.entityType(() -> EntityRegister.CAT_TAIL.get())

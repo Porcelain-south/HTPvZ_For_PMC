@@ -83,7 +83,10 @@ public abstract class SummonCardItem extends Item{
 		PlayerUtil.getOptManager(PVZMod.PROXY.getPlayer()).ifPresent(m -> {
 			//this paz type is locked.
 			if (m.isPAZLocked(this.type) && ! this.isEnjoyCard) {
-				tooltip.add(new TranslationTextComponent("tooltip.pvz.card_required_level", getCardRequiredLevel(stack)).withStyle(TextFormatting.RED));
+				if(getCardRequiredLevel(stack) == 200)
+					tooltip.add(new TranslationTextComponent("tooltip.pvz.card_required_challenge").withStyle(TextFormatting.RED));
+				else
+					tooltip.add(new TranslationTextComponent("tooltip.pvz.card_required_level", getCardRequiredLevel(stack)).withStyle(TextFormatting.RED));
 			}
 		});
 	}

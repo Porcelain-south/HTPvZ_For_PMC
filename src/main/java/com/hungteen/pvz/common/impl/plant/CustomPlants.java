@@ -21,7 +21,7 @@ public final class CustomPlants extends PlantType {
 	private static final List<IPlantType> LIST = new ArrayList<>();
 	
 	public static final IPlantType WATER_GUARD = new CustomPlants("water_guard", new PlantFeatures().isWaterPlant()
-			.cost(25).requiredLevel(40)
+			.cost(25).requiredLevel(200)
 			.cd(CoolDowns.LITTLE_SLOW).rank(RankTypes.WHITE).essence(EssenceTypes.DEFENCE)
 			.entityType(() -> EntityRegister.WATER_GUARD.get())
 			.summonCard(() -> ItemRegister.WATER_GUARD_CARD.get())
