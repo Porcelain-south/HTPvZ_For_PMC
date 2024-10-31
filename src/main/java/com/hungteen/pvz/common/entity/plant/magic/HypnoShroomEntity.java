@@ -11,9 +11,11 @@ import com.hungteen.pvz.common.entity.zombie.roof.GargantuarEntity;
 import com.hungteen.pvz.common.impl.plant.PVZPlants;
 import com.hungteen.pvz.common.misc.PVZEntityDamageSource;
 import com.hungteen.pvz.common.misc.sound.SoundRegister;
+import com.hungteen.pvz.utils.EffectUtil;
 import com.hungteen.pvz.utils.EntityUtil;
 import com.hungteen.pvz.utils.interfaces.ICanAttract;
 import net.minecraft.entity.*;
+import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
@@ -78,6 +80,8 @@ public class HypnoShroomEntity extends PVZPlantEntity implements ICanAttract {
                             EntityUtil.onEntitySpawn(level, zombie, source.getEntity().blockPosition());
                             ((PVZZombieEntity) zombie).setCharmed(true);
 //                            ((PVZZombieEntity) zombie).setHealth(((LivingEntity) source.getEntity()).getHealth());
+                            ((PVZZombieEntity) zombie).addEffect(EffectUtil.viewEffect(Effects.DAMAGE_RESISTANCE, 150*20, 3));
+                            ((PVZZombieEntity) zombie).addEffect(EffectUtil.viewEffect(Effects.DAMAGE_BOOST, 150*20, 4));
                         }
                         source.getEntity().remove();
                     }
