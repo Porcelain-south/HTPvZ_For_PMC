@@ -629,9 +629,9 @@ public class EntityUtil {
 	 * {@link BloverEntity#blow()}
 	 */
 	public static boolean isEntityInSky(Entity entity) {
-//		if(entity instanceof FlyingEntity || entity instanceof BatEntity) {
-//			return true;
-//		}
+		if(entity instanceof FlyingEntity || entity instanceof BatEntity) {
+			return true;
+		}
 		if(entity instanceof BalloonZombieEntity && ((BalloonZombieEntity) entity).hasBalloon()) {
 			return true;
 		}

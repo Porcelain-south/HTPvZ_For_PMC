@@ -47,7 +47,7 @@ public class BloverEntity extends PVZPlantEntity {
 				if(EntityUtil.isEntityInSky(target)) {
 					target.hurt(PVZEntityDamageSource.normal(this).setMustHurt(), this.getAttackDamage());
 					final Vector3d speed = target.getDeltaMovement();
-					final double lvl = this.getForceLevel() * 2.5F;
+					final double lvl = this.getForceLevel();
 					final Vector3d delta = MathUtil.getHorizontalNormalizedVec(this.position(), target.position()).scale(lvl);
 					target.setDeltaMovement(speed.x + delta.x, speed.y, speed.z + delta.z);
 				}
@@ -82,7 +82,7 @@ public class BloverEntity extends PVZPlantEntity {
 	}
 	
 	public int getForceLevel() {
-		return 2;
+		return 1;
 	}
 
 	public float getBlowRange(){
