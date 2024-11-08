@@ -103,8 +103,8 @@ public class SkillTypes {
 
     //squash.
     public static final ISkillType SQUASH_AGAIN = new SkillType("squash_again",
-            ArrayUtil.getAverageArray(4, 0.1F, 0.4F),
-            Arrays.asList(1, 2, 4)
+            ArrayUtil.getAverageArray(4, 0.25F, 0.7F),
+            Arrays.asList(2, 3, 5)
     );
 
     //spike weed
