@@ -101,7 +101,7 @@ public class SplitPeaEntity extends PeaShooterEntity{
 
 	@Override
 	public double getMaxShootAngle() {
-		return 5;
+		return 3;
 	}
 
 	@Override
