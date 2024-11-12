@@ -54,7 +54,7 @@ public class SunFlowerEntity extends PlantProducerEntity{
 	 * get normal gen sun amount by maxLevel.
 	 */
 	public int getSuperSunAmount(){
-		return 1500;
+		return 2500;
 	}
 	
 	@Override

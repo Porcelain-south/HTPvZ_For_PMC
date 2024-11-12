@@ -7,7 +7,6 @@ import com.hungteen.pvz.common.entity.plant.base.PlantProducerEntity;
 import com.hungteen.pvz.common.impl.plant.PVZPlants;
 import com.hungteen.pvz.common.misc.sound.SoundRegister;
 import com.hungteen.pvz.utils.EntityUtil;
-
 import com.hungteen.pvz.utils.enums.PAZAlmanacs;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.entity.CreatureEntity;
@@ -22,7 +21,7 @@ import java.util.List;
 
 public class SunShroomEntity extends PlantProducerEntity {
 	
-	public static final int GROW_CD = 24000;
+	public static final int GROW_CD = 3000;
 	public static final int GROW_ANIM_CD = 10;
 	
 	public SunShroomEntity(EntityType<? extends CreatureEntity> type, World worldIn) {
@@ -85,19 +84,19 @@ public class SunShroomEntity extends PlantProducerEntity {
 	 * get sun amount when grow up.
 	 */
 	public int getSunAmountInStage(int stage){
-		return stage == 3 ? 50 : stage == 2 ? 25 : 15;
+		return stage == 3 ? 25 : stage == 2 ? 20 : 15;
 	}
 	
 	/**
 	 * get normal gen sun amount by maxLevel.
 	 */
 	public int getSuperSunAmount(){
-		return 2500;
+		return 5000;
 	}
 
 	@Override
 	public int getGenCD() {
-		return 500;
+		return 150;
 	}
 	
 	@Override

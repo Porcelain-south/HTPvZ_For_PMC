@@ -2,7 +2,6 @@ package com.hungteen.pvz.common.entity.plant.light;
 
 import com.hungteen.pvz.api.types.IPlantType;
 import com.hungteen.pvz.common.impl.plant.PVZPlants;
-
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
@@ -27,7 +26,7 @@ public class TwinSunFlowerEntity extends SunFlowerEntity{
 
 	@Override
 	public int getSuperSunAmount() {
-		return 3000;
+		return 5000;
 	}
 	
 	@Override

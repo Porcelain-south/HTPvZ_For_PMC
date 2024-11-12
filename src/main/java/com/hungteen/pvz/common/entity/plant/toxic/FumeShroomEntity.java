@@ -7,7 +7,6 @@ import com.hungteen.pvz.common.entity.plant.base.PlantShooterEntity;
 import com.hungteen.pvz.common.impl.SkillTypes;
 import com.hungteen.pvz.common.impl.plant.PVZPlants;
 import com.hungteen.pvz.common.misc.sound.SoundRegister;
-
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
@@ -69,7 +68,7 @@ public class FumeShroomEntity extends PlantShooterEntity {
 
 	@Override
 	public float getAttackDamage() {
-		return this.getSkillValue(SkillTypes.SPORE_DAMAGE);
+		return this.getSkillValue(SkillTypes.FUME_DAMAGE);
 	}
 	
 }

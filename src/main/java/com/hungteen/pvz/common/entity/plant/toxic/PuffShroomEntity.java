@@ -37,7 +37,7 @@ public class PuffShroomEntity extends PlantShooterEntity {
 
 	@Override
 	public float getAttackDamage() {
-		return this.getSkillValue(SkillTypes.SPORE_DAMAGE);
+		return this.getSkillValue(SkillTypes.PUFF_DAMAGE);
 	}
 	@Override
 	protected AbstractBulletEntity createBullet() {

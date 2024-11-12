@@ -38,7 +38,12 @@ public class ScaredyShroomEntity extends PlantShooterEntity {
 	}
 	@Override
 	public float getAttackDamage() {
-		return this.getSkillValue(SkillTypes.SPORE_DAMAGE);
+		return this.getSkillValue(SkillTypes.PUFF_DAMAGE) * 4;
+	}
+
+	@Override
+	public int getShootCD() {
+		return 60;
 	}
 
 	@Override
@@ -161,5 +166,4 @@ public class ScaredyShroomEntity extends PlantShooterEntity {
 	public IPlantType getPlantType() {
 		return PVZPlants.SCAREDY_SHROOM;
 	}
-
 }

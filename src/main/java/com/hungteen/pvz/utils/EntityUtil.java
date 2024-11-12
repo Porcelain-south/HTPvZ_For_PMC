@@ -236,10 +236,16 @@ public class EntityUtil {
 	public static boolean canSeeEntity(Entity entity, Entity target) {
 		Vector3d start = entity.position().add(0, entity.getEyeHeight(), 0);
 		Vector3d lowerEnd = target.position();
+		Vector3d End25 = lowerEnd.add(0, target.getBbHeight()*0.25f, 0);
+		Vector3d End50 = lowerEnd.add(0, target.getBbHeight()*0.5f, 0);
+		Vector3d End75 = lowerEnd.add(0, target.getBbHeight()*0.75f, 0);
 		Vector3d upperEnd = lowerEnd.add(0, target.getBbHeight(), 0);
 		RayTraceContext ray1 = new RayTraceContext(start, lowerEnd, RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, entity);
-		RayTraceContext ray2 = new RayTraceContext(start, upperEnd, RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, entity);
-		return entity.level.clip(ray1).getType() != RayTraceResult.Type.BLOCK || entity.level.clip(ray2).getType() != RayTraceResult.Type.BLOCK;
+		RayTraceContext ray2 = new RayTraceContext(start, End25, RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, entity);
+		RayTraceContext ray3 = new RayTraceContext(start, End50, RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, entity);
+		RayTraceContext ray4 = new RayTraceContext(start, End75, RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, entity);
+		RayTraceContext ray5 = new RayTraceContext(start, upperEnd, RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, entity);
+		return entity.level.clip(ray1).getType() != RayTraceResult.Type.BLOCK || entity.level.clip(ray2).getType() != RayTraceResult.Type.BLOCK || entity.level.clip(ray3).getType() != RayTraceResult.Type.BLOCK || entity.level.clip(ray4).getType() != RayTraceResult.Type.BLOCK || entity.level.clip(ray5).getType() != RayTraceResult.Type.BLOCK;
 	}
 	
 	/**

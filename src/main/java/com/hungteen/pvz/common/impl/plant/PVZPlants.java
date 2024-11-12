@@ -144,12 +144,12 @@ public final class PVZPlants extends PlantType {
 	
 	public static final IPlantType PUFF_SHROOM = new PVZPlants("puff_shroom", new PlantFeatures().isShroomPlant()
 			.cost(5).requiredLevel(200)
-			.cd(CoolDowns.HUGE_FAST).rank(RankTypes.WHITE).essence(EssenceTypes.TOXIC)
+			.cd(CoolDowns.SUPER_FAST).rank(RankTypes.WHITE).essence(EssenceTypes.TOXIC)
 			.entityType(() -> EntityRegister.PUFF_SHROOM.get())
 			.summonCard(() -> ItemRegister.PUFF_SHROOM_CARD.get())
 			.enjoyCard(() -> ItemRegister.PUFF_SHROOM_ENJOY_CARD.get())
 			.plantModel(() -> PuffShroomModel::new).scale(0.6F)
-			.cdSkill(Arrays.asList(SkillTypes.SPORE_DAMAGE))
+			.cdSkill(Arrays.asList(SkillTypes.PUFF_DAMAGE))
 	);
 	
 	public static final IPlantType SUN_SHROOM = new PVZPlants("sun_shroom", new PlantFeatures().isShroomPlant()
@@ -170,7 +170,7 @@ public final class PVZPlants extends PlantType {
 			.enjoyCard(() -> ItemRegister.FUME_SHROOM_ENJOY_CARD.get())
 			.plantModel(() -> FumeShroomModel::new).scale(0.9F)
 			.upgradeTo(() -> PVZPlants.GLOOM_SHROOM)
-			.commonSkill(Arrays.asList(SkillTypes.SPORE_DAMAGE))
+			.commonSkill(Arrays.asList(SkillTypes.FUME_DAMAGE))
 	);
 	
 	public static final IPlantType GRAVE_BUSTER = new PVZPlants("grave_buster", new PlantFeatures()
@@ -200,7 +200,7 @@ public final class PVZPlants extends PlantType {
 			.summonCard(() -> ItemRegister.SCAREDY_SHROOM_CARD.get())
 			.enjoyCard(() -> ItemRegister.SCAREDY_SHROOM_ENJOY_CARD.get())
 			.plantModel(() -> ScaredyShroomModel::new).scale(0.7F)
-			.commonSkill(Arrays.asList(SkillTypes.SPORE_DAMAGE))
+			.commonSkill(Arrays.asList(SkillTypes.PUFF_DAMAGE))
 	);
 	
 	public static final IPlantType ICE_SHROOM = new PVZPlants("ice_shroom", new PlantFeatures().isShroomPlant()
@@ -315,12 +315,12 @@ public final class PVZPlants extends PlantType {
 	 */
 	public static final IPlantType SEA_SHROOM = new PVZPlants("sea_shroom", new PlantFeatures().isShroomPlant().isWaterPlant()
 			.cost(5).requiredLevel(200)
-			.cd(CoolDowns.VERY_FAST).rank(RankTypes.WHITE).essence(EssenceTypes.TOXIC)
+			.cd(CoolDowns.SUPER_FAST).rank(RankTypes.WHITE).essence(EssenceTypes.TOXIC)
 			.entityType(() -> EntityRegister.SEA_SHROOM.get())
 			.summonCard(() -> ItemRegister.SEA_SHROOM_CARD.get())
 			.enjoyCard(() -> ItemRegister.SEA_SHROOM_ENJOY_CARD.get())
 			.plantModel(() -> SeaShroomModel::new).scale(0.6F)
-			.commonSkill(Arrays.asList(SkillTypes.SPORE_DAMAGE))
+			.commonSkill(Arrays.asList(SkillTypes.PUFF_DAMAGE))
 	);
 	
 	public static final IPlantType PLANTERN = new PVZPlants("plantern", new PlantFeatures()

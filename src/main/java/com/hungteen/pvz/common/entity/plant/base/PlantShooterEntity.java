@@ -4,6 +4,7 @@ import com.hungteen.pvz.api.interfaces.IAlmanacEntry;
 import com.hungteen.pvz.common.entity.ai.goal.target.PVZNearestTargetGoal;
 import com.hungteen.pvz.common.entity.bullet.AbstractBulletEntity;
 import com.hungteen.pvz.common.entity.plant.PVZPlantEntity;
+import com.hungteen.pvz.common.entity.plant.appease.SplitPeaEntity;
 import com.hungteen.pvz.common.entity.plant.appease.StarFruitEntity;
 import com.hungteen.pvz.common.entity.plant.spear.CatTailEntity;
 import com.hungteen.pvz.utils.EntityUtil;
@@ -282,6 +283,9 @@ public abstract class PlantShooterEntity extends PVZPlantEntity implements IShoo
 			if(EntityUtil.canAttackEntity(this.shooter, this.target)) {
 				if(this.shooter instanceof CatTailEntity) {
 					return EntityUtil.canSeeEntity(this.shooter, this.target);
+				}
+				if(this.shooter instanceof SplitPeaEntity) {
+					return true;
 				}
 				return this.shooter.getSensing().canSee(this.target);
 			}

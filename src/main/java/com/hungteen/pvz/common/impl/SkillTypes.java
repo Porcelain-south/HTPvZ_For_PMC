@@ -84,9 +84,15 @@ public class SkillTypes {
     );
 
     //puff shroom.
-    public static final ISkillType SPORE_DAMAGE = new SkillType("spore_damage",
-            ArrayUtil.getAverageArray(5, 2F, 3F),
+    public static final ISkillType PUFF_DAMAGE = new SkillType("spore_damage",
+            ArrayUtil.getAverageArray(5, 2F, 6F),
             Arrays.asList(2, 4, 5, 6)
+    );
+
+    //fume shroom.
+    public static final ISkillType FUME_DAMAGE = new SkillType("spore_damage",
+            ArrayUtil.getAverageArray(3, 2F, 3F),
+            Arrays.asList(3, 5)
     );
 
     //gloom shroom.
