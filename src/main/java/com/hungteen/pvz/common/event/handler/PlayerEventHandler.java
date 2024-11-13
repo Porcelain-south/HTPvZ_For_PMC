@@ -185,7 +185,7 @@ public class PlayerEventHandler {
     private static void spawnSunAroundPlayer(PlayerEntity player) {
         final int amount = PlayerUtil.getResource(player, Resources.SUN_NUM);
         final int spawn = amount > 50 ? MathHelper.clamp((amount - 50) / 10, 25, 250) : 0;
-        if (amount > 15) {
+        if (amount > 15 && !PVZConfig.COMMON_CONFIG.RuleSettings.KeepSunWhenDie.get()) {
             SunEntity.spawnSunsByAmount(player.level, player.blockPosition(), spawn, 50, 3);
         }
     }
