@@ -105,6 +105,11 @@ public class PVZConfig {
                         .comment("an experience multiplier for multiplayer games.")
                         .defineInRange("PlayerCount", 1, 1, 6);
 
+                RuleSettings.StrictVilla = builder
+                        .translation("config.pvz.rule.strict_villa")
+                        .comment("if turn to true, DaveVilla only spawn on the plane. May make DaveVilla far away form player.")
+                        .define("StrictVilla", false);
+
                 RuleSettings.KeepSunWhenDie = builder
                         .translation("config.pvz.rule.keep_sun")
                         .comment("if turn to true, player will keep its sun after death.")
@@ -135,7 +140,7 @@ public class PVZConfig {
                     WorldSettings.DaveVillaDistance = builder
                             .translation("config.pvz.world.dave_villa_distance")
                             .comment("the distance value between dave villa.")
-                            .defineInRange("DaveVillaDistance", 40, 40, 100);
+                            .defineInRange("DaveVillaDistance", 40, 10, 100);
 
                     WorldSettings.BucketHouseDistance = builder
                             .translation("config.pvz.world.bucket_house_distance")
@@ -379,6 +384,7 @@ public class PVZConfig {
             public ForgeConfigSpec.BooleanValue TeamAttack;
             public ForgeConfigSpec.IntValue LimitPlantCount;
             public ForgeConfigSpec.IntValue PlayerCount;
+            public ForgeConfigSpec.BooleanValue StrictVilla;
             public ForgeConfigSpec.BooleanValue KeepSunWhenDie;
             public ForgeConfigSpec.IntValue MaxDamageLimit;
         }

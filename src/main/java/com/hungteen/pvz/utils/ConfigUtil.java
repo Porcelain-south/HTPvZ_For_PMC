@@ -46,6 +46,10 @@ public class ConfigUtil {
 	public static int getPlayerCount() {
 		return PVZConfig.COMMON_CONFIG.RuleSettings.PlayerCount.get();
 	}
+
+	public static boolean StrictVilla() {
+		return PVZConfig.COMMON_CONFIG.RuleSettings.StrictVilla.get();
+	}
 	
 	public static boolean renderSunBar() {
 		return PVZConfig.CLIENT_CONFIG.OverlaySettings.RenderSunBar.get();
