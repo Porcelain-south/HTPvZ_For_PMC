@@ -33,7 +33,7 @@ public class SunShroomEntity extends PlantProducerEntity {
 		super.addAlmanacEntries(list);
 		list.addAll(Arrays.asList(
 				Pair.of(PAZAlmanacs.SMALL_GEN_SUN_AMOUNT, this.getSunAmountInStage(1)),
-				Pair.of(PAZAlmanacs.GEN_SUN_AMOUNT, this.getSunAmountInStage(2))
+				Pair.of(PAZAlmanacs.GEN_SUN_AMOUNT, this.getSunAmountInStage(3))
 		));
 	}
 

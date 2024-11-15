@@ -1,8 +1,8 @@
 package com.hungteen.pvz.common.entity.plant.toxic;
 
 import com.hungteen.pvz.api.types.IPlantType;
+import com.hungteen.pvz.common.impl.SkillTypes;
 import com.hungteen.pvz.common.impl.plant.PVZPlants;
-
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
@@ -20,6 +20,16 @@ public class SeaShroomEntity extends PuffShroomEntity {
 	protected void registerGoals() {
 		super.registerGoals();
 		this.goalSelector.addGoal(2, new SwimGoal(this));
+	}
+
+	@Override
+	public float getAttackDamage() {
+		return this.getSkillValue(SkillTypes.PUFF_DAMAGE) * 2;
+	}
+
+	@Override
+	public int getShootCD() {
+		return 45;
 	}
 	
 	@Override
