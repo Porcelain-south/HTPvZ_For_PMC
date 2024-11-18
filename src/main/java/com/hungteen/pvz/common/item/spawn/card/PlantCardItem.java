@@ -773,7 +773,7 @@ public class PlantCardItem extends SummonCardItem {
 
 		if (player.hasEffect(EffectRegister.EXCITE_EFFECT.get())) {
 			int lvl = player.getEffect(EffectRegister.EXCITE_EFFECT.get()).getAmplifier();
-			float mult = Math.max(0, 0.8f - 0.2f * lvl);
+			float mult = Math.max(0, 0.6f - 0.2f * lvl);
 			cd = (int) Math.floor(cd * mult);
 		}
 		return cd;
