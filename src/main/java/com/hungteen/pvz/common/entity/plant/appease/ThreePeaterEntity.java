@@ -3,7 +3,6 @@ package com.hungteen.pvz.common.entity.plant.appease;
 import com.hungteen.pvz.api.types.IPlantType;
 import com.hungteen.pvz.common.impl.plant.PVZPlants;
 import com.hungteen.pvz.utils.AnimationUtil;
-
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
@@ -40,7 +39,12 @@ public class ThreePeaterEntity extends PeaShooterEntity {
 		return SUPER_CD;
 //		return (this.isPlantInStage(1) ? 1 : this.isPlantInStage(2) ? 2 : 3) * SUPER_CD;
 	}
-	
+
+	@Override
+	public void startShootAttack() {
+		this.setAttackTime(2);
+	}
+
 	@Override
 	public EntitySize getDimensions(Pose poseIn) {
 		return new EntitySize(0.9f, 1.7f, false);
