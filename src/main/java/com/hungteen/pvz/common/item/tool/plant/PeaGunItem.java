@@ -102,7 +102,7 @@ public class PeaGunItem extends Item {
 		final Inventory inv = getInventory(itemStack);
 
 		if (handIn == Hand.MAIN_HAND) {
-			if (itemStack.getDamageValue() == itemStack.getMaxDamage()) {
+			if (!isEnabled(itemStack)) {
 				if (!worldIn.isClientSide) {
 					PlayerUtil.sendMsgTo(playerIn,
 							new TranslationTextComponent("help.pvz.broken").withStyle(TextFormatting.RED));
@@ -183,49 +183,56 @@ public class PeaGunItem extends Item {
 	 */
 	public void performShoot(World world, PlayerEntity player, ItemStack itemStack, IPlantType mode) {
 		final ItemStack stack = getFirstBullets(itemStack);
-
-		if (mode == PVZPlants.PEA_SHOOTER) {
-			this.shootPea(world, player, mode, stack, 0.5, 0, 0);
-		} else if (mode == PVZPlants.SNOW_PEA) {
-			this.shootPea(world, player, mode, stack, 0.5, 0, 0);
-		} else if (mode == PVZPlants.REPEATER) {
-			this.shootPea(world, player, mode, stack, 0.5, 0, 0);
-			this.shootPea(world, player, mode, stack, 0, 0, 0);
-		} else if (mode == PVZPlants.THREE_PEATER) {
-			this.shootPea(world, player, mode, stack, 0.25, -0.25, -15);
-			this.shootPea(world, player, mode, stack, 0.75, -0.25, -15);
-			this.shootPea(world, player, mode, stack, 0.25, 0, 0);
-			this.shootPea(world, player, mode, stack, 0.75, 0, 0);
-			this.shootPea(world, player, mode, stack, 0.25, 0.25, 15);
-			this.shootPea(world, player, mode, stack, 0.75, 0.25, 15);
-		} else if (mode == PVZPlants.SPLIT_PEA) {
-			this.shootPea(world, player, mode, stack, 0.25, 0, 0);
-			this.shootPea(world, player, mode, stack, 0, 0, 180);
-			this.shootPea(world, player, mode, stack, -0.5, 0, 180);
-		} else if (mode == PVZPlants.STAR_FRUIT) {
-			final int base = player.getRandom().nextInt(72);
-			for (int i = 0; i < 5; ++i) {
-				this.shootPea(world, player, mode, stack, 0.25, 0, base + 72 * i);
+        if(this.isEnabled(itemStack)) {
+			if (mode == PVZPlants.PEA_SHOOTER) {
+				this.shootPea(world, player, mode, stack, 0.5, 0, 0);
+			} else if (mode == PVZPlants.SNOW_PEA) {
+				this.shootPea(world, player, mode, stack, 0.5, 0, 0);
+			} else if (mode == PVZPlants.REPEATER) {
+				this.shootPea(world, player, mode, stack, 0.5, 0, 0);
+				this.shootPea(world, player, mode, stack, 0, 0, 0);
+			} else if (mode == PVZPlants.THREE_PEATER) {
+				this.shootPea(world, player, mode, stack, 0.25, -0.25, -15);
+				this.shootPea(world, player, mode, stack, 0.75, -0.25, -15);
+				this.shootPea(world, player, mode, stack, 0.25, 0, 0);
+				this.shootPea(world, player, mode, stack, 0.75, 0, 0);
+				this.shootPea(world, player, mode, stack, 0.25, 0.25, 15);
+				this.shootPea(world, player, mode, stack, 0.75, 0.25, 15);
+			} else if (mode == PVZPlants.SPLIT_PEA) {
+				this.shootPea(world, player, mode, stack, 0.25, 0, 0);
+				this.shootPea(world, player, mode, stack, 0, 0, 180);
+				this.shootPea(world, player, mode, stack, -0.5, 0, 180);
+			} else if (mode == PVZPlants.STAR_FRUIT) {
+				final int base = player.getRandom().nextInt(72);
+				for (int i = 0; i < 5; ++i) {
+					this.shootPea(world, player, mode, stack, 0.25, 0, base + 72 * i);
+				}
+			} else if (mode == OtherPlants.ANGEL_STAR_FRUIT) {
+				for (int i = 0; i < 5; ++i) {
+					this.shootPea(world, player, mode, stack, 0.25, 0, 72 * i);
+				}
+			} else if (mode == PVZPlants.GATLING_PEA) {
+				this.shootPea(world, player, mode, stack, 1.5, 0, 0);
+				this.shootPea(world, player, mode, stack, 1, 0, 0);
+				this.shootPea(world, player, mode, stack, 0.5, 0, 0);
+				this.shootPea(world, player, mode, stack, 0, 0, 0);
 			}
-		} else if (mode == OtherPlants.ANGEL_STAR_FRUIT) {
-			for (int i = 0; i < 5; ++i) {
-				this.shootPea(world, player, mode, stack, 0.25, 0, 72 * i);
+
+			final SoundEvent sound = (mode == PVZPlants.SNOW_PEA || stack.getItem().equals(ItemRegister.SNOW_PEA.get())) ? SoundRegister.SNOW_SHOOT.get() :
+					SoundEvents.SNOW_GOLEM_SHOOT;
+			EntityUtil.playSound(player, sound);
+
+			this.shrinkItemStack(player, itemStack);
+
+			int damageAmount = 1;
+			if (PlayerUtil.isPlayerSurvival(player) && !player.isCreative()) {
+				if (damageAmount > itemStack.getMaxDamage() - itemStack.getDamageValue()) {
+					itemStack.hurtAndBreak(itemStack.getMaxDamage() - itemStack.getDamageValue() - 1, player, p -> p.broadcastBreakEvent(Hand.MAIN_HAND));
+				} else {
+					itemStack.hurtAndBreak(damageAmount, player, p -> p.broadcastBreakEvent(Hand.MAIN_HAND));
+				}
+
 			}
-		} else if (mode == PVZPlants.GATLING_PEA) {
-			this.shootPea(world, player, mode, stack, 1.5, 0, 0);
-			this.shootPea(world, player, mode, stack, 1, 0, 0);
-			this.shootPea(world, player, mode, stack, 0.5, 0, 0);
-			this.shootPea(world, player, mode, stack, 0, 0, 0);
-		}
-
-		final SoundEvent sound = (mode == PVZPlants.SNOW_PEA || stack.getItem().equals(ItemRegister.SNOW_PEA.get())) ? SoundRegister.SNOW_SHOOT.get() :
-				SoundEvents.SNOW_GOLEM_SHOOT;
-		EntityUtil.playSound(player, sound);
-
-		this.shrinkItemStack(player, itemStack);
-
-		if(PlayerUtil.isPlayerSurvival(player)) {
-			itemStack.hurtAndBreak(1, player, p -> p.broadcastBreakEvent(Hand.MAIN_HAND));
 		}
 	}
 
@@ -326,6 +333,9 @@ public class PeaGunItem extends Item {
 		return null;
 	}
 
+	public boolean isEnabled(ItemStack itemStack) {
+		return itemStack.getDamageValue() < itemStack.getMaxDamage() - 1;
+	}
 	/**
 	 * check card item stack.
 	 */
