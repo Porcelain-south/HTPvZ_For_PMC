@@ -39,22 +39,14 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "pvz:corn_seeds"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "minecraft:sunflower"
-        },
-        {
-          "type": "minecraft:item",
-          "name": "pvz:nut"
+          "name": "pvz:real_brain"
         }
       ],
       "conditions": [
         {
           "condition": "minecraft:random_chance_with_looting",
-          "chance": 0.01,
-          "looting_multiplier": 0.01
+          "chance": 1.0E-4,
+          "looting_multiplier": 2.0E-4
         }
       ]
     },
@@ -81,8 +73,8 @@
       "conditions": [
         {
           "condition": "minecraft:random_chance_with_looting",
-          "chance": 0.01,
-          "looting_multiplier": 0.01
+          "chance": 0.025,
+          "looting_multiplier": 0.02
         }
       ]
     }
