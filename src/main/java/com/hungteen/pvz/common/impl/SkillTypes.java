@@ -79,7 +79,7 @@ public class SkillTypes {
 
     //chomper.
     public static final ISkillType NORMAL_ENHANCE_STRENGTH = new SkillType("normal_enhance_strength",
-            ArrayUtil.getAverageArray(5, 140F, 300F),
+            ArrayUtil.getAverageArray(5, 100F, 300F),
             Arrays.asList(3, 4, 6, 7)
     );
 

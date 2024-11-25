@@ -1,12 +1,11 @@
 package com.hungteen.pvz.common.entity.zombie.roof;
 
 import com.hungteen.pvz.common.entity.zombie.PVZZombieEntity;
-import com.hungteen.pvz.common.impl.zombie.ZombieType;
 import com.hungteen.pvz.common.impl.zombie.RoofZombies;
+import com.hungteen.pvz.common.impl.zombie.ZombieType;
 import com.hungteen.pvz.utils.ZombieUtil;
 import com.hungteen.pvz.utils.interfaces.ICanAttract;
 import net.minecraft.entity.*;
-import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
@@ -34,7 +33,7 @@ public class ImpEntity extends PVZZombieEntity {
 			else if(now == 1) this.addEffect(new EffectInstance(Effects.DAMAGE_BOOST, 600, 1));
 			else if(now == 2) this.addEffect(new EffectInstance(Effects.JUMP, 600, 1));
 			else if(now == 3) this.addEffect(new EffectInstance(Effects.HEALTH_BOOST, 600, 1));
-			else if(now == 3) this.addEffect(new EffectInstance(Effects.ABSORPTION, 600, 1));
+			else if(now == 4) this.addEffect(new EffectInstance(Effects.ABSORPTION, 600, 1));
 		}
 		return super.finalizeSpawn(worldIn, difficultyIn, reason, spawnDataIn, dataTag);
 	}

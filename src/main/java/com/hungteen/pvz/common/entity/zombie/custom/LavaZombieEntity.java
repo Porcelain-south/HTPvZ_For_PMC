@@ -2,18 +2,19 @@ package com.hungteen.pvz.common.entity.zombie.custom;
 
 import com.hungteen.pvz.common.entity.ai.navigator.LavaZombiePathNavigator;
 import com.hungteen.pvz.common.entity.zombie.base.SwimmerZombieEntity;
-import com.hungteen.pvz.common.impl.zombie.ZombieType;
 import com.hungteen.pvz.common.impl.zombie.CustomZombies;
+import com.hungteen.pvz.common.impl.zombie.ZombieType;
 import com.hungteen.pvz.common.misc.PVZLoot;
+import com.hungteen.pvz.utils.EffectUtil;
 import com.hungteen.pvz.utils.ZombieUtil;
 import net.minecraft.block.FlowingFluidBlock;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityType;
-import net.minecraft.entity.ai.attributes.Attributes;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.pathfinding.PathNavigator;
 import net.minecraft.pathfinding.PathNodeType;
+import net.minecraft.potion.Effects;
 import net.minecraft.tags.FluidTags;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
@@ -51,6 +52,7 @@ public class LavaZombieEntity extends SwimmerZombieEntity {
 			if (iselectioncontext.isAbove(FlowingFluidBlock.STABLE_SHAPE, this.blockPosition(), true)
 					&& !this.level.getFluidState(this.blockPosition().above()).is(FluidTags.LAVA)) {
 				this.onGround = true;
+				this.addEffect(EffectUtil.effect(Effects.MOVEMENT_SPEED, 10, 4));
 			} else {
 				this.setDeltaMovement(this.getDeltaMovement().scale(0.5D).add(0.0D, 0.06D, 0.0D));
 			}
@@ -65,7 +67,7 @@ public class LavaZombieEntity extends SwimmerZombieEntity {
 
 	@Override
 	public float getLife() {
-		return 120;
+		return 40;
 	}
 
 	@Override
