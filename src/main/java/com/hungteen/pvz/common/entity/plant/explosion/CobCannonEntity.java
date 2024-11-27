@@ -333,7 +333,7 @@ public class CobCannonEntity extends PVZPlantEntity {
 	}
 
 	public int getPreCD() {
-		return 1800;
+		return (int)this.getSkillValue(SkillTypes.CANNON_FAST_PREPARE);
 	}
 	
 	public int getSuperCornNum() {
@@ -413,4 +413,8 @@ public class CobCannonEntity extends PVZPlantEntity {
 		return PVZPlants.COB_CANNON;
 	}
 
+	@Override
+	protected float getLife() {
+		return this.getSkillValue(SkillTypes.PLANT_MORE_LIFE) * 5;
+	}
 }

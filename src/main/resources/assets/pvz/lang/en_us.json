@@ -1070,6 +1070,8 @@
     "skill.pvz.tall_nut_more_life.desc": "Increase health point",
     "skill.pvz.mine_fast_prepare": "Fast Charge",
     "skill.pvz.mine_fast_prepare.desc": "Decrease prepare time",
+    "skill.pvz.cannon_fast_prepare": "Fast Charge",
+    "skill.pvz.cannon_fast_prepare.desc": "Decrease prepare time",
     "skill.pvz.normal_enhance_strength": "Strength Enhance",
     "skill.pvz.normal_enhance_strength.desc": "Increase attack damage",
     "skill.pvz.spore_damage": "Shoot Training",

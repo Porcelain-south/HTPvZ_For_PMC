@@ -1070,6 +1070,8 @@
   "skill.pvz.tall_nut_more_life.desc": "高坚果会拥有更高的血量上限",
   "skill.pvz.mine_fast_prepare": "快速装填",
   "skill.pvz.mine_fast_prepare.desc": "减少土豆雷装弹时间",
+  "skill.pvz.cannon_fast_prepare": "快速装填",
+  "skill.pvz.cannon_fast_prepare.desc": "减少加农炮装弹时间",
   "skill.pvz.normal_enhance_strength": "力量增强",
   "skill.pvz.normal_enhance_strength.desc": "增加攻击伤害",
   "skill.pvz.spore_damage": "射击训练",

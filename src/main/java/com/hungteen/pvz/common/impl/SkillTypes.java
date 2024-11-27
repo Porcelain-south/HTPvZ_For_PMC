@@ -227,6 +227,12 @@ public class SkillTypes {
             Arrays.asList(3, 5, 7, 9)
     );
 
+    //CobCannon
+    public static final ISkillType CANNON_FAST_PREPARE = new SkillType("cannon_fast_prepare",
+            ArrayUtil.getAverageArray(6, 1800F, 600F),
+            Arrays.asList(2, 3, 5, 7, 9)
+    );
+
     //garlic
     public static final ISkillType MORE_GARLIC_LIFE = new SkillType("more_garlic_life",
             ArrayUtil.getAverageArray(4, 100F, 250F),

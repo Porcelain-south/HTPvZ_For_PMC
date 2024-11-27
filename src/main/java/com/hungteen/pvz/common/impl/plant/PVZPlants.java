@@ -573,7 +573,7 @@ public final class PVZPlants extends PlantType {
 			.plantModel(() -> CobCannonModel::new).scale(1.1F)
 			.placement(Placements.ANY)
 			.upgradeFrom(() -> PVZPlants.KERNEL_PULT)
-			.commonSunSkill(Arrays.asList(SkillTypes.SMALL_BOMB_DAMAGE))
+			.commonSunSkill(Arrays.asList(SkillTypes.SMALL_BOMB_DAMAGE, SkillTypes.CANNON_FAST_PREPARE))
 	);
 	
 	public static final IPlantType IMITATER = new PVZPlants("imitater", new PlantFeatures()
