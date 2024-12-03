@@ -4,11 +4,10 @@ import com.hungteen.pvz.api.types.IZombieType;
 import com.hungteen.pvz.common.entity.zombie.PVZZombieEntity;
 import com.hungteen.pvz.common.entity.zombie.grass.DancingZombieEntity;
 import com.hungteen.pvz.common.impl.zombie.GrassZombies;
+import net.minecraft.potion.EffectInstance;
 import net.minecraft.util.math.BlockPos;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class ZombieUtil {
 	
@@ -60,6 +59,14 @@ public class ZombieUtil {
 	public static void copySummonZombieData(PVZZombieEntity old, PVZZombieEntity now) {
 		now.setCharmed(old.isCharmed());
 		now.setMiniZombie(old.isMiniZombie());
+
+		// copy potion effect
+		Collection<EffectInstance> collection = old.getActiveEffects();
+		if (!collection.isEmpty()) {
+            for (EffectInstance effectinstance : collection) {
+                now.addEffect(new EffectInstance(effectinstance));
+            }
+		}
 	}
 	
 	public static void onZombieSpawn(PVZZombieEntity old, PVZZombieEntity now, BlockPos pos) {

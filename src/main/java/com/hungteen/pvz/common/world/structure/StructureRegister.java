@@ -75,7 +75,7 @@ public class StructureRegister {
 				event.getGeneration().addStructureStart(StructureRegister.CONFIGURED_DOLPHIN_HOUSE);
 			}
 			if(BiomeUtil.isPlain(biomeKey)) {
-				if(biomeKey.equals(Biomes.PLAINS) && event.getScale()>5.0F) {
+				if(biomeKey.equals(Biomes.PLAINS)) {
 					event.getGeneration().addStructureStart(StructureRegister.CONFIGURED_DAVE_VILLA);
 				}
 			}
