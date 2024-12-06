@@ -157,8 +157,8 @@ public class SkillTypes {
 
     //blover.
     public static final ISkillType BLOW_STRENGTH = new SkillType("blow_strength",
-            ArrayUtil.getAverageArray(7, 46F, 286F),
-            Arrays.asList(2, 3, 4, 5, 7, 9)
+            ArrayUtil.getAverageArray(5, 46F, 286F),
+            Arrays.asList(3, 5, 7, 9)
     );
 
     //split pea.
