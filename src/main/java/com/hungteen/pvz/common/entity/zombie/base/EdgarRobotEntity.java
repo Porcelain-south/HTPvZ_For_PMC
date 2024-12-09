@@ -43,6 +43,7 @@ import java.util.Optional;
 public abstract class EdgarRobotEntity extends AbstractBossZombieEntity {
 
     private static final DataParameter<Integer> STATES = EntityDataManager.defineId(EdgarRobotEntity.class, DataSerializers.INT);
+    private static final DataParameter<Integer> FIELDSTATES = EntityDataManager.defineId(EdgarRobotEntity.class, DataSerializers.INT);
     private static final WeightList<ZombieType> ZOMBIES_1 = new WeightList<>();
     private static final WeightList<ZombieType> ZOMBIES_2 = new WeightList<>();
     private static final WeightList<ZombieType> ZOMBIES_3 = new WeightList<>();
@@ -111,6 +112,7 @@ public abstract class EdgarRobotEntity extends AbstractBossZombieEntity {
     protected void defineSynchedData() {
         super.defineSynchedData();
         this.entityData.define(STATES, EdgarStates.NORMAL.ordinal());
+        this.entityData.define(FIELDSTATES, FieldStates.None.ordinal());
     }
 
     @Override
@@ -136,7 +138,7 @@ public abstract class EdgarRobotEntity extends AbstractBossZombieEntity {
     public void normalZombieTick() {
         super.normalZombieTick();
         if (!level.isClientSide) {
-            if(this.getExistTick() % 20 == 0){
+            if(this.getExistTick() % 40 == 0){
                 this.summonZombieByBungee();
             }
         }
@@ -381,6 +383,14 @@ public abstract class EdgarRobotEntity extends AbstractBossZombieEntity {
         return EdgarStates.values()[this.entityData.get(STATES)];
     }
 
+    public void setFieldState(FieldStates state) {
+        this.entityData.set(FIELDSTATES, state.ordinal());
+    }
+
+    public FieldStates getFieldState() {
+        return FieldStates.values()[this.entityData.get(FIELDSTATES)];
+    }
+
     @Override
     public Optional<SoundEvent> getSpawnSound() {
         return Optional.ofNullable(SoundRegister.EDGAR_LAUGH.get());
@@ -397,6 +407,14 @@ public abstract class EdgarRobotEntity extends AbstractBossZombieEntity {
         ICE,//blue eyes
         STEAL,
         CAR,
+    }
+
+    public enum FieldStates {
+        Resistance,//红，无敌
+        BallResistance,//冰火球护盾，可破
+        Rune,//黄，减免
+        Defensive,//蓝，护甲
+        None,
     }
 
     protected static class EdgarShootBallGoal extends Goal {

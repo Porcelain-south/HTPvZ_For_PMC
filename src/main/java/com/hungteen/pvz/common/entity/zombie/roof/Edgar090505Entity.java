@@ -1,5 +1,6 @@
 package com.hungteen.pvz.common.entity.zombie.roof;
 
+import com.hungteen.pvz.PVZConfig;
 import com.hungteen.pvz.common.entity.EntityRegister;
 import com.hungteen.pvz.common.entity.misc.drop.JewelEntity;
 import com.hungteen.pvz.common.entity.zombie.base.EdgarRobotEntity;
@@ -24,6 +25,37 @@ public class Edgar090505Entity extends EdgarRobotEntity {
 
     private static final DataParameter<BlockPos> ORIGIN_POS = EntityDataManager.defineId(Edgar090505Entity.class, DataSerializers.BLOCK_POS);
 
+    protected int ResistanceFieldTime = 0;
+    protected int BallResistanceFieldTime = 0;
+    protected float RuneFieldPercent = 0;
+    protected int RuneFieldTime = 0;
+
+    protected void setResistanceField(int tick) {
+        setFieldState(FieldStates.Resistance);
+        ResistanceFieldTime = tick;
+    }
+
+    protected void setBallField() {
+        if(getFieldState() != FieldStates.Resistance)
+            setFieldState(FieldStates.BallResistance);
+
+        BallResistanceFieldTime = PVZConfig.COMMON_CONFIG.EntitySettings.EntityLiveTick.ElementBallLiveTick.get();
+    }
+
+    protected void setRuneField(float percent,int tick) {
+        if(getFieldState() != FieldStates.Resistance && getFieldState() != FieldStates.BallResistance)
+            setFieldState(FieldStates.BallResistance);
+
+        setFieldState(FieldStates.Rune);
+        RuneFieldPercent = percent;
+        RuneFieldTime = tick;
+    }
+
+    protected void setDefensiveField(int InnerLife) {
+        if(this.getInnerDefenceLife() < InnerLife)
+            this.setInnerDefenceLife(InnerLife);
+    }
+
     public Edgar090505Entity(EntityType<? extends CreatureEntity> type, World worldIn) {
         super(type, worldIn);
         this.refreshCountCD = 10;
@@ -31,6 +63,7 @@ public class Edgar090505Entity extends EdgarRobotEntity {
         this.maxPlantSurround = 100;
         this.kickRange = 6;
         this.setIsWholeBody();
+        setResistanceField(600);//30s强制无敌时间
     }
 
     @Override
@@ -48,6 +81,8 @@ public class Edgar090505Entity extends EdgarRobotEntity {
     @Override
     public void zombieTick() {
         super.zombieTick();
+        final float percent = this.getHealth() / this.getMaxHealth();//博士机甲改为真实血量显示
+        this.bossInfo.setPercent(percent);
         if (!level.isClientSide) {
             if (this.getOriginPos() == BlockPos.ZERO) {
                 this.setOriginPos(this.blockPosition());
@@ -75,8 +110,7 @@ public class Edgar090505Entity extends EdgarRobotEntity {
     public int getBossStage() {
         final float percent = this.bossInfo.getPercent();
         return percent > 3F / 4 ? 1 :
-                percent > 2F / 4 ? 2 :
-                        percent > 1F / 4 ? 3 : 4;
+                percent > 2F / 4 ? 2 : 3;
     }
 
     @Override
@@ -93,7 +127,7 @@ public class Edgar090505Entity extends EdgarRobotEntity {
 
     @Override
     public int getSpawnCount() {
-        return this.bossInfo.getPlayers().size()*2 + 1;
+        return this.bossInfo.getPlayers().size()*3 + 3;
     }
 
     @Override
@@ -108,12 +142,12 @@ public class Edgar090505Entity extends EdgarRobotEntity {
 
     @Override
     public float getLife() {
-        return 1000;
+        return 3000;
     }
 
     @Override
     public float getInnerLife() {
-        return 9000;
+        return 3000;
     }
 
     @Override
