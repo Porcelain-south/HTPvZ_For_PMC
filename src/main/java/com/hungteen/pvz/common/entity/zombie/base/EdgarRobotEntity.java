@@ -29,11 +29,16 @@ import net.minecraft.particles.ParticleTypes;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.world.BossInfo;
 import net.minecraft.world.World;
+import net.minecraft.world.server.ServerBossInfo;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+
+import static net.minecraft.util.text.TextFormatting.AQUA;
 
 /**
  * @program: pvzmod-1.16.5
@@ -41,6 +46,8 @@ import java.util.Optional;
  * @create: 2022-02-04 11:32
  **/
 public abstract class EdgarRobotEntity extends AbstractBossZombieEntity {
+
+    protected final ServerBossInfo bossInnerInfo = (ServerBossInfo)(new ServerBossInfo((new StringTextComponent("防御力场")).withStyle(AQUA), BossInfo.Color.BLUE, BossInfo.Overlay.PROGRESS)).setDarkenScreen(true);
 
     private static final DataParameter<Integer> STATES = EntityDataManager.defineId(EdgarRobotEntity.class, DataSerializers.INT);
     private static final DataParameter<Integer> FIELDSTATES = EntityDataManager.defineId(EdgarRobotEntity.class, DataSerializers.INT);
@@ -52,6 +59,7 @@ public abstract class EdgarRobotEntity extends AbstractBossZombieEntity {
     protected int throwCarTick;
     protected int shootBallTick;
     protected int stealPlantTick;
+    protected boolean hasFieldChanged = false;
 
     static {
         {//stage 1 zombies.
@@ -399,6 +407,14 @@ public abstract class EdgarRobotEntity extends AbstractBossZombieEntity {
     @Override
     protected SoundEvent getDeathSound() {
         return SoundRegister.EDGAR_EXPLOSION.get();
+    }
+
+    public boolean hasFieldStateChanged() {
+        return hasFieldChanged;
+    }
+
+    public void setHasFieldChanged(boolean hasFieldChanged) {
+        this.hasFieldChanged = hasFieldChanged;
     }
 
     public enum EdgarStates {

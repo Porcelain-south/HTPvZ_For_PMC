@@ -1,5 +1,6 @@
 package com.hungteen.pvz.client.render.layer;
 
+import com.hungteen.pvz.common.entity.zombie.base.EdgarRobotEntity;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
 import net.minecraft.client.renderer.IRenderTypeBuffer;
@@ -16,6 +17,8 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 @OnlyIn(Dist.CLIENT)
 public class LightShieldLayer<T extends Entity> extends LayerRenderer<T, EntityModel<T>> {
 
+    private float breathingTime = 0.0f;
+
     public LightShieldLayer(IEntityRenderer<T, EntityModel<T>> entityRendererIn) {
         super(entityRendererIn);
     }
@@ -24,78 +27,144 @@ public class LightShieldLayer<T extends Entity> extends LayerRenderer<T, EntityM
     public void render(MatrixStack matrixStackIn, IRenderTypeBuffer bufferIn, int packedLightIn, T entitylivingbaseIn,
                        float limbSwing, float limbSwingAmount, float partialTicks, float ageInTicks, float netHeadYaw,
                        float headPitch) {
-        if (!entitylivingbaseIn.isAlive() || entitylivingbaseIn.isInvisible()) {
-            return;
-        }
+        if (entitylivingbaseIn.isAlive() && !entitylivingbaseIn.isInvisible() && entitylivingbaseIn instanceof EdgarRobotEntity) {
+            IVertexBuilder vertexBuilder = bufferIn.getBuffer(RenderType.lines());
+            matrixStackIn.pushPose();
 
-        IVertexBuilder vertexBuilder = bufferIn.getBuffer(RenderType.lines());
-        matrixStackIn.pushPose();
+            // 更新时间，用于呼吸效果
+            breathingTime += 0.05f; // 调整这个值以加快或减慢呼吸效果
 
-        final int radialSegments = 32;
-        final int heightSegments = 32;
-        float radius = 3.5F;
+            final int radialSegments = 16; // 增大以获得更平滑的圆形
+            final int heightSegments = 8;
+            float radius = 3.5F;
 
-        Matrix4f matrix4f = matrixStackIn.last().pose();
+            Matrix4f matrix4f = matrixStackIn.last().pose();
 
-        for (int i = 0; i < heightSegments; i++) {
-            double phi1 = Math.PI * (i / (double) heightSegments);
-            double phi2 = Math.PI * ((i + 1) / (double) heightSegments);
+            for (int i = 0; i < heightSegments; i++) {
+                double phi1 = Math.PI * (i / (double) heightSegments);
+                double phi2 = Math.PI * ((i + 1) / (double) heightSegments);
 
-            for (int j = 0; j < radialSegments; j++) {
-                double theta1 = 2 * Math.PI * (j / (double) radialSegments);
-                double theta2 = 2 * Math.PI * ((j + 1) / (double) radialSegments);
+                for (int j = 0; j < radialSegments; j++) {
+                    double theta1 = 2 * Math.PI * (j / (double) radialSegments);
+                    double theta2 = 2 * Math.PI * ((j + 1) / (double) radialSegments);
 
-                double[] vertex1 = calculateVertex(radius, phi1, theta1);
-                double[] vertex2 = calculateVertex(radius, phi1, theta2);
-                double[] vertex3 = calculateVertex(radius, phi2, theta2);
-                double[] vertex4 = calculateVertex(radius, phi2, theta1);
+                    // 计算两个圆的顶点
+                    double[][] circleVertices1 = calculateCircle(radius, phi1, theta1 + (phi1 / 2), radialSegments);
+                    double[][] circleVertices2 = calculateCircle(radius, phi2, theta1 + (phi2 / 2), radialSegments);
 
-                vertex1[1] -= 1.5;
-                vertex2[1] -= 1.5;
-                vertex3[1] -= 1.5;
-                vertex4[1] -= 1.5;
+                    // 将每个圆的顶点偏移
+                    shiftVerticesY(circleVertices1, -1.5);
+                    shiftVerticesY(circleVertices2, -1.5);
 
-                // 顺序调整正确，确保每个区域都被两个三角形覆盖
-                addVertex(vertexBuilder, matrix4f, packedLightIn, vertex1);
-                addVertex(vertexBuilder, matrix4f, packedLightIn, vertex3);
-                addVertex(vertexBuilder, matrix4f, packedLightIn, vertex2);
+                    for (int k = 0; k < radialSegments; k++) {
+                        addVertex(entitylivingbaseIn, vertexBuilder, matrix4f, circleVertices1[k]);
+                        addVertex(entitylivingbaseIn, vertexBuilder, matrix4f, circleVertices2[k]);
+                    }
 
-                addVertex(vertexBuilder, matrix4f, packedLightIn, vertex1);
-                addVertex(vertexBuilder, matrix4f, packedLightIn, vertex4);
-                addVertex(vertexBuilder, matrix4f, packedLightIn, vertex3);
+                    // 连接圆的顶点，形成面
+                    for (int k = 0; k < radialSegments; k++) {
+                        addVertex(entitylivingbaseIn, vertexBuilder, matrix4f, circleVertices1[k]);
+                        addVertex(entitylivingbaseIn, vertexBuilder, matrix4f, circleVertices1[(k + 1) % radialSegments]);
+                        addVertex(entitylivingbaseIn, vertexBuilder, matrix4f, circleVertices2[k]);
+                    }
+                }
             }
+
+            matrixStackIn.popPose();
         }
-
-        matrixStackIn.popPose();
     }
 
-    private double[] calculateVertex(float radius, double phi, double theta) {
-        double x = radius * Math.sin(phi) * Math.cos(theta);
-        double y = radius * Math.cos(phi);
-        double z = radius * Math.sin(phi) * Math.sin(theta);
-        return new double[]{x, y, z};
-    }
-
-    private void addVertex(IVertexBuilder buffer, Matrix4f matrix, int light, double[] vertex) {
-        float nx = (float) vertex[0];
-        float ny = (float) vertex[1];
-        float nz = (float) vertex[2];
-        float length = (float) Math.sqrt(nx * nx + ny * ny + nz * nz);
-
-        if (length != 0) {
-            nx /= length;
-            ny /= length;
-            nz /= length;
+    private double[][] calculateCircle(float radius, double phi, double theta, int radialSegments) {
+        double[][] vertices = new double[radialSegments][3];
+        for (int i = 0; i < radialSegments; i++) {
+            double angle = 2 * Math.PI * i / radialSegments; // 圆的顶点
+            double x = radius * Math.sin(phi) * Math.cos(theta + angle);
+            double y = radius * Math.cos(phi);
+            double z = radius * Math.sin(phi) * Math.sin(theta + angle);
+            vertices[i] = new double[]{x, y, z};
         }
-
-        buffer.vertex(matrix, (float) vertex[0], (float) vertex[1], (float) vertex[2])
-                .color(255, 255, 0, 225)
-                .uv(0, 0)
-                .overlayCoords(OverlayTexture.NO_OVERLAY)
-                .normal(nx, ny, nz)
-                .endVertex();
+        return vertices;
     }
+
+    private void shiftVerticesY(double[][] vertices, double offset) {
+        for (double[] vertex : vertices) {
+            vertex[1] += offset;
+        }
+    }
+
+    private boolean flashing = false; // 用于指示闪烁状态
+    private float flashTimer = 0.0f;  // 闪烁计时器
+
+    private void addVertex(T entityIn, IVertexBuilder buffer, Matrix4f matrix, double[] vertex) {
+        if (entityIn instanceof EdgarRobotEntity) {
+            EdgarRobotEntity robot = (EdgarRobotEntity) entityIn;
+
+            float nx = (float) vertex[0];
+            float ny = (float) vertex[1];
+            float nz = (float) vertex[2];
+            float length = (float) Math.sqrt(nx * nx + ny * ny + nz * nz);
+
+            if (length != 0) {
+                nx /= length;
+                ny /= length;
+                nz /= length;
+            }
+
+            int shieldColorRed = 255;
+            int shieldColorGreen = 255;
+            int shieldColorBlue = 255;
+            int shieldAlpha = 125;
+
+            // 处理护盾颜色和闪烁效果
+            float pulsate = (float)(Math.sin(breathingTime) * 0.1 + 0.9);
+
+            // 检查字段状态变化
+            if (robot.hasFieldStateChanged()) { // 假设有这样一个方法检查状态变化
+                flashing = true;  // 开启闪烁
+                flashTimer = 5.0f; // 设置闪烁持续时间
+            }
+
+            // 如果开启闪烁，调整透明度
+            if (flashing) {
+                float flashIntensity = (float)(Math.sin(flashTimer * Math.PI / 5) * 0.5 + 0.5); // 0到1的闪烁
+                shieldAlpha = (int)(125 * flashIntensity); // 根据闪烁强度调整透明度
+
+                // 减少计时器
+                flashTimer -= 1f; // 减少秒数以控制闪烁持续时间
+                if (flashTimer <= 0) {
+                    flashing = false; // 关闭闪烁
+                    robot.setHasFieldChanged(false); // 重置状态
+                }
+            }
+
+            // 计算颜色的渐变
+            shieldColorRed *= pulsate;
+            shieldColorGreen *= pulsate;
+            shieldColorBlue *= pulsate;
+
+            if (robot.getFieldState() == EdgarRobotEntity.FieldStates.Defensive) {
+                shieldColorRed = (int)(94 * pulsate);
+                shieldColorGreen = (int)(149 * pulsate);
+                shieldColorBlue = (int)(187 * pulsate);
+            } else if (robot.getFieldState() == EdgarRobotEntity.FieldStates.Resistance) {
+                shieldColorRed = (int)(104 * pulsate);
+                shieldColorGreen = (int)(17 * pulsate);
+                shieldColorBlue = (int)(26 * pulsate);
+            } else if (robot.getFieldState() == EdgarRobotEntity.FieldStates.Rune) {
+                shieldColorRed = (int)(255 * pulsate);
+                shieldColorGreen = (int)(255 * pulsate);
+                shieldColorBlue = (int)(0 * pulsate);
+            }
+
+            buffer.vertex(matrix, (float) vertex[0], (float) vertex[1], (float) vertex[2])
+                    .color(shieldColorRed, shieldColorGreen, shieldColorBlue, shieldAlpha) // 使用渐变色
+                    .uv(0, 0)
+                    .overlayCoords(OverlayTexture.NO_OVERLAY)
+                    .normal(nx, ny, nz)
+                    .endVertex();
+        }
+    }
+
+
 
 }
-
-
