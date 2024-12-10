@@ -14,12 +14,16 @@ import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.BossInfo;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerBossInfo;
 
+import static net.minecraft.util.text.TextFormatting.AQUA;
+
 public abstract class AbstractBossZombieEntity extends PVZZombieEntity {
 
+	protected final ServerBossInfo bossInnerInfo = (ServerBossInfo)(new ServerBossInfo((new StringTextComponent("防御力场")).withStyle(AQUA), BossInfo.Color.BLUE, BossInfo.Overlay.PROGRESS)).setDarkenScreen(true);
 	protected final ServerBossInfo bossInfo = (ServerBossInfo)(new ServerBossInfo(this.getDisplayName(), BossInfo.Color.RED, BossInfo.Overlay.PROGRESS)).setDarkenScreen(true);
 	protected int refreshCountCD = 30; 
 	protected int spawnImmuneCD = 100;
@@ -92,11 +96,13 @@ public abstract class AbstractBossZombieEntity extends PVZZombieEntity {
 	public void startSeenByPlayer(ServerPlayerEntity player) {
 		super.startSeenByPlayer(player);
 		this.bossInfo.addPlayer(player);
+		this.bossInnerInfo.addPlayer(player);
 	}
 
 	public void stopSeenByPlayer(ServerPlayerEntity player) {
 		super.stopSeenByPlayer(player);
 		this.bossInfo.removePlayer(player);
+		this.bossInnerInfo.removePlayer(player);
 	}
 	
 	@Override

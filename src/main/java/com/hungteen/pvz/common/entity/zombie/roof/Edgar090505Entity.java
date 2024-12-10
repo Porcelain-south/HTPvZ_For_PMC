@@ -22,7 +22,6 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class Edgar090505Entity extends EdgarRobotEntity {
-
     private static final DataParameter<BlockPos> ORIGIN_POS = EntityDataManager.defineId(Edgar090505Entity.class, DataSerializers.BLOCK_POS);
 
     protected int ResistanceFieldTime = 0;
@@ -83,6 +82,7 @@ public class Edgar090505Entity extends EdgarRobotEntity {
         super.zombieTick();
         final float percent = this.getHealth() / this.getMaxHealth();//博士机甲改为真实血量显示
         this.bossInfo.setPercent(percent);
+        this.bossInnerInfo.setPercent(percent);
         if (!level.isClientSide) {
             if (this.getOriginPos() == BlockPos.ZERO) {
                 this.setOriginPos(this.blockPosition());
@@ -142,12 +142,12 @@ public class Edgar090505Entity extends EdgarRobotEntity {
 
     @Override
     public float getLife() {
-        return 3000;
+        return 6000;
     }
 
     @Override
     public float getInnerLife() {
-        return 3000;
+        return 2000;
     }
 
     @Override

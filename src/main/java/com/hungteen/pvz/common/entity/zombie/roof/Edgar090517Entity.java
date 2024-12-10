@@ -79,12 +79,12 @@ public class Edgar090517Entity extends Edgar090505Entity {
 
     @Override
     public float getLife() {
-        return 1000;
+        return 10000;
     }
 
     @Override
     public float getInnerLife() {
-        return 15000;
+        return 4000;
     }
 
     @Override
