@@ -1,5 +1,6 @@
 package com.hungteen.pvz.common.entity.zombie.base;
 
+import com.hungteen.pvz.PVZConfig;
 import com.hungteen.pvz.api.enums.BodyType;
 import com.hungteen.pvz.api.types.IZombieType;
 import com.hungteen.pvz.common.entity.EntityRegister;
@@ -52,6 +53,58 @@ public abstract class EdgarRobotEntity extends AbstractBossZombieEntity {
     protected int shootBallTick;
     protected int stealPlantTick;
     protected boolean hasFieldChanged = false;
+
+    protected int ResistanceFieldTime = 0;
+    protected int BallResistanceFieldTime = 0;
+    protected int RuneFieldTime = 0;
+    protected int LastBossStage = 1;
+
+    protected void setResistanceField(int tick) {
+        ResistanceFieldTime = tick;
+    }
+
+    protected void setBallField() {
+        BallResistanceFieldTime = PVZConfig.COMMON_CONFIG.EntitySettings.EntityLiveTick.ElementBallLiveTick.get();
+    }
+
+    public void removeBallField() {
+        BallResistanceFieldTime = 0;
+        this.setHealth(this.getHealth()-500f);//被移除护盾受到500点真实伤害
+        setRuneField(100);//冰火球护盾破裂后5秒内有符文护盾
+    }
+
+    protected void setRuneField(int tick) {
+        RuneFieldTime = Math.max(RuneFieldTime, tick);
+    }
+
+    protected void setDefensiveField(float InnerLife) {
+        this.setInnerDefenceLife(Math.max(this.getInnerDefenceLife(), InnerLife));
+    }
+
+    @Override
+    public boolean hurt(DamageSource source, float amount) {
+        if (this.getFieldState() == FieldStates.Resistance || this.getFieldState() == FieldStates.BallResistance)
+        {
+            return true;
+        }
+        if (this.getFieldState() == FieldStates.Rune)
+        {
+            if(amount > 5f) {
+                amount = 0.4f * (amount - 5f) + 1f;
+            }else {
+                amount *= 0.2f;
+            }
+        }
+        return super.hurt(source, amount);
+    }
+
+    @Override
+    public boolean canBeTargetBy(LivingEntity living) {
+        if(this.getFieldState() == FieldStates.Resistance || this.getFieldState() == FieldStates.BallResistance){
+            return false;
+        }
+        return super.canBeTargetBy(living) ;
+    }
 
     static {
         {//stage 1 zombies.
@@ -225,6 +278,8 @@ public abstract class EdgarRobotEntity extends AbstractBossZombieEntity {
      * {@link EdgarShootBallGoal#tick()}
      */
     public void shootElementBall() {
+        this.setBallField();//无敌盾
+
         final ElementBallEntity ball = EntityRegister.ELEMENT_BALL.get().create(level);
         ball.summonByOwner(this);
         ball.setSpeed(this.getElementBallSpeed());
@@ -268,6 +323,9 @@ public abstract class EdgarRobotEntity extends AbstractBossZombieEntity {
      */
     public void throwDestroyCar() {
         this.setRobotState(EdgarRobotEntity.EdgarStates.NORMAL);
+
+        this.setRuneField(300);//15s符文护盾
+
         final int max = Math.max(1, (this.nearbyPlantCount - this.maxPlantSurround) / 50);
         final int throwNum = MathUtil.getRandomMinMax(getRandom(), max / 2 + 1, max + 1);
         final float range = 80;

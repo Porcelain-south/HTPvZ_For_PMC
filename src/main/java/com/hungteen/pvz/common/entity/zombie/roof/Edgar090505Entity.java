@@ -1,6 +1,5 @@
 package com.hungteen.pvz.common.entity.zombie.roof;
 
-import com.hungteen.pvz.PVZConfig;
 import com.hungteen.pvz.common.entity.EntityRegister;
 import com.hungteen.pvz.common.entity.misc.drop.JewelEntity;
 import com.hungteen.pvz.common.entity.zombie.base.EdgarRobotEntity;
@@ -23,29 +22,6 @@ import net.minecraft.world.World;
 
 public class Edgar090505Entity extends EdgarRobotEntity {
     private static final DataParameter<BlockPos> ORIGIN_POS = EntityDataManager.defineId(Edgar090505Entity.class, DataSerializers.BLOCK_POS);
-
-    protected int ResistanceFieldTime = 0;
-    protected int BallResistanceFieldTime = 0;
-    protected float RuneFieldPercent = 0;
-    protected int RuneFieldTime = 0;
-
-    protected void setResistanceField(int tick) {
-        ResistanceFieldTime = tick;
-    }
-
-    protected void setBallField() {
-        BallResistanceFieldTime = PVZConfig.COMMON_CONFIG.EntitySettings.EntityLiveTick.ElementBallLiveTick.get();
-    }
-
-    protected void setRuneField(float percent,int tick) {
-        RuneFieldPercent = percent;
-        RuneFieldTime = tick;
-    }
-
-    protected void setDefensiveField(int InnerLife) {
-        if(this.getInnerDefenceLife() < InnerLife)
-            this.setInnerDefenceLife(InnerLife);
-    }
 
     public Edgar090505Entity(EntityType<? extends CreatureEntity> type, World worldIn) {
         super(type, worldIn);
@@ -70,11 +46,19 @@ public class Edgar090505Entity extends EdgarRobotEntity {
 
     public void FieldTick()
     {
+        if (LastBossStage < getBossStage())
+        {
+            LastBossStage = getBossStage();
+            setResistanceField(300);//切换阶段无敌15s
+            setDefensiveField(this.getInnerLife());
+        }
+
         final double percent = this.getInnerDefenceLife() / this.getInnerLife();//博士机甲改为真实血量显示
         this.bossInnerInfo.setPercent((float) percent);
+
         if (ResistanceFieldTime > 0)
         {
-            if (getFieldState() != FieldStates.Resistance)
+            if (this.getFieldState() != FieldStates.Resistance)
             {
                 setHasFieldChanged(true);
                 setFieldState(FieldStates.Resistance);
@@ -84,7 +68,7 @@ public class Edgar090505Entity extends EdgarRobotEntity {
         }
         else if (BallResistanceFieldTime > 0)
         {
-            if (getFieldState() != FieldStates.BallResistance)
+            if (this.getFieldState() != FieldStates.BallResistance)
             {
                 setHasFieldChanged(true);
                 setFieldState(FieldStates.BallResistance);
@@ -94,7 +78,7 @@ public class Edgar090505Entity extends EdgarRobotEntity {
         }
         else if (RuneFieldTime > 0)
         {
-            if (getFieldState() != FieldStates.Rune)
+            if (this.getFieldState() != FieldStates.Rune)
             {
                 setHasFieldChanged(true);
                 setFieldState(FieldStates.Rune);
@@ -107,7 +91,7 @@ public class Edgar090505Entity extends EdgarRobotEntity {
         }
         else if (this.getInnerDefenceLife() > 0)
         {
-            if (getFieldState() != FieldStates.Defensive)
+            if (this.getFieldState() != FieldStates.Defensive)
             {
                 setHasFieldChanged(true);
                 setFieldState(FieldStates.Defensive);
@@ -116,7 +100,7 @@ public class Edgar090505Entity extends EdgarRobotEntity {
         }
         else
         {
-            if (getFieldState() != FieldStates.None)
+            if (this.getFieldState() != FieldStates.None)
             {
                 setHasFieldChanged(true);
                 setFieldState(FieldStates.None);
@@ -133,7 +117,7 @@ public class Edgar090505Entity extends EdgarRobotEntity {
         final float percent = this.getHealth() / this.getMaxHealth();//博士机甲改为真实血量显示
         this.bossInfo.setPercent(percent);
 
-        FieldTick();
+        this.FieldTick();
 
         if (!level.isClientSide) {
             if (this.getOriginPos() == BlockPos.ZERO) {

@@ -6,6 +6,7 @@ import com.hungteen.pvz.common.entity.plant.PVZPlantEntity;
 import com.hungteen.pvz.common.entity.plant.flame.JalapenoEntity;
 import com.hungteen.pvz.common.entity.plant.ice.IceShroomEntity;
 import com.hungteen.pvz.common.entity.zombie.PVZZombieEntity;
+import com.hungteen.pvz.common.entity.zombie.base.EdgarRobotEntity;
 import com.hungteen.pvz.common.item.ItemRegister;
 import com.hungteen.pvz.common.item.spawn.card.PlantCardItem;
 import com.hungteen.pvz.common.misc.PVZEntityDamageSource;
@@ -69,7 +70,8 @@ public class ElementBallEntity extends AbstractOwnerEntity {
 					PlayerUtil.setItemStackCD(player, new ItemStack(item), 160);
 			    }
 		    });
-		} 
+		}
+		((EdgarRobotEntity)owner).removeBallField();
 		this.remove();
 	}
 	

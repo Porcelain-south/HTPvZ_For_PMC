@@ -146,7 +146,7 @@ public class LightShieldLayer<T extends Entity> extends LayerRenderer<T, EntityM
                 shieldColorRed = (int)(94 * pulsate);
                 shieldColorGreen = (int)(149 * pulsate);
                 shieldColorBlue = (int)(187 * pulsate);
-            } else if (robot.getFieldState() == EdgarRobotEntity.FieldStates.Resistance) {
+            } else if (robot.getFieldState() == EdgarRobotEntity.FieldStates.Resistance || robot.getFieldState() == EdgarRobotEntity.FieldStates.BallResistance) {
                 shieldColorRed = (int)(104 * pulsate);
                 shieldColorGreen = (int)(17 * pulsate);
                 shieldColorBlue = (int)(26 * pulsate);
