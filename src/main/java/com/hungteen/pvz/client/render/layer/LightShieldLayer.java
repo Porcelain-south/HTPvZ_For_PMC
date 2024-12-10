@@ -46,7 +46,6 @@ public class LightShieldLayer<T extends Entity> extends LayerRenderer<T, EntityM
 
                 for (int j = 0; j < radialSegments; j++) {
                     double theta1 = 2 * Math.PI * (j / (double) radialSegments);
-                    double theta2 = 2 * Math.PI * ((j + 1) / (double) radialSegments);
 
                     // 计算两个圆的顶点
                     double[][] circleVertices1 = calculateCircle(radius, phi1, theta1 + (phi1 / 2), radialSegments);
