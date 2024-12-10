@@ -30,22 +30,14 @@ public class Edgar090505Entity extends EdgarRobotEntity {
     protected int RuneFieldTime = 0;
 
     protected void setResistanceField(int tick) {
-        setFieldState(FieldStates.Resistance);
         ResistanceFieldTime = tick;
     }
 
     protected void setBallField() {
-        if(getFieldState() != FieldStates.Resistance)
-            setFieldState(FieldStates.BallResistance);
-
         BallResistanceFieldTime = PVZConfig.COMMON_CONFIG.EntitySettings.EntityLiveTick.ElementBallLiveTick.get();
     }
 
     protected void setRuneField(float percent,int tick) {
-        if(getFieldState() != FieldStates.Resistance && getFieldState() != FieldStates.BallResistance)
-            setFieldState(FieldStates.BallResistance);
-
-        setFieldState(FieldStates.Rune);
         RuneFieldPercent = percent;
         RuneFieldTime = tick;
     }
@@ -76,13 +68,73 @@ public class Edgar090505Entity extends EdgarRobotEntity {
         super.kill();
     }
 
+    public void FieldTick()
+    {
+        final double percent = this.getInnerDefenceLife() / this.getInnerLife();//博士机甲改为真实血量显示
+        this.bossInnerInfo.setPercent((float) percent);
+        if (ResistanceFieldTime > 0)
+        {
+            if (getFieldState() != FieldStates.Resistance)
+            {
+                setHasFieldChanged(true);
+                setFieldState(FieldStates.Resistance);
+            }
+            ResistanceFieldTime--;
+            bossInnerInfo.setVisible(false);
+        }
+        else if (BallResistanceFieldTime > 0)
+        {
+            if (getFieldState() != FieldStates.BallResistance)
+            {
+                setHasFieldChanged(true);
+                setFieldState(FieldStates.BallResistance);
+            }
+            BallResistanceFieldTime--;
+            bossInnerInfo.setVisible(false);
+        }
+        else if (RuneFieldTime > 0)
+        {
+            if (getFieldState() != FieldStates.Rune)
+            {
+                setHasFieldChanged(true);
+                setFieldState(FieldStates.Rune);
+            }
+            RuneFieldTime--;
+            if (this.getInnerDefenceLife() > 0)
+                bossInnerInfo.setVisible(true);
+            else
+                bossInnerInfo.setVisible(false);
+        }
+        else if (this.getInnerDefenceLife() > 0)
+        {
+            if (getFieldState() != FieldStates.Defensive)
+            {
+                setHasFieldChanged(true);
+                setFieldState(FieldStates.Defensive);
+            }
+            bossInnerInfo.setVisible(true);
+        }
+        else
+        {
+            if (getFieldState() != FieldStates.None)
+            {
+                setHasFieldChanged(true);
+                setFieldState(FieldStates.None);
+            }
+            bossInnerInfo.setVisible(false);
+        }
+    }
+
     @SuppressWarnings("deprecation")
     @Override
     public void zombieTick() {
         super.zombieTick();
+
         final float percent = this.getHealth() / this.getMaxHealth();//博士机甲改为真实血量显示
         this.bossInfo.setPercent(percent);
-        this.bossInnerInfo.setPercent(percent);
+
+        FieldTick();
+
         if (!level.isClientSide) {
             if (this.getOriginPos() == BlockPos.ZERO) {
                 this.setOriginPos(this.blockPosition());

@@ -16,10 +16,17 @@ public class Edgar090517Entity extends Edgar090505Entity {
 
     public Edgar090517Entity(EntityType<? extends CreatureEntity> type, World worldIn) {
         super(type, worldIn);
-        this.refreshCountCD = 10;
-        this.maxPlantSurround = 100;
         this.maxZombieSurround = 120;
         this.kickRange = 10;
+    }
+
+    @Override
+    protected void spawnSpecialDrops() {
+        final int playerCnt = this.bossInfo.getPlayers().size();
+        for (int i = 0; i < 2 + 2 * playerCnt; ++i) {
+            JewelEntity jewel = EntityRegister.JEWEL.get().create(level);
+            EntityUtil.onEntityRandomPosSpawn(level, jewel, blockPosition().above(5), 4);
+        }
     }
 
     @Override

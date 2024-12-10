@@ -93,7 +93,7 @@ public class LightShieldLayer<T extends Entity> extends LayerRenderer<T, EntityM
     }
 
     private boolean flashing = false; // 用于指示闪烁状态
-    private float flashTimer = 0.0f;  // 闪烁计时器
+    private int flashTimer = 0;  // 闪烁计时器
 
     private void addVertex(T entityIn, IVertexBuilder buffer, Matrix4f matrix, double[] vertex) {
         if (entityIn instanceof EdgarRobotEntity) {
@@ -121,7 +121,7 @@ public class LightShieldLayer<T extends Entity> extends LayerRenderer<T, EntityM
             // 检查字段状态变化
             if (robot.hasFieldStateChanged()) { // 假设有这样一个方法检查状态变化
                 flashing = true;  // 开启闪烁
-                flashTimer = 5.0f; // 设置闪烁持续时间
+                flashTimer = 5; // 设置闪烁持续时间
             }
 
             // 如果开启闪烁，调整透明度
@@ -130,7 +130,7 @@ public class LightShieldLayer<T extends Entity> extends LayerRenderer<T, EntityM
                 shieldAlpha = (int)(125 * flashIntensity); // 根据闪烁强度调整透明度
 
                 // 减少计时器
-                flashTimer -= 1f; // 减少秒数以控制闪烁持续时间
+                flashTimer --; // 减少tick数以控制闪烁持续时间
                 if (flashTimer <= 0) {
                     flashing = false; // 关闭闪烁
                     robot.setHasFieldChanged(false); // 重置状态
@@ -164,7 +164,4 @@ public class LightShieldLayer<T extends Entity> extends LayerRenderer<T, EntityM
                     .endVertex();
         }
     }
-
-
-
 }
