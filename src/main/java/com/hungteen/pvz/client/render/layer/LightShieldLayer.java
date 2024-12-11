@@ -114,13 +114,37 @@ public class LightShieldLayer<T extends Entity> extends LayerRenderer<T, EntityM
             int shieldColorBlue = 255;
             int shieldAlpha = 125;
 
+            // 护盾为none时不渲染护盾
+            if (robot.getFieldState() == EdgarRobotEntity.FieldStates.None || robot.getFieldState() == null)
+                return;
+
             // 处理护盾颜色和闪烁效果
             float pulsate = (float)(Math.sin(breathingTime) * 0.1 + 0.9);
 
-            // 检查字段状态变化
-            if (robot.hasFieldStateChanged()) { // 假设有这样一个方法检查状态变化
+            if (robot.hasFieldStateChanged()) {
                 flashing = true;  // 开启闪烁
                 flashTimer = 5; // 设置闪烁持续时间
+
+                switch (robot.getFieldState()) {
+                    case Defensive: // 蓝，护甲
+                        shieldColorRed = 94;
+                        shieldColorGreen = 149;
+                        shieldColorBlue = 187;
+                        break;
+                    case Resistance: // 红，无敌
+                    case BallResistance: // 红，无敌
+                        shieldColorRed = 104;
+                        shieldColorGreen = 17;
+                        shieldColorBlue = 26;
+                        break;
+                    case Rune: // 黄，减免
+                        shieldColorRed = 255;
+                        shieldColorGreen = 255;
+                        shieldColorBlue = 0;
+                        break;
+                    default:
+                        return;
+                }
             }
 
             // 如果开启闪烁，调整透明度
@@ -129,31 +153,17 @@ public class LightShieldLayer<T extends Entity> extends LayerRenderer<T, EntityM
                 shieldAlpha = (int)(125 * flashIntensity); // 根据闪烁强度调整透明度
 
                 // 减少计时器
-                flashTimer --; // 减少tick数以控制闪烁持续时间
+                flashTimer--; // 减少tick数以控制闪烁持续时间
                 if (flashTimer <= 0) {
                     flashing = false; // 关闭闪烁
                     robot.setHasFieldChanged(false); // 重置状态
                 }
             }
 
-            // 计算颜色的渐变
-            shieldColorRed *= pulsate;
-            shieldColorGreen *= pulsate;
-            shieldColorBlue *= pulsate;
-
-            if (robot.getFieldState() == EdgarRobotEntity.FieldStates.Defensive) {
-                shieldColorRed = (int)(94 * pulsate);
-                shieldColorGreen = (int)(149 * pulsate);
-                shieldColorBlue = (int)(187 * pulsate);
-            } else if (robot.getFieldState() == EdgarRobotEntity.FieldStates.Resistance || robot.getFieldState() == EdgarRobotEntity.FieldStates.BallResistance) {
-                shieldColorRed = (int)(104 * pulsate);
-                shieldColorGreen = (int)(17 * pulsate);
-                shieldColorBlue = (int)(26 * pulsate);
-            } else if (robot.getFieldState() == EdgarRobotEntity.FieldStates.Rune) {
-                shieldColorRed = (int)(255 * pulsate);
-                shieldColorGreen = (int)(255 * pulsate);
-                shieldColorBlue = (int)(0 * pulsate);
-            }
+            // 计算颜色的渐变，不再在状态下应用pulsate
+            shieldColorRed = (int)(shieldColorRed * pulsate);
+            shieldColorGreen = (int)(shieldColorGreen * pulsate);
+            shieldColorBlue = (int)(shieldColorBlue * pulsate);
 
             buffer.vertex(matrix, (float) vertex[0], (float) vertex[1], (float) vertex[2])
                     .color(shieldColorRed, shieldColorGreen, shieldColorBlue, shieldAlpha) // 使用渐变色
@@ -163,4 +173,6 @@ public class LightShieldLayer<T extends Entity> extends LayerRenderer<T, EntityM
                     .endVertex();
         }
     }
+
+
 }
