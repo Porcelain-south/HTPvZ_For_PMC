@@ -53,16 +53,13 @@ public class Edgar090505Entity extends EdgarRobotEntity {
             setDefensiveField(this.getInnerLife());
         }
 
-        final double percent = this.getInnerDefenceLife() / this.getInnerLife();//博士机甲改为真实血量显示
-        this.bossInnerInfo.setPercent((float) percent);
-
         if (ResistanceFieldTime > 0)
         {
             if (this.getFieldState() != FieldStates.Resistance)
             {
                 setHasFieldChanged(true);
-                setFieldState(FieldStates.Resistance);
             }
+            setFieldState(FieldStates.Resistance);
             ResistanceFieldTime--;
             bossInnerInfo.setVisible(false);
         }
@@ -114,12 +111,15 @@ public class Edgar090505Entity extends EdgarRobotEntity {
     public void zombieTick() {
         super.zombieTick();
 
-        final float percent = this.getHealth() / this.getMaxHealth();//博士机甲改为真实血量显示
-        this.bossInfo.setPercent(percent);
+        final float percent1 = this.getHealth() / this.getMaxHealth();//博士机甲改为真实血量显示
+        this.bossInfo.setPercent(percent1);
 
-        this.FieldTick();
+        final double percent2 = this.getInnerDefenceLife() / this.getInnerLife();//防御力场
+        this.bossInnerInfo.setPercent((float) percent2);
+
 
         if (!level.isClientSide) {
+            this.FieldTick();
             if (this.getOriginPos() == BlockPos.ZERO) {
                 this.setOriginPos(this.blockPosition());
             } else {
