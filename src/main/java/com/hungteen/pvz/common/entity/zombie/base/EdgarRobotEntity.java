@@ -83,15 +83,18 @@ public abstract class EdgarRobotEntity extends AbstractBossZombieEntity {
 
     @Override
     public boolean hurt(DamageSource source, float amount) {
-        if (this.getFieldState() == FieldStates.Resistance || this.getFieldState() == FieldStates.BallResistance)
-        {
+        if (source.isBypassInvul()) {
+            return super.hurt(source, amount);
+        }
+
+        if (this.getFieldState() == FieldStates.Resistance || this.getFieldState() == FieldStates.BallResistance) {
             return true;
         }
-        if (this.getFieldState() == FieldStates.Rune)
-        {
-            if(amount > 5f) {
+
+        if (this.getFieldState() == FieldStates.Rune) {
+            if (amount > 5f) {
                 amount = 0.4f * (amount - 5f) + 1f;
-            }else {
+            } else {
                 amount *= 0.2f;
             }
         }
