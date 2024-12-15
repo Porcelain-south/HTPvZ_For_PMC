@@ -58,8 +58,8 @@ public class Edgar090505Entity extends EdgarRobotEntity {
             if (this.getFieldState() != FieldStates.Resistance)
             {
                 setHasFieldChanged(true);
+                setFieldState(FieldStates.Resistance);
             }
-            setFieldState(FieldStates.Resistance);
             ResistanceFieldTime--;
             bossInnerInfo.setVisible(false);
         }

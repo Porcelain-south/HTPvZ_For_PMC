@@ -425,6 +425,18 @@ public abstract class EdgarRobotEntity extends AbstractBossZombieEntity {
         if (compound.contains("zomboss_steal_cd")) {
             this.stealPlantTick = compound.getInt("zomboss_steal_cd");
         }
+        if (compound.contains("resistance_field_time")) {
+            this.ResistanceFieldTime = compound.getInt("resistance_field_time");
+        }
+        if (compound.contains("ball_resistance_field_time")) {
+            this.BallResistanceFieldTime = compound.getInt("ball_resistance_field_time");
+        }
+        if (compound.contains("rune_field_time")) {
+            this.RuneFieldTime = compound.getInt("rune_field_time");
+        }
+        if (compound.contains("last_boss_stage")) {
+            this.LastBossStage = compound.getInt("last_boss_stage");
+        }
     }
 
     @Override
@@ -434,6 +446,10 @@ public abstract class EdgarRobotEntity extends AbstractBossZombieEntity {
         compound.putInt("zomboss_throw_car_tick", this.throwCarTick);
         compound.putInt("zomboss_shoot_ball_cd", this.shootBallTick);
         compound.putInt("zomboss_steal_cd", this.stealPlantTick);
+        compound.putInt("resistance_field_time", this.ResistanceFieldTime);
+        compound.putInt("ball_resistance_field_time", this.BallResistanceFieldTime);
+        compound.putInt("rune_field_time", this.RuneFieldTime);
+        compound.putInt("last_boss_stage", this.LastBossStage);
     }
 
     public void setRobotState(EdgarStates state) {
@@ -442,6 +458,14 @@ public abstract class EdgarRobotEntity extends AbstractBossZombieEntity {
 
     public EdgarStates getRobotState() {
         return EdgarStates.values()[this.entityData.get(STATES)];
+    }
+
+    @Override
+    public void onSyncedDataUpdated(DataParameter<?> p_184206_1_) {
+        super.onSyncedDataUpdated(p_184206_1_);
+        if (p_184206_1_.equals(FIELDSTATES)) {
+            System.out.println("testonSyncedDataUpdated");
+        }
     }
 
     public void setFieldState(FieldStates state) {
