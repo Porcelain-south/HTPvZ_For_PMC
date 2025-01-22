@@ -27,7 +27,8 @@ public class WaterGuardEntity extends PlantDefenderEntity{
 		if(source instanceof PVZEntityDamageSource && ((PVZEntityDamageSource) source).isEatDamage() && source.getEntity() instanceof MobEntity) {
 			giveDamageToZombie((int) getDamage());
 		}
-		return super.hurt(source, amount);
+
+		return super.hurt(source, Math.max(1,amount - this.getSkillValue(SkillTypes.MORE_DEFENSE)));
 	}
 	@Override
 	public void tick() {

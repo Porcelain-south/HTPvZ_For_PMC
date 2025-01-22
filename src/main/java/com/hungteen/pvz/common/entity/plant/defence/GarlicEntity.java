@@ -11,7 +11,6 @@ import com.hungteen.pvz.utils.AlgorithmUtil;
 import com.hungteen.pvz.utils.EntityUtil;
 import net.minecraft.entity.*;
 import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
@@ -37,6 +36,11 @@ public class GarlicEntity extends PlantDefenderEntity {
 			if(this.garlic != null) {
 				((MobEntity) source.getEntity()).setTarget(this.garlic);
 			}
+		}
+		int super_garlic = SkillTypes.getSkillLevel(this.getSkills(), SkillTypes.SUPER_GARLIC);
+		if(super_garlic > 0)
+		{
+			amount = Math.min(amount,200 - super_garlic*50);
 		}
 		return super.hurt(source, amount);
 	}

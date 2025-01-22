@@ -121,7 +121,7 @@ public class SkillTypes {
 
     //spike rock
     public static final ISkillType MORE_SPIKE = new SkillType("more_spike",
-            ArrayUtil.getAverageArray(4, 6F, 9F),
+            ArrayUtil.getAverageArray(4, 6F, 12F),
             Arrays.asList(2, 3, 3)
     );
 
@@ -244,10 +244,20 @@ public class SkillTypes {
             Arrays.asList(3,5)
     );
 
+    public static final ISkillType SUPER_GARLIC = new SkillType("super_garlic",
+            ArrayUtil.getAverageArray(3, 0F, 3F),
+            Arrays.asList(3,4,5)
+    );
+
     //water guard
     public static final ISkillType MORE_GUARD_LIFE = new SkillType("more_guard_life",
             ArrayUtil.getAverageArray(6, 150F, 400F),
             Arrays.asList(2, 3, 4, 4, 5)
+    );
+
+    public static final ISkillType MORE_DEFENSE = new SkillType("more_defense",
+            ArrayUtil.getAverageArray(6, 0F, 5F),
+            Arrays.asList(3, 4, 4, 5, 6)
     );
 
     public static final ISkillType GUARD_DAMAGE = new SkillType("guard_damage",
