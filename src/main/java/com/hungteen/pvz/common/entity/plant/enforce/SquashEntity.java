@@ -176,6 +176,6 @@ public class SquashEntity extends PVZPlantEntity{
 
 	@Override
 	protected float getLife() {
-		return this.getSkillValue(SkillTypes.WOOD_MORE_LIFE);
+		return this.getSkillValue(SkillTypes.MORE_MORE_LIFE);
 	}
 }

@@ -4,7 +4,6 @@ import com.hungteen.pvz.api.paz.IPlantEntity;
 import com.hungteen.pvz.api.types.IPlantType;
 import com.hungteen.pvz.common.entity.plant.PVZPlantEntity;
 import com.hungteen.pvz.common.entity.plant.PlantInfo;
-import com.hungteen.pvz.common.impl.SkillTypes;
 import com.hungteen.pvz.common.impl.plant.PVZPlants;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
@@ -34,8 +33,8 @@ public class PumpkinEntity extends PVZPlantEntity{
 	
 	public static class PumpkinInfo extends PlantInfo{
 		
-		private static final float NORMAL_PUMPKIN_LIFE = 300;
-		private static final float SUPER_PUMPKIN_LIFE = 400;
+		private static final float NORMAL_PUMPKIN_LIFE = 100;
+		private static final float SUPER_PUMPKIN_LIFE = 200;
 
 		@Override
 		public void onSuper(IPlantEntity plantEntity) {

@@ -22,7 +22,7 @@ public abstract class CoolDowns implements ICoolDown {
 
 		@Override
 		public int getCD(int lvl) {
-			return 50;
+			return 5;
 		}
 
 	};
@@ -37,7 +37,7 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 100, 60);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 40, 28);
 		}
 		
 	};
@@ -52,7 +52,7 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 200, 120);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 60, 48);
 		}
 		
 	};
@@ -67,7 +67,7 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 300, 180);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 100, 55);
 		}
 		
 	};
@@ -82,7 +82,7 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 400, 240);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 200, 110);
 		}
 		
 	};
@@ -97,9 +97,9 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 500, 300);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 300, 165);
 		}
-		
+
 	};
 
 	//36s to 18s.
@@ -112,7 +112,7 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 720, 360);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 400, 220);
 		}
 		
 	};
@@ -127,7 +127,7 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 1000, 400);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 600, 240);
 		}
 		
 	};
@@ -142,7 +142,7 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 1200, 480);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 800, 320);
 		}
 		
 	};
@@ -157,7 +157,7 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 1500, 600);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 1000, 600);
 		}
 		
 	};
@@ -172,7 +172,7 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 6000, 2400);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 3000, 1200);
 		}
 		
 	};
@@ -187,7 +187,7 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 10000, 4000);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 5000, 2000);
 		}
 		
 	};

@@ -1,18 +1,16 @@
 package com.hungteen.pvz.common.entity.zombie.pool;
 
-import com.hungteen.pvz.client.model.entity.plant.arma.MelonPultModel;
+import com.hungteen.pvz.client.particle.ParticleRegister;
 import com.hungteen.pvz.common.entity.ai.goal.target.PVZRandomTargetGoal;
 import com.hungteen.pvz.common.entity.plant.PVZPlantEntity;
 import com.hungteen.pvz.common.entity.plant.appease.SplitPeaEntity;
 import com.hungteen.pvz.common.entity.plant.arma.MelonPultEntity;
-import com.hungteen.pvz.common.entity.plant.base.PlantPultEntity;
 import com.hungteen.pvz.common.entity.plant.ice.WinterMelonEntity;
 import com.hungteen.pvz.common.entity.zombie.PVZZombieEntity;
 import com.hungteen.pvz.common.impl.SkillTypes;
-import com.hungteen.pvz.common.impl.zombie.ZombieType;
 import com.hungteen.pvz.common.impl.zombie.PoolZombies;
+import com.hungteen.pvz.common.impl.zombie.ZombieType;
 import com.hungteen.pvz.common.misc.PVZLoot;
-import com.hungteen.pvz.client.particle.ParticleRegister;
 import com.hungteen.pvz.remove.MetalTypes;
 import com.hungteen.pvz.utils.WorldUtil;
 import com.hungteen.pvz.utils.ZombieUtil;
@@ -47,7 +45,7 @@ public class DiggerZombieEntity extends PVZZombieEntity implements IHasMetal {
 	
 	@Override
 	protected void registerTargetGoals() {
-		this.targetSelector.addGoal(0, new PVZRandomTargetGoal(this, true, true, ZombieUtil.NORMAL_TARGET_RANGE, ZombieUtil.NORMAL_TARGET_HEIGHT));
+		this.targetSelector.addGoal(0, new PVZRandomTargetGoal(this, false, true, ZombieUtil.NORMAL_TARGET_RANGE * 2, ZombieUtil.NORMAL_TARGET_HEIGHT));
 	}
 	
 	@Override
@@ -93,6 +91,16 @@ public class DiggerZombieEntity extends PVZZombieEntity implements IHasMetal {
 	private void updateAttributes(boolean has){
 		this.getAttribute(Attributes.ATTACK_DAMAGE).setBaseValue(has ? ZombieUtil.LOW : ZombieUtil.HUGE_LOW);
 		this.getAttribute(Attributes.MOVEMENT_SPEED).setBaseValue(has ? ZombieUtil.WALK_LITTLE_FAST*this.getSkillValue(SkillTypes.ZOMBIE_FAST_MOVE) : ZombieUtil.WALK_LITTLE_SLOW*this.getSkillValue(SkillTypes.ZOMBIE_FAST_MOVE));
+	}
+
+	@Override
+	public boolean canPAZTarget(Entity target) {
+		if(super.canPAZTarget(target)) {
+			if(target instanceof PVZPlantEntity) {
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	@Override

@@ -16,14 +16,14 @@ public class SkillTypes {
 
     private static final Map<String, ISkillType> SKILL_MAP = new HashMap<>();
     public static final String SKILL_TAG = "paz_skill_tag";
-    public static final int COOL_DOWN_LEVEL = 5;
+    public static final int COOL_DOWN_LEVEL = 3;
 
     /*
     Skills for both plants and zombies.
      */
     public static final ISkillType FAST_CD = new SkillType("fast_cd",
-            ArrayUtil.getAverageArray(COOL_DOWN_LEVEL + 1, 0F, 5F),
-            Arrays.asList(2, 3, 3, 5, 7)
+            ArrayUtil.getAverageArray(COOL_DOWN_LEVEL + 1, 0F, 3F),
+            Arrays.asList(3, 4, 5)
     );
 
     public static final ISkillType LESS_SUN = new SkillType("less_sun",
@@ -131,10 +131,10 @@ public class SkillTypes {
             Arrays.asList(2, 4, 6)
     );
 
-    //torch wood
-    public static final ISkillType WOOD_MORE_LIFE = new SkillType("wood_more_life",
-            ArrayUtil.getAverageArray(6, 50F, 100F),
-            Arrays.asList(1, 2, 3, 5, 7)
+
+    public static final ISkillType MORE_MORE_LIFE = new SkillType("more_more_life",
+            ArrayUtil.getAverageArray(6, 60F, 160F),
+            Arrays.asList(2, 2, 2, 3, 5)
     );
 
     //plantern
@@ -240,13 +240,13 @@ public class SkillTypes {
     );
 
     public static final ISkillType GARLIC_POTION_RANGE = new SkillType("garlic_potion_range",
-            ArrayUtil.getAverageArray(3, 3F, 5F),
+            ArrayUtil.getAverageArray(3, 3.5F, 7.5F),
             Arrays.asList(3,5)
     );
 
     public static final ISkillType SUPER_GARLIC = new SkillType("super_garlic",
-            ArrayUtil.getAverageArray(3, 0F, 3F),
-            Arrays.asList(3,4,5)
+            ArrayUtil.getAverageArray(2, 0F, 1F),
+            Arrays.asList(5)
     );
 
     //water guard

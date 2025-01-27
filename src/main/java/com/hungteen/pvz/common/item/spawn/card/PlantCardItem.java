@@ -553,7 +553,7 @@ public class PlantCardItem extends SummonCardItem {
 			if(player.level.getDifficulty() == Difficulty.PEACEFUL)
 				player.getCooldowns().addCooldown(heldStack.getItem(), 1);
 			else
-				player.getCooldowns().addCooldown(heldStack.getItem(), 10);
+				player.getCooldowns().addCooldown(heldStack.getItem(), 5);
 		}
 		if(player instanceof ServerPlayerEntity) {
 			if(item.plantType.getUpgradeFrom().isPresent()){
@@ -758,7 +758,7 @@ public class PlantCardItem extends SummonCardItem {
 		final int level = SkillTypes.getSkillLevel(stack, SkillTypes.FAST_CD);
 		int cd = item.getBasisCoolDown(stack).getCD(level);
 
-		if (cd < 2000 && !ChallengeManager.hasChallengeNearby((ServerWorld) player.level,player.blockPosition()))
+		if (cd <= 1000 && !ChallengeManager.hasChallengeNearby((ServerWorld) player.level,player.blockPosition()))
 		{
 			if (player.level.getDifficulty() == Difficulty.HARD) {
 				cd /= 4;
@@ -769,6 +769,7 @@ public class PlantCardItem extends SummonCardItem {
 			else {
 				cd /= 20;
 			}
+			cd = Math.max(cd, 5);
 		}
 
 		if (player.hasEffect(EffectRegister.EXCITE_EFFECT.get())) {
