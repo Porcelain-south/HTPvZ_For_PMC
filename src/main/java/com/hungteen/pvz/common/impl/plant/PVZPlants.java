@@ -444,7 +444,7 @@ public final class PVZPlants extends PlantType {
 	
 	public static final IPlantType GARLIC = new PVZPlants("garlic", new PlantFeatures()
 			.cost(50).requiredLevel(35)
-			.cd(CoolDowns.FAST).rank(RankTypes.GREEN).essence(EssenceTypes.DEFENCE)
+			.cd(CoolDowns.NORMAL).rank(RankTypes.GREEN).essence(EssenceTypes.DEFENCE)
 			.entityType(() -> EntityRegister.GARLIC.get())
 			.summonCard(() -> ItemRegister.GARLIC_CARD.get())
 			.enjoyCard(() -> ItemRegister.GARLIC_ENJOY_CARD.get())

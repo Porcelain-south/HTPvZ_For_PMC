@@ -546,6 +546,7 @@ public class PlantCardItem extends SummonCardItem {
 		if(PlayerUtil.isPlayerSurvival(player)) {
 			if(item.isEnjoyCard) {
 				heldStack.shrink(1);
+				PlayerUtil.setItemStackCD(player, heldStack, 100);
 			} else {
 				handlePlantCardCoolDown(player, heldStack, plantStack, item);
 			}

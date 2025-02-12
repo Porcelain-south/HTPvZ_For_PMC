@@ -22,7 +22,7 @@ public final class OtherPlants extends PlantType {
 	
 	public static final IPlantType ICEBERG_LETTUCE = new OtherPlants("iceberg_lettuce", new PlantFeatures()
 			.cost(25).requiredLevel(40)
-			.cd(CoolDowns.LITTLE_FAST).rank(RankTypes.BLUE).essence(EssenceTypes.ICE)
+			.cd(CoolDowns.VERY_FAST).rank(RankTypes.BLUE).essence(EssenceTypes.ICE)
 			.entityType(() -> EntityRegister.ICEBERG_LETTUCE.get())
 			.summonCard(() -> ItemRegister.ICEBERG_LETTUCE_CARD.get())
 			.enjoyCard(() -> ItemRegister.ICEBERG_LETTUCE_ENJOY_CARD.get())

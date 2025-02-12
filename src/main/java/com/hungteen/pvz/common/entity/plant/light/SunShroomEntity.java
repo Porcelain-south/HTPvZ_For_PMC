@@ -21,7 +21,7 @@ import java.util.List;
 
 public class SunShroomEntity extends PlantProducerEntity {
 	
-	public static final int GROW_CD = 3000;
+	public static final int GROW_CD = 600;
 	public static final int GROW_ANIM_CD = 10;
 	
 	public SunShroomEntity(EntityType<? extends CreatureEntity> type, World worldIn) {
@@ -96,7 +96,7 @@ public class SunShroomEntity extends PlantProducerEntity {
 
 	@Override
 	public int getGenCD() {
-		return 150;
+		return 200;
 	}
 	
 	@Override
