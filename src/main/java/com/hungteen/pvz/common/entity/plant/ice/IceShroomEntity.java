@@ -3,6 +3,7 @@ package com.hungteen.pvz.common.entity.plant.ice;
 import com.hungteen.pvz.api.interfaces.IAlmanacEntry;
 import com.hungteen.pvz.api.interfaces.IIceEffect;
 import com.hungteen.pvz.api.types.IPlantType;
+import com.hungteen.pvz.client.particle.ParticleRegister;
 import com.hungteen.pvz.common.advancement.trigger.EntityEffectAmountTrigger;
 import com.hungteen.pvz.common.entity.misc.ElementBallEntity;
 import com.hungteen.pvz.common.entity.misc.ElementBallEntity.ElementTypes;
@@ -11,7 +12,6 @@ import com.hungteen.pvz.common.impl.plant.PVZPlants;
 import com.hungteen.pvz.common.misc.PVZEntityDamageSource;
 import com.hungteen.pvz.common.misc.sound.SoundRegister;
 import com.hungteen.pvz.common.potion.EffectRegister;
-import com.hungteen.pvz.client.particle.ParticleRegister;
 import com.hungteen.pvz.utils.EntityUtil;
 import com.hungteen.pvz.utils.enums.PAZAlmanacs;
 import com.mojang.datafixers.util.Pair;
@@ -85,11 +85,11 @@ public class IceShroomEntity extends PlantBomberEntity implements IIceEffect{
 
 	@Override
 	public float getExplodeRange(){
-		return 30;
+		return 45;
 	}
 	
 	public float getExplodeDamage() {
-		return 1.5F;
+		return 3.5F;
 	}
 	
 	@Override
@@ -98,7 +98,7 @@ public class IceShroomEntity extends PlantBomberEntity implements IIceEffect{
 	}
 	
 	public int getColdLvl() {
-		return 5;
+		return 7;
 	}
 	
 	public int getColdTick() {

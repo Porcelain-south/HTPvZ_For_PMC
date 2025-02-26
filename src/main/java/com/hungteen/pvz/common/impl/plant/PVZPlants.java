@@ -83,7 +83,7 @@ public final class PVZPlants extends PlantType {
 			.summonCard(() -> ItemRegister.CHERRY_BOMB_CARD.get())
 			.enjoyCard(() -> ItemRegister.CHERRY_BOMB_ENJOY_CARD.get())
 			.plantModel(() -> CherryBombModel::new).scale(0.8F)
-			.commonSunSkill(Arrays.asList(SkillTypes.NORMAL_BOMB_DAMAGE))
+			.cdSkill(Arrays.asList(SkillTypes.NORMAL_BOMB_DAMAGE))
 	);
 	
 	public static final IPlantType WALL_NUT = new PVZPlants("wall_nut", new PlantFeatures()
@@ -245,7 +245,7 @@ public final class PVZPlants extends PlantType {
 			.summonCard(() -> ItemRegister.SQUASH_CARD.get())
 			.enjoyCard(() -> ItemRegister.SQUASH_ENJOY_CARD.get())
 			.plantModel(() -> SquashModel::new).scale(0.5F)
-			.cdSkill(Arrays.asList(SkillTypes.MORE_MORE_LIFE, SkillTypes.NORMAL_ENHANCE_STRENGTH, SkillTypes.SQUASH_AGAIN))
+			.cdSkill(Arrays.asList(SkillTypes.MORE_MORE_LIFE, SkillTypes.SQUASH_ENHANCE_STRENGTH, SkillTypes.SQUASH_AGAIN))
 	);
 	
 	public static final IPlantType THREE_PEATER = new PVZPlants("three_peater", new PlantFeatures()
@@ -275,7 +275,7 @@ public final class PVZPlants extends PlantType {
 			.summonCard(() -> ItemRegister.JALAPENO_CARD.get())
 			.enjoyCard(() -> ItemRegister.JALAPENO_ENJOY_CARD.get())
 			.plantModel(() -> JalapenoModel::new).scale(1.0F)
-			.commonSunSkill(Arrays.asList(SkillTypes.NORMAL_BOMB_DAMAGE))
+			.cdSkill(Arrays.asList(SkillTypes.NORMAL_BOMB_DAMAGE))
 	);
 	
 	public static final IPlantType SPIKE_WEED = new PVZPlants("spike_weed", new PlantFeatures()
@@ -297,7 +297,7 @@ public final class PVZPlants extends PlantType {
 			.summonCard(() -> ItemRegister.TORCH_WOOD_CARD.get())
 			.enjoyCard(() -> ItemRegister.TORCH_WOOD_ENJOY_CARD.get())
 			.plantModel(() -> TorchWoodModel::new).scale(1F)
-			.cdSkill(Arrays.asList(SkillTypes.MORE_MORE_LIFE, SkillTypes.HEAT_PEA_RANGE, SkillTypes.LESS_SUN))
+			.cdSkill(Arrays.asList(SkillTypes.LESS_SUN, SkillTypes.MORE_MORE_LIFE, SkillTypes.HEAT_PEA_RANGE))
 	);
 	
 	public static final IPlantType TALL_NUT = new PVZPlants("tall_nut", new PlantFeatures()
@@ -315,7 +315,7 @@ public final class PVZPlants extends PlantType {
 	 */
 	public static final IPlantType SEA_SHROOM = new PVZPlants("sea_shroom", new PlantFeatures().isShroomPlant().isWaterPlant()
 			.cost(5).requiredLevel(200)
-			.cd(CoolDowns.SUPER_FAST).rank(RankTypes.WHITE).essence(EssenceTypes.TOXIC)
+			.cd(CoolDowns.HUGE_FAST).rank(RankTypes.WHITE).essence(EssenceTypes.TOXIC)
 			.entityType(() -> EntityRegister.SEA_SHROOM.get())
 			.summonCard(() -> ItemRegister.SEA_SHROOM_CARD.get())
 			.enjoyCard(() -> ItemRegister.SEA_SHROOM_ENJOY_CARD.get())
@@ -449,7 +449,7 @@ public final class PVZPlants extends PlantType {
 			.summonCard(() -> ItemRegister.GARLIC_CARD.get())
 			.enjoyCard(() -> ItemRegister.GARLIC_ENJOY_CARD.get())
 			.plantModel(() -> GarlicModel::new).scale(0.9F)
-			.cdSkill(Arrays.asList(SkillTypes.MORE_GARLIC_LIFE, SkillTypes.GARLIC_POTION_RANGE))
+			.cdSkill(Arrays.asList(SkillTypes.MORE_GARLIC_LIFE, SkillTypes.GARLIC_POTION_RANGE, SkillTypes.SUPER_GARLIC))
 	);
 	
 	public static final IPlantType UMBRELLA_LEAF = new PVZPlants("umbrella_leaf", new PlantFeatures()

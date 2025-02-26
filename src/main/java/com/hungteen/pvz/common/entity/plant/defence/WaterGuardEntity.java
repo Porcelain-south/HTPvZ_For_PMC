@@ -32,8 +32,8 @@ public class WaterGuardEntity extends PlantDefenderEntity{
 	}
 	@Override
 	public void tick() {
-		if(EntityUtil.isEntityValid(this) && !this.level.isClientSide()&&this.tickCount%40==0) {
-			giveDamageToZombie((int) 2);
+		if(EntityUtil.isEntityValid(this) && !this.level.isClientSide()&&this.tickCount%30==0) {
+			giveDamageToZombie((int) 5);
 		}
 		super.tick();
 	}

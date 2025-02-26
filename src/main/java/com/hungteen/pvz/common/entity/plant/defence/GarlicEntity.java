@@ -39,7 +39,7 @@ public class GarlicEntity extends PlantDefenderEntity {
 		}
 		if(SkillTypes.getSkillLevel(this.getSkills(), SkillTypes.SUPER_GARLIC) > 0)
 		{
-			if(amount>=50)
+			if(amount>50)
 			{
 				amount = 50;
 				EntityUtil.getTargetableLivings(this, EntityUtil.getEntityAABB(this, 32, 5)).forEach((entity) -> {

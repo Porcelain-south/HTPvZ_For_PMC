@@ -126,7 +126,7 @@ public class ScaredyShroomEntity extends PlantShooterEntity {
 	
 	@Override
 	public int getSuperTimeLength() {
-		return 100;
+		return 40;
 	}
 	
 	@Override

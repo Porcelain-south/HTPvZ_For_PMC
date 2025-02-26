@@ -66,7 +66,7 @@ public abstract class PlantDefenderEntity extends PVZPlantEntity implements ICan
 	
 	@Override
 	public float getAttractRange() {
-		return 2.5F;
+		return 3.5F;
 	}
 	
 	@Override

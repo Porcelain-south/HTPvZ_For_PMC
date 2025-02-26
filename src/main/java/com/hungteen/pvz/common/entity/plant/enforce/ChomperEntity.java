@@ -84,14 +84,21 @@ public class ChomperEntity extends PVZPlantEntity {
 		//summon ground chomper
 		final float range = 5F;
 		int cnt = this.getSuperAttackCnt();
-		for (LivingEntity target : EntityUtil.getTargetableLivings(this, EntityUtil.getEntityAABB(this, range, range))) {
-			if(! target.isOnGround()) {
-				continue;
+		while (true)
+		{
+			for (LivingEntity target : EntityUtil.getTargetableLivings(this, EntityUtil.getEntityAABB(this, range, range))) {
+				if(! target.isOnGround() || this.getRandom().nextInt(5) != 0) {
+					//按顺序，每个敌人只有20%的概率被锁定
+					continue;
+				}
+				SmallChomperEntity chomper = EntityRegister.SMALL_CHOMPER.get().create(level);
+				chomper.summonByOwner(this);
+				EntityUtil.onEntitySpawn(level, chomper, target.blockPosition());
+				if (-- cnt == 0) {
+					break;
+				}
 			}
-			SmallChomperEntity chomper = EntityRegister.SMALL_CHOMPER.get().create(level);
-			chomper.summonByOwner(this);
-			EntityUtil.onEntitySpawn(level, chomper, target.blockPosition());
-			if (-- cnt == 0) {
+			if (cnt <= 0) {
 				break;
 			}
 		}

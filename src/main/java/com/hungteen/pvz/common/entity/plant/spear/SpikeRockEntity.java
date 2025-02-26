@@ -46,5 +46,13 @@ public class SpikeRockEntity extends SpikeWeedEntity {
 	public float getAttackDamage(){
 		return this.getSkillValue(SkillTypes.SPIKE_DAMAGE)*2;
 	}
+
+	/**
+	 * get extra spike when start super.
+	 * {@link #startSuperMode(boolean)}
+	 */
+	public int getSuperSpikeCount() {
+		return 5;
+	}
 	
 }

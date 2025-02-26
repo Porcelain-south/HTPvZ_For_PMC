@@ -8,7 +8,6 @@ import com.hungteen.pvz.common.entity.plant.appease.PeaShooterEntity;
 import com.hungteen.pvz.common.impl.plant.PVZPlants;
 import com.hungteen.pvz.common.misc.sound.SoundRegister;
 import com.hungteen.pvz.common.potion.EffectRegister;
-
 import com.hungteen.pvz.utils.enums.PAZAlmanacs;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.entity.CreatureEntity;
@@ -50,7 +49,7 @@ public class SnowPeaEntity extends PeaShooterEntity implements IIceEffect{
 	 * cold effect maxLevel.
 	 */
 	public int getColdLvl() {
-		return 3;
+		return 4;
 	}
 	
 	/**

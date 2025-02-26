@@ -101,11 +101,11 @@ public class KernelPultEntity extends PlantPultEntity {
 	}
 
 	public EffectInstance getButterEffect() {
-		return new EffectInstance(EffectRegister.BUTTER_EFFECT.get(), this.getButterDuration(), 1, false, false);
+		return new EffectInstance(EffectRegister.BUTTER_EFFECT.get(), this.getButterDuration(), 0, false, false);
 	}
 	
 	public int getButterDuration() {
-		return 100;
+		return 80;
 	}
 	
 	@Override

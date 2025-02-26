@@ -27,8 +27,8 @@ public class SkillTypes {
     );
 
     public static final ISkillType LESS_SUN = new SkillType("less_sun",
-            ArrayUtil.getAverageArray(4, 0F, 75F),
-            Arrays.asList(3, 5, 7)
+            ArrayUtil.getAverageArray(3, 0F, 50F),
+            Arrays.asList(2, 3)
     );
 
     /*
@@ -44,13 +44,13 @@ public class SkillTypes {
     //peashooter.
     public static final ISkillType PEA_DAMAGE = new SkillType("pea_damage",
             ArrayUtil.getAverageArray(5, 3F, 5F),
-            Arrays.asList(2, 4, 5, 6)
+            Arrays.asList(2, 2, 3, 3)
     );
 
     //cherry bomb.
     public static final ISkillType NORMAL_BOMB_DAMAGE = new SkillType("normal_bomb_damage",
-            ArrayUtil.getAverageArray(6, 100F, 600F),
-            Arrays.asList(2, 3, 5, 7, 7)
+            ArrayUtil.getAverageArray(4, 150F, 450F),
+            Arrays.asList(1, 3, 5)
     );
 
     //potato mine bomb.
@@ -62,31 +62,37 @@ public class SkillTypes {
     //wall nut.
     public static final ISkillType NUT_MORE_LIFE = new SkillType("nut_more_life",
             ArrayUtil.getAverageArray(6, 250F, 500F),
-            Arrays.asList(3, 4, 5, 6, 8)
+            Arrays.asList(1, 1, 2, 3, 3)
     );
 
     //tall wall nut.
     public static final ISkillType TALL_NUT_MORE_LIFE = new SkillType("tall_nut_more_life",
             ArrayUtil.getAverageArray(6, 325F, 700F),
-            Arrays.asList(3, 4, 5, 6, 8)
+            Arrays.asList(2, 2, 3, 3, 5)
     );
 
     //potato mine.
     public static final ISkillType MINE_FAST_PREPARE = new SkillType("mine_fast_prepare",
             ArrayUtil.getAverageArray(5, 240F, 40F),
-            Arrays.asList(3, 3, 4, 6)
+            Arrays.asList(2, 2, 3, 4)
     );
 
-    //chomper.
+    //chomper and TangleKelp.
     public static final ISkillType NORMAL_ENHANCE_STRENGTH = new SkillType("normal_enhance_strength",
+            ArrayUtil.getAverageArray(5, 140F, 300F),
+            Arrays.asList(1, 2, 2, 3)
+    );
+
+    //squash.
+    public static final ISkillType SQUASH_ENHANCE_STRENGTH = new SkillType("squash_enhance_strength",
             ArrayUtil.getAverageArray(5, 100F, 300F),
-            Arrays.asList(3, 4, 6, 7)
+            Arrays.asList(1, 2, 2, 3)
     );
 
     //puff shroom.
     public static final ISkillType PUFF_DAMAGE = new SkillType("spore_damage",
             ArrayUtil.getAverageArray(5, 2F, 6F),
-            Arrays.asList(2, 4, 5, 6)
+            Arrays.asList(2, 2, 3, 3)
     );
 
     //fume shroom.
@@ -98,25 +104,25 @@ public class SkillTypes {
     //gloom shroom.
     public static final ISkillType Gloom_DAMAGE = new SkillType("spore_damage",
             ArrayUtil.getAverageArray(6, 2.5F, 5F),
-            Arrays.asList(2, 3, 4, 5, 7)
+            Arrays.asList(2, 2, 3, 3, 5)
     );
 
     //doom shroom.
     public static final ISkillType HIGH_EXPLODE_DAMAGE = new SkillType("high_explode_damage",
-            ArrayUtil.getAverageArray(7, 200F, 800F),
-            Arrays.asList(2, 3, 3, 4, 5, 7)
+            ArrayUtil.getAverageArray(4, 200F, 800F),
+            Arrays.asList(2, 3, 5)
     );
 
     //squash.
     public static final ISkillType SQUASH_AGAIN = new SkillType("squash_again",
-            ArrayUtil.getAverageArray(4, 0.25F, 0.7F),
+            ArrayUtil.getAverageArray(4, 0F, 0.6F),
             Arrays.asList(2, 3, 5)
     );
 
     //spike weed
     public static final ISkillType SPIKE_DAMAGE = new SkillType("spike_damage",
             ArrayUtil.getAverageArray(6, 4F, 6.5F),
-            Arrays.asList(2, 2, 3, 5, 5)
+            Arrays.asList(2, 2, 3, 3, 5)
     );
 
     //spike rock
@@ -134,7 +140,7 @@ public class SkillTypes {
 
     public static final ISkillType MORE_MORE_LIFE = new SkillType("more_more_life",
             ArrayUtil.getAverageArray(6, 60F, 160F),
-            Arrays.asList(2, 2, 2, 3, 5)
+            Arrays.asList(2, 2, 3, 3, 5)
     );
 
     //plantern
@@ -152,13 +158,13 @@ public class SkillTypes {
     //cactus
     public static final ISkillType MORE_THORN_DAMAGE = new SkillType("more_thorn_damage",
             ArrayUtil.getAverageArray(6, 5F, 10F),
-            Arrays.asList(2, 3, 5, 6, 9)
+            Arrays.asList(2, 2, 3, 3, 5)
     );
 
     //blover.
     public static final ISkillType BLOW_STRENGTH = new SkillType("blow_strength",
             ArrayUtil.getAverageArray(5, 46F, 286F),
-            Arrays.asList(3, 5, 7, 9)
+            Arrays.asList(2, 3, 3, 5)
     );
 
     //split pea.
@@ -169,26 +175,26 @@ public class SkillTypes {
 
     //star fruit.
     public static final ISkillType MORE_STAR_DAMAGE = new SkillType("more_star_damage",
-            ArrayUtil.getAverageArray(5, 4F, 8F),
-            Arrays.asList(2, 3, 3, 5)
+            ArrayUtil.getAverageArray(5, 6F, 10F),
+            Arrays.asList(2, 2, 3, 3)
     );
 
     //magnet shroom.
     public static final ISkillType LESS_WORK_CD = new SkillType("less_work_cd",
             ArrayUtil.getAverageArray(4, 600F, 300F),
-            Arrays.asList(2, 3, 6)
+            Arrays.asList(2, 3, 5)
     );
 
     //cabbage pult
     public static final ISkillType MORE_CABBAGE_DAMAGE = new SkillType("more_cabbage_damage",
-            ArrayUtil.getAverageArray(5, 6F, 10F),
-            Arrays.asList(2, 3, 6, 7)
+            ArrayUtil.getAverageArray(5, 12F, 20F),
+            Arrays.asList(2, 2, 3, 3)
     );
 
     //kernel pult
     public static final ISkillType MORE_KERNEL_DAMAGE = new SkillType("more_kernel_damage",
-            ArrayUtil.getAverageArray(4, 3F, 6F),
-            Arrays.asList(3, 5, 8)
+            ArrayUtil.getAverageArray(4, 4F, 10F),
+            Arrays.asList(2, 3, 3)
     );
 
     //melon pult
@@ -200,37 +206,37 @@ public class SkillTypes {
     //winter melon pult
     public static final ISkillType MORE_WINTER_MELON_DAMAGE = new SkillType("more_winter_melon_damage",
             ArrayUtil.getAverageArray(5, 24F, 36F),
-            Arrays.asList(2, 3, 5, 8)
+            Arrays.asList(2, 3, 3, 5)
     );
 
     //bonk choy
     public static final ISkillType MORE_SWING_DAMAGE = new SkillType("more_swing_damage",
-            ArrayUtil.getAverageArray(6, 5F, 10F),
-            Arrays.asList(2, 3, 4, 6, 8)
+            ArrayUtil.getAverageArray(6, 5F, 15F),
+            Arrays.asList(1, 2, 2, 3, 3)
     );
 
     //gold leaf
     public static final ISkillType ADVANCE_GOLD = new SkillType("advance_gold",
             ArrayUtil.getAverageArray(3, 1F, 3F),
-            Arrays.asList(6, 12)
+            Arrays.asList(4, 8)
     );
 
     //angle star fruit
     public static final ISkillType TEN_STARS = new SkillType("ten_stars",
-            ArrayUtil.getAverageArray(5, 0.2F, 0.6F),
-            Arrays.asList(1, 3, 5, 7)
+            ArrayUtil.getAverageArray(5, 0.2F, 1.0F),
+            Arrays.asList(1, 2, 2, 3)
     );
 
     //bamboo lord
     public static final ISkillType SMALL_BOMB_DAMAGE = new SkillType("small_bomb_damage",
             ArrayUtil.getAverageArray(5, 80F, 400F),
-            Arrays.asList(3, 5, 7, 9)
+            Arrays.asList(2, 2, 3, 5)
     );
 
     //CobCannon
     public static final ISkillType CANNON_FAST_PREPARE = new SkillType("cannon_fast_prepare",
             ArrayUtil.getAverageArray(6, 1800F, 600F),
-            Arrays.asList(2, 3, 5, 7, 9)
+            Arrays.asList(1, 2, 2, 3, 5)
     );
 
     //garlic
@@ -261,14 +267,14 @@ public class SkillTypes {
     );
 
     public static final ISkillType GUARD_DAMAGE = new SkillType("guard_damage",
-            ArrayUtil.getAverageArray(4, 3.5F, 5F),
+            ArrayUtil.getAverageArray(4, 2.5F, 4F),
             Arrays.asList(2, 3, 5)
     );
 
     //butter pult
     public static final ISkillType MORE_BUTTER_DAMAGE = new SkillType("more_butter_damage",
-            ArrayUtil.getAverageArray(6, 1F, 6F),
-            Arrays.asList(1, 3, 4, 6, 10)
+            ArrayUtil.getAverageArray(5, 2F, 10F),
+            Arrays.asList(1, 2, 2, 3)
     );
 //    public static final ISkillType BIG_PEA = new SkillType("big_pea", "pvz:special_pea",
 //            ArrayUtil.getAverageArray(6, 0F, 0.04F),

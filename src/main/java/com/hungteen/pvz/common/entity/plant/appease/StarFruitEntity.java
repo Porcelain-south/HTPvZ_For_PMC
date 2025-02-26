@@ -20,9 +20,47 @@ public class StarFruitEntity extends PlantShooterEntity {
 	public static final float PER_ANGLE = 360F / 5;
 	private static final float SHOOT_HEIGHT = 0.2F;
 	public int lightTick = 0;
+	private boolean afterSuperRemove = false;
 	
 	public StarFruitEntity(EntityType<? extends CreatureEntity> type, World worldIn) {
 		super(type, worldIn);
+		if(!level.isClientSide) {
+			//检测附近20格内是否有另外4个星星果
+			int cnt = 1;
+			final int range = 20;
+			for(StarFruitEntity starfruit : level.getEntitiesOfClass(StarFruitEntity.class, EntityUtil.getEntityAABB(this, range, range), starfruit -> {
+				return this.canSuperTogether(starfruit);
+			})) {
+				if(starfruit.canStartSuperMode()) {
+					++ cnt;
+				}
+			}
+			if(cnt >= 5) {
+				for(StarFruitEntity starfruit : level.getEntitiesOfClass(StarFruitEntity.class, EntityUtil.getEntityAABB(this, range, range), starfruit -> {
+					return this.canSuperTogether(starfruit);
+				})) {
+					if(starfruit.canStartSuperMode()) {
+						starfruit.startSuperAndRemove(false);
+					}
+				}
+				startSuperAndRemove(false);
+			}
+		}
+	}
+
+	public void startSuperAndRemove(boolean first) {
+		startSuperMode(first);
+		afterSuperRemove = true;
+	}
+
+	/**
+	 * {@link #startSuperAndRemove(boolean)}
+	 */
+	protected boolean canSuperTogether(StarFruitEntity entity) {
+		if(EntityUtil.canTargetEntity(this, entity) || entity.getPlantType() != this.getPlantType()) {
+			return false;
+		}
+		return this.getOwnerUUID().isPresent() && entity.getOwnerUUID().isPresent() && entity.getOwnerUUID().get().equals(this.getOwnerUUID().get());
 	}
 	
 	@Override
@@ -33,6 +71,13 @@ public class StarFruitEntity extends PlantShooterEntity {
 			}
 			if(this.getAttackTime() > 0) {
 			    this.lightTick = 8;
+			}
+		}
+		//激发后移除
+		if(!level.isClientSide) {
+			if(afterSuperRemove&&!this.isPlantInSuperMode())
+			{
+				this.remove();
 			}
 		}
 		super.normalPlantTick();

@@ -1074,6 +1074,8 @@
     "skill.pvz.cannon_fast_prepare.desc": "Decrease prepare time",
     "skill.pvz.normal_enhance_strength": "Strength Enhance",
     "skill.pvz.normal_enhance_strength.desc": "Increase attack damage",
+    "skill.pvz.squash_enhance_strength": "Strength Enhance",
+    "skill.pvz.squash_enhance_strength.desc": "Increase attack damage",
     "skill.pvz.spore_damage": "Shoot Training",
     "skill.pvz.spore_damage.desc": "Increase spore damage",
     "skill.pvz.high_explode_damage": "Explode Training",

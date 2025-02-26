@@ -3,7 +3,6 @@ package com.hungteen.pvz.common.entity.plant.defence;
 import com.hungteen.pvz.api.types.IPlantType;
 import com.hungteen.pvz.common.impl.SkillTypes;
 import com.hungteen.pvz.common.impl.plant.PVZPlants;
-
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
@@ -43,7 +42,7 @@ public class TallNutEntity extends WallNutEntity{
 	
 	@Override
 	public float getAttractRange() {
-		return 3.5F;
+		return 5F;
 	}
 	
 	@Override

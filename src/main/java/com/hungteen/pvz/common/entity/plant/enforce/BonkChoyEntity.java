@@ -27,6 +27,8 @@ public class BonkChoyEntity extends PVZPlantEntity {
 
 	protected static final float AttackRange = 3.5F;
 
+	protected static final float SuperAttackRange = 5F;
+
 	public BonkChoyEntity(EntityType<? extends CreatureEntity> type, World worldIn) {
 		super(type, worldIn);
 	}
@@ -43,9 +45,9 @@ public class BonkChoyEntity extends PVZPlantEntity {
 		super.normalPlantTick();
 		if(! level.isClientSide) {
 			if(this.isPlantInSuperMode() && this.getSuperTime() % 5 == 0) {
-				final float range = 5F;
+				final float range = SuperAttackRange;
 				EntityUtil.getTargetableEntities(this, EntityUtil.getEntityAABB(this, range, range)).forEach((target) -> {
-					target.hurt(PVZEntityDamageSource.normal(this), this.getAttackDamage() * 3);
+					target.hurt(PVZEntityDamageSource.normal(this), this.getAttackDamage() * 2);
 					EntityUtil.spawnParticle(target, 7);
 					EntityUtil.playSound(this, SoundRegister.SWING.get());
 				});
@@ -91,7 +93,7 @@ public class BonkChoyEntity extends PVZPlantEntity {
 	
 	@Override
 	public int getSuperTimeLength() {
-		return 120;
+		return 80;
 	}
 	
 	@Override

@@ -37,7 +37,7 @@ public final class OtherPlants extends PlantType {
 			.summonCard(() -> ItemRegister.BONK_CHOY_CARD.get())
 			.enjoyCard(() -> ItemRegister.BONK_CHOY_ENJOY_CARD.get())
 			.plantModel(() -> BonkChoyModel::new).scale(0.9F)
-			.commonSkill(Arrays.asList(SkillTypes.MORE_MORE_LIFE, SkillTypes.MORE_SWING_DAMAGE))
+			.cdSkill(Arrays.asList(SkillTypes.MORE_MORE_LIFE, SkillTypes.MORE_SWING_DAMAGE))
 	);
 	
 	public static final IPlantType GOLD_LEAF = new OtherPlants("gold_leaf", new PlantFeatures()
