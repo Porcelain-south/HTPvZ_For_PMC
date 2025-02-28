@@ -3,23 +3,18 @@ package com.hungteen.pvz.common.entity.plant.magic;
 import com.hungteen.pvz.PVZConfig;
 import com.hungteen.pvz.api.interfaces.IAlmanacEntry;
 import com.hungteen.pvz.api.types.IPlantType;
+import com.hungteen.pvz.common.entity.EntityRegister;
 import com.hungteen.pvz.common.entity.ai.goal.target.PVZNearestTargetGoal;
 import com.hungteen.pvz.common.entity.plant.PVZPlantEntity;
 import com.hungteen.pvz.common.event.PVZLivingEvents;
 import com.hungteen.pvz.common.impl.plant.MemePlants;
 import com.hungteen.pvz.common.misc.PVZEntityDamageSource;
 import com.hungteen.pvz.common.misc.sound.SoundRegister;
-import com.hungteen.pvz.common.entity.EntityRegister;
 import com.hungteen.pvz.utils.EntityUtil;
 import com.hungteen.pvz.utils.PlantUtil;
-
 import com.hungteen.pvz.utils.enums.PAZAlmanacs;
 import com.mojang.datafixers.util.Pair;
-import net.minecraft.entity.CreatureEntity;
-import net.minecraft.entity.EntitySize;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Pose;
+import net.minecraft.entity.*;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingDeathEvent;
@@ -29,7 +24,7 @@ import java.util.List;
 
 public class StrangeCatEntity extends PVZPlantEntity {
 
-	public static final int REST_CD = 1000;
+	public static final int REST_CD = 100;
 	public static final int ANIM_CD = 10;
 	private int restTick = REST_CD;
 	
@@ -121,7 +116,7 @@ public class StrangeCatEntity extends PVZPlantEntity {
 	 * max damage to target
 	 */
 	public float getAttackDamage() {
-		return 200;
+		return 10;
 	}
 	
 	public int getSuperAttackCount() {

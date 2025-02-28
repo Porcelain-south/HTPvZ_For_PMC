@@ -9,13 +9,7 @@ import com.hungteen.pvz.common.item.ItemRegister;
 import com.hungteen.pvz.common.misc.PVZEntityDamageSource;
 import com.hungteen.pvz.common.potion.EffectRegister;
 import com.hungteen.pvz.utils.EffectUtil;
-
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntitySize;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.IRendersAsItem;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.Pose;
+import net.minecraft.entity.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.CompoundNBT;
@@ -123,9 +117,9 @@ public class PeaEntity extends AbstractShootBulletEntity implements IRendersAsIt
 		damage *= (1 + this.power * 1.0f / 4);
 		// fire 
 		if (this.getPeaState() == State.FIRE) {
-			damage *= 1.5F;
-		} else if (this.getPeaState() == State.BLUE_FIRE) {
 			damage *= 2.0F;
+		} else if (this.getPeaState() == State.BLUE_FIRE) {
+			damage *= 3.0F;
 		}
 		return damage;
 	}

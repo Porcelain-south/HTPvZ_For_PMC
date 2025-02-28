@@ -22,12 +22,12 @@ public abstract class CoolDowns implements ICoolDown {
 
 		@Override
 		public int getCD(int lvl) {
-			return 50;
+			return 5;
 		}
 
 	};
 
-	//5s to 3s.
+	//2s to 1.4s.
 	public static final ICoolDown SUPER_FAST = new ICoolDown() {
 		
 		@Override
@@ -37,12 +37,12 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 100, 60);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 40, 28);
 		}
 		
 	};
 
-	//10s to 6s.
+	//3s to 2.1s.
 	public static final ICoolDown HUGE_FAST = new ICoolDown() {
 		
 		@Override
@@ -52,12 +52,12 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 200, 120);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 60, 42);
 		}
 		
 	};
 
-	//15s to 9s.
+	//5s to 2.75s.
 	public static final ICoolDown VERY_FAST = new ICoolDown() {
 		
 		@Override
@@ -67,12 +67,12 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 300, 180);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 100, 55);
 		}
 		
 	};
 
-	//20s to 12s.
+	//10s to 5.5s.
 	public static final ICoolDown FAST = new ICoolDown() {
 		
 		@Override
@@ -82,12 +82,12 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 400, 240);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 200, 110);
 		}
 		
 	};
 
-	//25s to 15s.
+	//15s to 8.25s.
 	public static final ICoolDown LITTLE_FAST = new ICoolDown() {
 		
 		@Override
@@ -97,12 +97,12 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 500, 300);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 300, 165);
 		}
-		
+
 	};
 
-	//36s to 18s.
+	//20s to 11s.
 	public static final ICoolDown NORMAL = new ICoolDown() {
 		
 		@Override
@@ -112,12 +112,12 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 720, 360);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 400, 220);
 		}
 		
 	};
 
-	//50s to 20s.
+	//30s to 12s.
 	public static final ICoolDown LITTLE_SLOW = new ICoolDown() {
 		
 		@Override
@@ -127,12 +127,12 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 1000, 400);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 600, 240);
 		}
 		
 	};
 
-	//60s to 24s.
+	//40s to 16s.
 	public static final ICoolDown SLOW = new ICoolDown() {
 		
 		@Override
@@ -142,12 +142,12 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 1200, 480);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 800, 320);
 		}
 		
 	};
 
-	//75s to 30s.
+	//50s to 20s.
 	public static final ICoolDown VERY_SLOW = new ICoolDown() {
 		
 		@Override
@@ -157,12 +157,12 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 1500, 600);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 1000, 400);
 		}
 		
 	};
 
-	//300s to 120s.
+	//150s to 60s.
 	public static final ICoolDown HUGE_SLOW = new ICoolDown() {
 		
 		@Override
@@ -172,12 +172,12 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 6000, 2400);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 3000, 1200);
 		}
 		
 	};
 
-	//500s to 200s
+	//250s to 100s
 	public static final ICoolDown SUPER_SLOW = new ICoolDown() {
 		
 		@Override
@@ -187,7 +187,7 @@ public abstract class CoolDowns implements ICoolDown {
 		
 		@Override
 		public int getCD(int lvl) {
-			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 10000, 4000);
+			return MathUtil.getIncreaseAverage(lvl, SkillTypes.COOL_DOWN_LEVEL, 5000, 2000);
 		}
 		
 	};

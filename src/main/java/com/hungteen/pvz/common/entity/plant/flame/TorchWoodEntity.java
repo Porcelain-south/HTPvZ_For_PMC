@@ -70,7 +70,7 @@ public class TorchWoodEntity extends PVZPlantEntity {
 	public void startSuperMode(boolean first) {
 		super.startSuperMode(first);
 		this.setFlameType(FlameTypes.BLUE);
-		super_time=3600;
+		super_time=1200;
 	}
 	
 	@Override
@@ -93,7 +93,7 @@ public class TorchWoodEntity extends PVZPlantEntity {
 
 	@Override
 	protected float getLife() {
-		return this.getSkillValue(SkillTypes.WOOD_MORE_LIFE);
+		return this.getSkillValue(SkillTypes.MORE_MORE_LIFE);
 	}
 
 	@Override

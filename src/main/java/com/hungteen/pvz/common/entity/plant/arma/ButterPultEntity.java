@@ -27,13 +27,18 @@ public class ButterPultEntity extends KernelPultEntity {
 	}
 
 	@Override
+	public float getSuperDamage() {
+		return 3 * this.getAttackDamage();
+	};
+
+	@Override
 	public float getAttackDamage() {
 		return this.getSkillValue(SkillTypes.MORE_BUTTER_DAMAGE);
 	}
 	
 	@Override
 	public int getButterDuration() {
-		return 90;
+		return 200;
 	}
 	
 	@Override

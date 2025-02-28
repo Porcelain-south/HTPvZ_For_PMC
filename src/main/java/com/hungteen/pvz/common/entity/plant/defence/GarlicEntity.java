@@ -11,7 +11,6 @@ import com.hungteen.pvz.utils.AlgorithmUtil;
 import com.hungteen.pvz.utils.EntityUtil;
 import net.minecraft.entity.*;
 import net.minecraft.potion.EffectInstance;
-import net.minecraft.potion.Effects;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
@@ -38,15 +37,23 @@ public class GarlicEntity extends PlantDefenderEntity {
 				((MobEntity) source.getEntity()).setTarget(this.garlic);
 			}
 		}
+		if(SkillTypes.getSkillLevel(this.getSkills(), SkillTypes.SUPER_GARLIC) > 0)
+		{
+			if(amount>50)
+			{
+				amount = 50;
+				EntityUtil.getTargetableLivings(this, EntityUtil.getEntityAABB(this, 32, 5)).forEach((entity) -> {
+					entity.addEffect(new EffectInstance(EffectRegister.STENCH_EFFECT.get(), 160, 1));
+				});
+			}
+			amount = Math.min(amount,50);
+		}
 		return super.hurt(source, amount);
 	}
 	private void givePotionToZombie() {
 		double range = getEffectRange() ;
 		EntityUtil.getTargetableLivings(this, EntityUtil.getEntityAABB(this, range, 2)).forEach((entity) -> {
-
 			entity.addEffect(new EffectInstance(EffectRegister.STENCH_EFFECT.get(), 160, 0));
-//			entity.addEffect(new EffectInstance(Effects.POISON, 80, 0));
-
 		});
 	}
 	public double getEffectRange() {

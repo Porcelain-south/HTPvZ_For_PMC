@@ -341,7 +341,7 @@ public class CobCannonEntity extends PVZPlantEntity {
 	}
 	
 	public float getAttackDamage() {
-		return this.getSkillValue(SkillTypes.SMALL_BOMB_DAMAGE);
+		return 100 + this.getSkillValue(SkillTypes.SMALL_BOMB_DAMAGE);
 	}
 	
 	public int getAnimCD() {

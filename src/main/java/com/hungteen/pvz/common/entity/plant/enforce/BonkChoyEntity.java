@@ -25,6 +25,10 @@ import java.util.List;
 
 public class BonkChoyEntity extends PVZPlantEntity {
 
+	protected static final float AttackRange = 3.5F;
+
+	protected static final float SuperAttackRange = 5F;
+
 	public BonkChoyEntity(EntityType<? extends CreatureEntity> type, World worldIn) {
 		super(type, worldIn);
 	}
@@ -33,7 +37,7 @@ public class BonkChoyEntity extends PVZPlantEntity {
 	protected void registerGoals() {
 		super.registerGoals();
 		this.goalSelector.addGoal(0, new BonkChoyAttackGoal(this));
-		this.targetSelector.addGoal(0, new PVZNearestTargetGoal(this, true, false, 3, 3));
+		this.targetSelector.addGoal(0, new PVZNearestTargetGoal(this, true, false, AttackRange, AttackRange));
 	}
 	
 	@Override
@@ -41,9 +45,9 @@ public class BonkChoyEntity extends PVZPlantEntity {
 		super.normalPlantTick();
 		if(! level.isClientSide) {
 			if(this.isPlantInSuperMode() && this.getSuperTime() % 5 == 0) {
-				final float range = 5F;
+				final float range = SuperAttackRange;
 				EntityUtil.getTargetableEntities(this, EntityUtil.getEntityAABB(this, range, range)).forEach((target) -> {
-					target.hurt(PVZEntityDamageSource.normal(this), this.getAttackDamage() * 3);
+					target.hurt(PVZEntityDamageSource.normal(this), this.getAttackDamage() * 2);
 					EntityUtil.spawnParticle(target, 7);
 					EntityUtil.playSound(this, SoundRegister.SWING.get());
 				});
@@ -74,6 +78,11 @@ public class BonkChoyEntity extends PVZPlantEntity {
 		));
 	}
 
+	@Override
+	public float getLife() {
+		return this.getSkillValue(SkillTypes.MORE_MORE_LIFE);
+	}
+
 	public int getAttackCD() {
 		return 10;
 	}
@@ -84,7 +93,7 @@ public class BonkChoyEntity extends PVZPlantEntity {
 	
 	@Override
 	public int getSuperTimeLength() {
-		return 120;
+		return 80;
 	}
 	
 	@Override
@@ -105,14 +114,14 @@ public class BonkChoyEntity extends PVZPlantEntity {
 		public boolean canUse() {
 			LivingEntity living = this.attacker.getTarget();
 			if (! EntityUtil.isEntityValid(living)) return false;
-			return this.attacker.canSee(living) && EntityUtil.getAttackRange(attacker, living, 3F) >= EntityUtil.getNearestDistance(this.attacker, living);
+			return this.attacker.canSee(living) && EntityUtil.getAttackRange(attacker, living, AttackRange) >= EntityUtil.getNearestDistance(this.attacker, living);
 		}
 		
 		@Override
 		public boolean canContinueToUse() {
 			LivingEntity living = this.attacker.getTarget();
 			if (! EntityUtil.isEntityValid(living)) return false;
-			return this.attacker.canSee(living) && EntityUtil.getAttackRange(attacker, living, 3F) >= EntityUtil.getNearestDistance(this.attacker, living);
+			return this.attacker.canSee(living) && EntityUtil.getAttackRange(attacker, living, AttackRange) >= EntityUtil.getNearestDistance(this.attacker, living);
 		}
 		
 		@Override

@@ -8,9 +8,9 @@ import com.hungteen.pvz.client.model.entity.plant.enforce.BonkChoyModel;
 import com.hungteen.pvz.client.model.entity.plant.explosion.BambooLordModel;
 import com.hungteen.pvz.client.model.entity.plant.ice.IcebergLettuceModel;
 import com.hungteen.pvz.client.model.entity.plant.light.GoldLeafModel;
+import com.hungteen.pvz.common.entity.EntityRegister;
 import com.hungteen.pvz.common.impl.*;
 import com.hungteen.pvz.common.item.ItemRegister;
-import com.hungteen.pvz.common.entity.EntityRegister;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -22,7 +22,7 @@ public final class OtherPlants extends PlantType {
 	
 	public static final IPlantType ICEBERG_LETTUCE = new OtherPlants("iceberg_lettuce", new PlantFeatures()
 			.cost(25).requiredLevel(40)
-			.cd(CoolDowns.FAST).rank(RankTypes.BLUE).essence(EssenceTypes.ICE)
+			.cd(CoolDowns.VERY_FAST).rank(RankTypes.BLUE).essence(EssenceTypes.ICE)
 			.entityType(() -> EntityRegister.ICEBERG_LETTUCE.get())
 			.summonCard(() -> ItemRegister.ICEBERG_LETTUCE_CARD.get())
 			.enjoyCard(() -> ItemRegister.ICEBERG_LETTUCE_ENJOY_CARD.get())
@@ -37,7 +37,7 @@ public final class OtherPlants extends PlantType {
 			.summonCard(() -> ItemRegister.BONK_CHOY_CARD.get())
 			.enjoyCard(() -> ItemRegister.BONK_CHOY_ENJOY_CARD.get())
 			.plantModel(() -> BonkChoyModel::new).scale(0.9F)
-			.commonSkill(Arrays.asList(SkillTypes.MORE_SWING_DAMAGE))
+			.cdSkill(Arrays.asList(SkillTypes.MORE_MORE_LIFE, SkillTypes.MORE_SWING_DAMAGE))
 	);
 	
 	public static final IPlantType GOLD_LEAF = new OtherPlants("gold_leaf", new PlantFeatures()

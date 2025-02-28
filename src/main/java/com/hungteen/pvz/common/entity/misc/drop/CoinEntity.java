@@ -1,12 +1,11 @@
 package com.hungteen.pvz.common.entity.misc.drop;
 
 import com.hungteen.pvz.PVZConfig;
-import com.hungteen.pvz.common.misc.sound.SoundRegister;
 import com.hungteen.pvz.common.entity.EntityRegister;
+import com.hungteen.pvz.common.misc.sound.SoundRegister;
 import com.hungteen.pvz.utils.EntityUtil;
 import com.hungteen.pvz.utils.PlayerUtil;
 import com.hungteen.pvz.utils.enums.Resources;
-
 import net.minecraft.entity.EntitySize;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.MobEntity;
@@ -71,7 +70,7 @@ public class CoinEntity extends DropEntity {
 	}
 
 	public static enum CoinType {
-		COPPER(1), SILVER(10), GOLD(100);
+		COPPER(1), SILVER(10), GOLD(50);
 
 		public final int money;
 

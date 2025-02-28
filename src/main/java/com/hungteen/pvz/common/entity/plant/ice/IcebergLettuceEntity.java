@@ -75,7 +75,7 @@ public class IcebergLettuceEntity extends PlantCloserEntity implements IIceEffec
     
     @Override
 	public Optional<EffectInstance> getFrozenEffect() {
-    	return Optional.ofNullable(new EffectInstance(EffectRegister.FROZEN_EFFECT.get(), FROZEN_TICK, 1, false, false));
+    	return Optional.ofNullable(new EffectInstance(EffectRegister.FROZEN_EFFECT.get(), FROZEN_TICK, 0, false, false));
 	}
 
 	@Override
@@ -88,7 +88,7 @@ public class IcebergLettuceEntity extends PlantCloserEntity implements IIceEffec
 	}
 
     public int getColdLevel() {
-		return 5;
+		return 7;
     }
     
     public int getColdDuration() {
@@ -96,7 +96,7 @@ public class IcebergLettuceEntity extends PlantCloserEntity implements IIceEffec
     }
     
     public float getSuperRange() {
-		return 30;
+		return 25;
     }
     
 	@Override

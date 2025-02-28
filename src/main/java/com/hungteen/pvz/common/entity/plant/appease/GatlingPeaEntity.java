@@ -2,7 +2,6 @@ package com.hungteen.pvz.common.entity.plant.appease;
 
 import com.hungteen.pvz.api.types.IPlantType;
 import com.hungteen.pvz.common.impl.plant.PVZPlants;
-
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntityType;
 import net.minecraft.world.World;
@@ -13,6 +12,13 @@ public class GatlingPeaEntity extends RepeaterEntity{
 	
 	public GatlingPeaEntity(EntityType<? extends CreatureEntity> type, World worldIn) {
 		super(type, worldIn);
+		this.setInnerDefenceLife(this.getInnerLife());
+	}
+
+	@Override
+	public void startSuperMode(boolean first) {
+		super.startSuperMode(first);
+		this.setInnerDefenceLife(this.getInnerLife());
 	}
 
 	@Override
@@ -49,5 +55,9 @@ public class GatlingPeaEntity extends RepeaterEntity{
 	public IPlantType getPlantType() {
 		return PVZPlants.GATLING_PEA;
 	}
-	
+
+	@Override
+	public float getInnerLife() {
+		return 30;
+	}
 }

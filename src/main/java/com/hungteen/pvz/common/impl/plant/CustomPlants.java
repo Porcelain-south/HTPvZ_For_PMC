@@ -5,12 +5,12 @@ import com.hungteen.pvz.api.PVZAPI;
 import com.hungteen.pvz.api.types.IPlantType;
 import com.hungteen.pvz.client.model.entity.plant.arma.KernelPultModel;
 import com.hungteen.pvz.client.model.entity.plant.defence.WaterGuardModel;
-import com.hungteen.pvz.common.impl.EssenceTypes;
+import com.hungteen.pvz.common.entity.EntityRegister;
 import com.hungteen.pvz.common.impl.CoolDowns;
+import com.hungteen.pvz.common.impl.EssenceTypes;
 import com.hungteen.pvz.common.impl.RankTypes;
 import com.hungteen.pvz.common.impl.SkillTypes;
 import com.hungteen.pvz.common.item.ItemRegister;
-import com.hungteen.pvz.common.entity.EntityRegister;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -27,11 +27,11 @@ public final class CustomPlants extends PlantType {
 			.summonCard(() -> ItemRegister.WATER_GUARD_CARD.get())
 			.enjoyCard(() -> ItemRegister.WATER_GUARD_ENJOY_CARD.get())
 			.plantModel(() -> WaterGuardModel::new).scale(0.8F)
-			.cdSkill(Arrays.asList(SkillTypes.MORE_GUARD_LIFE, SkillTypes.GUARD_DAMAGE))
+			.cdSkill(Arrays.asList(SkillTypes.MORE_GUARD_LIFE, SkillTypes.GUARD_DAMAGE, SkillTypes.MORE_DEFENSE))
 	);
 	
 	public static final IPlantType BUTTER_PULT = new CustomPlants("butter_pult", new PlantFeatures()
-			.cost(275).requiredLevel(125)
+			.cost(125).requiredLevel(125)
 			.cd(CoolDowns.NORMAL).rank(RankTypes.GOLD).essence(EssenceTypes.ARMA)
 			.entityType(() -> EntityRegister.BUTTER_PULT.get())
 			.summonCard(() -> ItemRegister.BUTTER_PULT_CARD.get())

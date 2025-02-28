@@ -1,11 +1,11 @@
 package com.hungteen.pvz.common.entity.plant.magic;
 
 import com.hungteen.pvz.api.types.IPlantType;
+import com.hungteen.pvz.common.entity.EntityRegister;
 import com.hungteen.pvz.common.entity.misc.drop.CoinEntity;
 import com.hungteen.pvz.common.entity.misc.drop.CoinEntity.CoinType;
 import com.hungteen.pvz.common.entity.plant.base.PlantProducerEntity;
 import com.hungteen.pvz.common.impl.plant.PVZPlants;
-import com.hungteen.pvz.common.entity.EntityRegister;
 import com.hungteen.pvz.utils.EntityUtil;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntitySize;
@@ -37,7 +37,11 @@ public class MariGoldEntity extends PlantProducerEntity {
 		for (int i = 0; i < this.getSuperGenCnt(); ++i) {
 			this.genSomething();
 		}
-		this.genSpecCoin(CoinType.GOLD);
+//		this.genSpecCoin(CoinType.GOLD);
+		if(this.getRandom().nextInt(10) == 0)
+		{
+			EntityUtil.createEntityAndSpawn(level, EntityRegister.JEWEL.get(), blockPosition());
+		}
 	}
 
 	private int getRandomAmount() {
@@ -54,15 +58,15 @@ public class MariGoldEntity extends PlantProducerEntity {
 	}
 	
 	public int getSilverChance() {
-		return 10;
+		return 60;
 	}
 
 	public int getGoldChance() {
-		return 1;
+		return 10;
 	}
 
 	public int getSuperGenCnt() {
-		return 5;
+		return 20;
 	}
 
 	@Override

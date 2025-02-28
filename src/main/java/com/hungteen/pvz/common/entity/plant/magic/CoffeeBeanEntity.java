@@ -65,7 +65,7 @@ public class CoffeeBeanEntity extends PlantBomberEntity{
 	}
 
 	public int getAwakeTime() {
-		return 48000;
+		return 24000;
 	}
 
 	public float getWorkRange(){

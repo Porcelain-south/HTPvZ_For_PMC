@@ -20,9 +20,6 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.util.List;
 
-import static java.lang.Math.*;
-import static net.minecraft.util.math.MathHelper.sign;
-
 public class ThornEntity extends AbstractBulletEntity {
 
 	private static final DataParameter<Integer> THORN_TYPE = EntityDataManager.defineId(ThornEntity.class,
@@ -125,7 +122,8 @@ public class ThornEntity extends AbstractBulletEntity {
 
 	public double getBulletSpeed() {
 		if (this.getThrower() instanceof CatTailEntity) {
-			return this.getThornType() == ThornTypes.AUTO ? 1.0D : 0.6D;
+			//return this.getThornType() == ThornTypes.AUTO ? 1.8D : 0.6D;
+			return this.getThornType() == ThornTypes.AUTO ? 1.8D : this.isInControl() ? 1.2D : 0.6D;
 		}
 		return 0.45D;
 	}
@@ -195,7 +193,7 @@ public class ThornEntity extends AbstractBulletEntity {
 
 	@Override
 	protected int getMaxLiveTick() {
-		return this.getThornType() == ThornTypes.AUTO ? 120 : this.isInControl() ? 160 : 140;
+		return this.getThornType() == ThornTypes.AUTO ? 60 : this.isInControl() ? 50 : 75;
 	}
 
 	@Override

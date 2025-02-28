@@ -33,7 +33,7 @@ public class LightShieldLayer<T extends Entity> extends LayerRenderer<T, EntityM
             IVertexBuilder vertexBuilder = bufferIn.getBuffer(RenderType.lines());
             matrixStackIn.pushPose();
 
-            breathingTime += 0.025f; // 调整这个值以加快或减慢呼吸效果
+            breathingTime += partialTicks * 0.05f; // 调整这个值以加快或减慢呼吸效果
 
             // 旋转效果
             matrixStackIn.mulPose(Vector3f.YP.rotationDegrees(ageInTicks));
@@ -144,13 +144,16 @@ public class LightShieldLayer<T extends Entity> extends LayerRenderer<T, EntityM
         }
 
         // 处理颜色渐变
-        float pulsate = (float) (Math.sin(breathingTime) * 0.1 + 0.9);
-        pulsate = Math.max(pulsate, 0.01f);
+        float pulsate = (float) (Math.sin(breathingTime) * 0.25 + 1.0);
+        pulsate = Math.max(pulsate, 0.75f);
         int maxColorValue = 75;
         shieldColorRed = (int) (shieldColorRed * pulsate + (maxColorValue * (1 - pulsate)));
         shieldColorGreen = (int) (shieldColorGreen * pulsate + (maxColorValue * (1 - pulsate)));
         shieldColorBlue = (int) (shieldColorBlue * pulsate + (maxColorValue * (1 - pulsate)));
-
+        // 确保数值范围
+        shieldColorRed = Math.min(shieldColorRed, 255);
+        shieldColorGreen = Math.min(shieldColorGreen, 255);
+        shieldColorBlue = Math.min(shieldColorBlue, 255);
 
         // 添加顶点
         buffer.vertex(matrix, (float) vertex[0], (float) vertex[1], (float) vertex[2])

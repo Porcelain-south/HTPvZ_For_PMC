@@ -338,8 +338,8 @@ public abstract class PVZZombieEntity extends AbstractPAZEntity implements IZomb
 		}
 		int cd = 20;
 		if (this.hasEffect(EffectRegister.COLD_EFFECT.get())) {//cold will decrease attack CD.
-			int lvl = this.getEffect(EffectRegister.COLD_EFFECT.get()).getAmplifier();
-			cd += 3 * lvl;
+			int lvl = this.getEffect(EffectRegister.COLD_EFFECT.get()).getAmplifier() + 1;
+			cd += 2 * lvl;
 		}
 		return cd;
 	}
