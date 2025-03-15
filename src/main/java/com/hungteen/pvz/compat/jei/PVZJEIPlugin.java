@@ -2,10 +2,13 @@ package com.hungteen.pvz.compat.jei;
 
 import com.hungteen.pvz.common.block.BlockRegister;
 import com.hungteen.pvz.common.container.CardFusionContainer;
+import com.hungteen.pvz.common.container.EssenceFurnaceContainer;
 import com.hungteen.pvz.common.container.FragmentSpliceContainer;
+import com.hungteen.pvz.common.recipe.EssenceFurnaceRecipe;
 import com.hungteen.pvz.common.recipe.FragmentRecipe;
 import com.hungteen.pvz.common.recipe.FusionRecipe;
 import com.hungteen.pvz.common.recipe.RecipeRegister;
+import com.hungteen.pvz.compat.jei.category.EssenceFurnaceRecipeCategory;
 import com.hungteen.pvz.compat.jei.category.FragmentRecipeCategory;
 import com.hungteen.pvz.compat.jei.category.FusionRecipeCategory;
 import com.hungteen.pvz.utils.StringUtil;
@@ -26,24 +29,28 @@ public class PVZJEIPlugin implements IModPlugin {
     public void registerRecipes(IRecipeRegistration registration) {
         registration.addRecipes(PVZJEIHandler.getRecipeManager().getAllRecipesFor(RecipeRegister.FRAGMENT_RECIPE_TYPE), FragmentRecipe.UID);
         registration.addRecipes(PVZJEIHandler.getRecipeManager().getAllRecipesFor(RecipeRegister.FUSION_RECIPE_TYPE), FusionRecipe.UID);
+        registration.addRecipes(PVZJEIHandler.getRecipeManager().getAllRecipesFor(RecipeRegister.FURNACE_RECIPE_TYPE), EssenceFurnaceRecipe.UID);
     }
 
     @Override
     public void registerCategories(IRecipeCategoryRegistration registration) {
         registration.addRecipeCategories(new FragmentRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
         registration.addRecipeCategories(new FusionRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
+        registration.addRecipeCategories(new EssenceFurnaceRecipeCategory(registration.getJeiHelpers().getGuiHelper()));
     }
 
     @Override
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalyst(BlockRegister.FRAGMENT_SPLICE.get().asItem().getDefaultInstance(), FragmentRecipe.UID);
         registration.addRecipeCatalyst(BlockRegister.CARD_FUSION_TABLE.get().asItem().getDefaultInstance(), FusionRecipe.UID);
+        registration.addRecipeCatalyst(BlockRegister.ESSENCE_FURNACE.get().asItem().getDefaultInstance(), FusionRecipe.UID);
     }
 
     @Override
     public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
         registration.addRecipeTransferHandler(FragmentSpliceContainer.class, FragmentRecipe.UID, 2, 25, 27, 36);
         registration.addRecipeTransferHandler(CardFusionContainer.class, FusionRecipe.UID, 3, 9, 12, 36);
+        registration.addRecipeTransferHandler(EssenceFurnaceContainer.class, EssenceFurnaceRecipe.UID, 0, 2, 0, 39);
     }
 
     @Override

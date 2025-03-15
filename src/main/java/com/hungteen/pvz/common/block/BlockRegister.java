@@ -90,7 +90,8 @@ public class BlockRegister {
 	public static final RegistryObject<SlotMachineBlock> SLOT_MACHINE = BLOCKS.register("slot_machine", SlotMachineBlock::new);
 	public static final RegistryObject<EssenceAltarBlock> ESSENCE_ALTAR = BLOCKS.register("essence_altar", EssenceAltarBlock::new);
 	public static final RegistryObject<CardFusionBlock> CARD_FUSION_TABLE = BLOCKS.register("card_fusion_table", CardFusionBlock::new);
-	
+	public static final RegistryObject<EssenceFurnaceBlock> ESSENCE_FURNACE = BLOCKS.register("essence_furnace", EssenceFurnaceBlock::new);
+
 	/**
 	 * register block items.
 	 */
@@ -108,7 +109,7 @@ public class BlockRegister {
 		});
 
 		Arrays.asList(
-				STEEL_LADDER, SUN_CONVERTER, FRAGMENT_SPLICE, ESSENCE_ALTAR, CARD_FUSION_TABLE
+				STEEL_LADDER, SUN_CONVERTER, FRAGMENT_SPLICE, ESSENCE_ALTAR, CARD_FUSION_TABLE , ESSENCE_FURNACE
 		).forEach(block -> {
 			items.register(new BlockItem(block.get(), new Item.Properties().tab(PVZItemGroups.PVZ_USEFUL)).setRegistryName(block.get().getRegistryName()));
 		});

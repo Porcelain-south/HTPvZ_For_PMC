@@ -1,9 +1,5 @@
 package com.hungteen.pvz.data.recipe;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.function.Consumer;
-
 import com.hungteen.pvz.api.PVZAPI;
 import com.hungteen.pvz.api.types.IPlantType;
 import com.hungteen.pvz.api.types.IRankType;
@@ -13,7 +9,6 @@ import com.hungteen.pvz.common.item.ItemRegister;
 import com.hungteen.pvz.common.item.spawn.card.PlantCardItem;
 import com.hungteen.pvz.common.misc.tag.PVZItemTags;
 import com.hungteen.pvz.utils.StringUtil;
-
 import net.minecraft.data.CookingRecipeBuilder;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.IFinishedRecipe;
@@ -27,6 +22,10 @@ import net.minecraft.tags.ITag;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.IItemProvider;
 import net.minecraftforge.common.data.ForgeRecipeProvider;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.function.Consumer;
 
 public class RecipeGenerator extends ForgeRecipeProvider{
 
@@ -84,6 +83,9 @@ public class RecipeGenerator extends ForgeRecipeProvider{
 		//smelt
 		registerStoneSmelting(consumer, BlockRegister.AMETHYST_ORE.get(), ItemRegister.AMETHYST_INGOT.get(), 1.4F, 250, "amethyst_ingot");
 		registerFoodSmelting(consumer, ItemRegister.FAKE_BRAIN.get(), ItemRegister.COOKED_BRAIN.get(), 0.4F, 200, "cooked_brain");
+
+		//essence refine
+		registerEssenceRefine(consumer, ItemRegister.PEA.get(),ItemRegister.ICE_ESSENCE.get(), ItemRegister.SNOW_PEA.get(), 0.7F, 200, "snow_pea");
 
 		//fragment splice
 		PVZAPI.get().getPlants().forEach(p -> {
@@ -167,7 +169,10 @@ public class RecipeGenerator extends ForgeRecipeProvider{
 		CookingRecipeBuilder.cooking(Ingredient.of(input), item, xp, time, IRecipeSerializer.SMOKING_RECIPE).unlockedBy("has_input", has(input)).save(consumer, StringUtil.prefix("smelting/" + name + "_from_smoking"));
 		CookingRecipeBuilder.cooking(Ingredient.of(input), item, xp, time, IRecipeSerializer.CAMPFIRE_COOKING_RECIPE).unlockedBy("has_input", has(input)).save(consumer, StringUtil.prefix("smelting/" + name + "_from_campfire_cooking"));
 	}
-	
+
+	private void registerEssenceRefine(Consumer<IFinishedRecipe> consumer, IItemProvider input, IItemProvider fuel,IItemProvider item, float xp, int time, String name) {
+		FurnaceRecipeBuilder.essence(Ingredient.of(input), Ingredient.of(fuel),item, time).unlockedBy("has_input", has(input)).save(consumer, StringUtil.prefix("essence/" + name + "_from_refining"));
+	}
 	private void registerCommonCard(Consumer<IFinishedRecipe> consumer, PlantCardItem result, Item crop) {
 		final Item essence = result.plantType.getEssence().getEssenceItem();
 		final ITag.INamedTag<Item> rankCard = result.plantType.getRank().getCardTag();
@@ -213,5 +218,5 @@ public class RecipeGenerator extends ForgeRecipeProvider{
 					.save(consumer, StringUtil.prefix("card/template/" + type.getName() + "_card"));
 		}
 	}
-	
+
 }

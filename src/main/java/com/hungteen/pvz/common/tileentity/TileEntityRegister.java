@@ -37,6 +37,9 @@ public class TileEntityRegister {
 	public static final RegistryObject<TileEntityType<EssenceAltarTileEntity>> ESSENCE_ALTAR = TILE_ENTITY_TYPES.register("essence_altar", () -> {
 		return TileEntityType.Builder.of(EssenceAltarTileEntity::new , BlockRegister.ESSENCE_ALTAR.get()).build(null);
 	});
+	public static final RegistryObject<TileEntityType<EssenceFurnaceTileEntity>> ESSENCE_FURNACE = TILE_ENTITY_TYPES.register("essence_furnace", () -> {
+		return TileEntityType.Builder.of(EssenceFurnaceTileEntity::new , BlockRegister.ESSENCE_FURNACE.get()).build(null);
+	});
 	
 	@OnlyIn(Dist.CLIENT)
 	public static void bindRenderers(FMLClientSetupEvent ev) {
