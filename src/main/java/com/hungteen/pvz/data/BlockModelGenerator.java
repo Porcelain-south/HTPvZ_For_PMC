@@ -70,7 +70,7 @@ public class BlockModelGenerator extends BlockModelProvider{
 		}
 		this.addedBlocks.add(block);
 	}
-	
+
 	private void topSideBottom(Block block) {
 		cube(block.getRegistryName().getPath(), 
 			StringUtil.prefix("block/" + block.getRegistryName().getPath() + "_down"), 

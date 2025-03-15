@@ -58,7 +58,13 @@ public class ContainerRegister {
             return new FragmentSpliceContainer(windowId, inv.player, data.readBlockPos());
         });
 	});
-	
+
+    public static final RegistryObject<ContainerType<EssenceFurnaceContainer>> ESSENCE_FURNACE = CONTAINER_TYPES.register("essence_furnace", () -> {
+        return IForgeContainerType.create((windowId, inv, data) -> {
+            return new EssenceFurnaceContainer(windowId, inv.player,data.readBlockPos());
+        });
+    });
+
 	public static final RegistryObject<ContainerType<SlotMachineContainer>> SLOT_MACHINE = CONTAINER_TYPES.register("slot_machine", () -> {
 		return IForgeContainerType.create((windowId, inv, data) -> {
             return new SlotMachineContainer(windowId, inv.player, data.readBlockPos());
@@ -103,6 +109,7 @@ public class ContainerRegister {
         ScreenManager.register(SUN_SHOP.get(), SunShopScreen::new);
         ScreenManager.register(SUN_CONVERTER.get(), SunConverterScreen::new);
         ScreenManager.register(FRAGMENT_SPLICE.get(), FragmentSpliceScreen::new);
+        ScreenManager.register(ESSENCE_FURNACE.get(), EssenceFurnaceScreen::new);
         ScreenManager.register(SLOT_MACHINE.get(), SlotMachineScreen::new);
         ScreenManager.register(PENNY_SHOP.get(), PennyShopScreen::new);
         ScreenManager.register(ESSENCE_ALTAR.get(), EssenceAltarScreen::new);

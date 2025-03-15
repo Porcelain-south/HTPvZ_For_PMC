@@ -18,22 +18,12 @@ public class RecipeRegister {
     //recipe type.
     public static final IRecipeType<FusionRecipe> FUSION_RECIPE_TYPE = IRecipeType.register("pvz:card_fusion");
     public static final IRecipeType<FragmentRecipe> FRAGMENT_RECIPE_TYPE = IRecipeType.register("pvz:fragment_splice");
+    public static final IRecipeType<EssenceFurnaceRecipe> FURNACE_RECIPE_TYPE = IRecipeType.register("pvz:essence_furnace");
 //    registerType(FragmentRecipe.TYPE);
 
     //serializer.
     public static final RegistryObject<FusionRecipe.Serializer> FUSION_SERIALIZER = RECIPE_SERIALIZERS.register("card_fusion", FusionRecipe.Serializer::new);
     public static final RegistryObject<FragmentRecipe.Serializer> FRAGMENT_SERIALIZER = RECIPE_SERIALIZERS.register("fragment_splice", FragmentRecipe.Serializer::new);
-
-//    public static class RecipeType<T extends IRecipe<?>> implements IRecipeType<T> {
-//        @Override
-//        public String toString() {
-//            return Registry.RECIPE_TYPE.getKey(this).toString();
-//        }
-//    }
-//
-//    public static <T extends IRecipe<?>> T registerType(ResourceLocation resourceLocation){
-////        IRecipeType
-//        return (T) Registry.register(Registry.RECIPE_TYPE, resourceLocation, new RecipeType<>());
-//    }
+    public static final RegistryObject<EssenceFurnaceRecipe.Serializer> FURNACE_SERIALIZER = RECIPE_SERIALIZERS.register("essence_furnace", EssenceFurnaceRecipe.Serializer::new);
 
 }
