@@ -85,7 +85,7 @@ public class RecipeGenerator extends ForgeRecipeProvider{
 		registerFoodSmelting(consumer, ItemRegister.FAKE_BRAIN.get(), ItemRegister.COOKED_BRAIN.get(), 0.4F, 200, "cooked_brain");
 
 		//essence refine
-		registerEssenceRefine(consumer, ItemRegister.PEA.get(),ItemRegister.ICE_ESSENCE.get(), ItemRegister.SNOW_PEA.get(), 200, "snow_pea");
+		registerEssenceRefine(consumer, ItemRegister.PEA.get(),ItemRegister.ICE_ESSENCE.get(), ItemRegister.SNOW_PEA.get(), 200,200, "snow_pea");
 
 		//fragment splice
 		PVZAPI.get().getPlants().forEach(p -> {
@@ -170,8 +170,8 @@ public class RecipeGenerator extends ForgeRecipeProvider{
 		CookingRecipeBuilder.cooking(Ingredient.of(input), item, xp, time, IRecipeSerializer.CAMPFIRE_COOKING_RECIPE).unlockedBy("has_input", has(input)).save(consumer, StringUtil.prefix("smelting/" + name + "_from_campfire_cooking"));
 	}
 
-	private void registerEssenceRefine(Consumer<IFinishedRecipe> consumer, IItemProvider input, IItemProvider fuel,IItemProvider item, int time, String name) {
-		FurnaceRecipeBuilder.essence(Ingredient.of(input), Ingredient.of(fuel),item, time).unlockedBy("has_input", has(input)).save(consumer, StringUtil.prefix("essence_furnace/" + name + "_from_refining"));
+	private void registerEssenceRefine(Consumer<IFinishedRecipe> consumer, IItemProvider input, IItemProvider fuel,IItemProvider result, int fuelTime,int cookingTime, String name) {
+		FurnaceRecipeBuilder.essence(Ingredient.of(input), Ingredient.of(fuel),result, fuelTime, cookingTime).unlockedBy("has_input", has(input)).save(consumer, StringUtil.prefix("essence_furnace/" + name + "_from_refining"));
 	}
 	private void registerCommonCard(Consumer<IFinishedRecipe> consumer, PlantCardItem result, Item crop) {
 		final Item essence = result.plantType.getEssence().getEssenceItem();

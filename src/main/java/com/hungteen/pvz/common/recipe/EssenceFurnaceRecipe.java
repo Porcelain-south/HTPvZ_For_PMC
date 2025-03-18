@@ -25,16 +25,17 @@ public class EssenceFurnaceRecipe  implements IRecipe<IInventory> {
     private final Ingredient ingredient;
     private final Ingredient fuel;
     private final ItemStack result;
-
+    private final int fuelTime;
     public final int cookingTime;
 
     public EssenceFurnaceRecipe(ResourceLocation resourceLocation, String group, Ingredient ingredient,Ingredient fuel,
-                                ItemStack result,int cookingTime) {
+                                ItemStack result, int fuelTime,int cookingTime) {
         this.id = resourceLocation;
         this.ingredient = ingredient;
         this.fuel = fuel;
         this.result = result;
         this.group = group;
+        this.fuelTime = fuelTime;
         this.cookingTime = cookingTime;
     }
 
@@ -70,7 +71,6 @@ public class EssenceFurnaceRecipe  implements IRecipe<IInventory> {
         return result;
     }
 
-
     @Override
     public ItemStack getToastSymbol() {
         return new ItemStack(BlockRegister.ESSENCE_FURNACE.get());
@@ -83,6 +83,10 @@ public class EssenceFurnaceRecipe  implements IRecipe<IInventory> {
 
     public Ingredient getFuel() {
         return this.fuel;
+    }
+
+    public int getFuelTime() {
+        return this.fuelTime;
     }
 
     public int getCookingTime(){
@@ -103,12 +107,15 @@ public class EssenceFurnaceRecipe  implements IRecipe<IInventory> {
         public EssenceFurnaceRecipe fromJson(ResourceLocation id, JsonObject json) {
             String group = JSONUtils.getAsString(json, "group", "");
             int cookingTime = JSONUtils.getAsInt(json, "cookingtime", 200);
-
             JsonElement jsonelement = JSONUtils.isArrayNode(json, "ingredient") ? JSONUtils.getAsJsonArray(json, "ingredient") : JSONUtils.getAsJsonObject(json, "ingredient");
             Ingredient ingredient = Ingredient.fromJson(jsonelement);
 
-            JsonElement jsonelement1 = JSONUtils.isArrayNode(json, "fuel") ? JSONUtils.getAsJsonArray(json, "fuel") : JSONUtils.getAsJsonObject(json, "fuel");
-            Ingredient fuel = Ingredient.fromJson(jsonelement1);
+            JsonObject fuelObj = JSONUtils.getAsJsonObject(json, "fuel");
+            Ingredient fuel = Ingredient.fromJson(fuelObj);
+
+            int fuelTime = fuelObj.has("fueltime") ?
+                    JSONUtils.getAsInt(fuelObj, "fueltime") :
+                    200;
 
             if (!json.has("result")) {
                 throw new JsonSyntaxException("Missing result, expected to find a string or object");
@@ -126,8 +133,7 @@ public class EssenceFurnaceRecipe  implements IRecipe<IInventory> {
                 }
             }
 
-            return new EssenceFurnaceRecipe(id, group, ingredient, fuel, result, cookingTime
-            );
+            return new EssenceFurnaceRecipe(id, group, ingredient, fuel, result, fuelTime, cookingTime);
         }
 
         @Override
@@ -136,17 +142,19 @@ public class EssenceFurnaceRecipe  implements IRecipe<IInventory> {
             Ingredient fuel = Ingredient.fromNetwork(buffer);
             ItemStack result = buffer.readItem();
             String group = buffer.readUtf();
+            int fuelTime = buffer.readInt();
             int cookingTime = buffer.readInt();
 
-            return new EssenceFurnaceRecipe(id, group, ingredient, fuel, result, cookingTime);
+            return new EssenceFurnaceRecipe(id, group, ingredient, fuel, result, fuelTime,cookingTime);
         }
 
         @Override
         public void toNetwork(PacketBuffer buffer, EssenceFurnaceRecipe recipe) {
-             recipe.ingredient.toNetwork(buffer);
+            recipe.ingredient.toNetwork(buffer);
             recipe.fuel.toNetwork(buffer);
             buffer.writeItem(recipe.result);
             buffer.writeUtf(recipe.group);
+            buffer.writeInt(recipe.fuelTime);
             buffer.writeInt(recipe.cookingTime);
         }
     }

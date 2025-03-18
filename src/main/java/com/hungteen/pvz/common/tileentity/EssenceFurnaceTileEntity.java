@@ -237,7 +237,7 @@ public class EssenceFurnaceTileEntity extends PVZTileEntity implements ISidedInv
     }
 
     protected int getFuelBurnTime() {
-        return 200;
+        return this.getCurrentRecipe().getCookingTime() <=0 ? 200 : this.getCurrentRecipe().getFuelTime();
     }
 
     protected int getTotalCookTime() {
