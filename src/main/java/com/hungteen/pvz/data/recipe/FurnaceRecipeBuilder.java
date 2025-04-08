@@ -22,21 +22,23 @@ public class FurnaceRecipeBuilder {
     private final Item result;
     private final Ingredient ingredient;
     private final  Ingredient fuel;
+    private final int resultCount;
     private final int fuelTime;
     private final int cookingTime;
     private final Advancement.Builder advancement = Advancement.Builder.advancement();
     private String group;
 
-    private FurnaceRecipeBuilder(IItemProvider result, Ingredient ingredient, Ingredient fuel, int fuelTime, int cookingTime) {
+    private FurnaceRecipeBuilder(IItemProvider result, Ingredient ingredient, Ingredient fuel,int resultCount, int fuelTime, int cookingTime) {
         this.result = result.asItem();
         this.ingredient = ingredient;
         this.fuel = fuel;
+        this.resultCount = resultCount;
         this.fuelTime = fuelTime;
         this.cookingTime = cookingTime;
     }
 
-    public static FurnaceRecipeBuilder essence(Ingredient ingredient, Ingredient fuel, IItemProvider result, int fuelTime, int cookingTime) {
-        return new FurnaceRecipeBuilder(result, ingredient, fuel,fuelTime,cookingTime);
+    public static FurnaceRecipeBuilder essence(Ingredient ingredient, Ingredient fuel, IItemProvider result,int resultCount, int fuelTime, int cookingTime) {
+        return new FurnaceRecipeBuilder(result, ingredient, fuel,resultCount,fuelTime,cookingTime);
     }
 
     public FurnaceRecipeBuilder unlockedBy(String criterionName, ICriterionInstance criterion) {
@@ -70,6 +72,7 @@ public class FurnaceRecipeBuilder {
                 this.ingredient,
                 this.fuel,
                 this.result,
+                this.resultCount,
                 this.fuelTime,
                 this.cookingTime,
                 this.advancement,
@@ -89,17 +92,19 @@ public class FurnaceRecipeBuilder {
         private final Ingredient ingredient;
         private final Ingredient fuel;
         private final Item result;
+        private final int resultCount;
         private final int fuelTime;
         private final int cookingTime;
         private final Advancement.Builder advancement;
         private final ResourceLocation advancementId;
 
-        public Result(ResourceLocation id, String group, Ingredient ingredient, Ingredient fuel, Item result, int fuelTime ,int cookingTime, Advancement.Builder advancement, ResourceLocation advancementId) {
+        public Result(ResourceLocation id, String group, Ingredient ingredient, Ingredient fuel, Item result,int resultCount ,int fuelTime ,int cookingTime, Advancement.Builder advancement, ResourceLocation advancementId) {
             this.id = id;
             this.group = group;
             this.ingredient = ingredient;
             this.fuel = fuel;
             this.result = result;
+            this.resultCount = resultCount;
             this.fuelTime = fuelTime;
             this.cookingTime = cookingTime;
             this.advancement = advancement;
@@ -123,6 +128,9 @@ public class FurnaceRecipeBuilder {
 
             JsonObject resultObj = new JsonObject();
             resultObj.addProperty("item", Registry.ITEM.getKey(this.result).toString());
+            if (this.resultCount > 1) {
+                resultObj.addProperty("count", this.resultCount);
+            }
             json.add("result", resultObj);
 
             json.addProperty("cookingtime", this.cookingTime);

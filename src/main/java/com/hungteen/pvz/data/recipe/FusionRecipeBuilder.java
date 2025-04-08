@@ -140,6 +140,7 @@ public class FusionRecipeBuilder {
             }
 
             p_218610_1_.add("ingredients", jsonarray);
+
             JsonObject jsonobject = new JsonObject();
             jsonobject.addProperty("item", Registry.ITEM.getKey(this.result).toString());
             if (this.count > 1) {
