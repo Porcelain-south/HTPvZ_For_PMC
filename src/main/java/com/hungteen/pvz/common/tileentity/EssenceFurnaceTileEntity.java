@@ -98,12 +98,25 @@ public class EssenceFurnaceTileEntity extends PVZTileEntity implements ISidedInv
     public void tick() {
         boolean flag = this.isLit();
         boolean flag1 = false;
+        ItemStack fuelStack  = this.handler.getStackInSlot(1);
         if (this.isLit()) {
             --this.litTime;
-        }
 
+            if (!this.isLit()) {
+                if (!fuelStack.isEmpty()) {
+                    if (fuelStack.hasContainerItem()) {
+                        this.handler.setStackInSlot(1, fuelStack.getContainerItem());
+                    } else {
+                        fuelStack.shrink(1);
+                        if (fuelStack.isEmpty()) {
+                            this.handler.setStackInSlot(1, ItemStack.EMPTY);
+                        }
+                    }
+                }
+            }
+        }
         if (!this.level.isClientSide) {
-            ItemStack fuelStack  = this.handler.getStackInSlot(1);
+
             if (fuelStack.isEmpty() || this.handler.getStackInSlot(0).isEmpty()) {
                 if (!this.isLit() && this.cookingProgress > 0) {
                     this.cookingProgress = MathHelper.clamp(this.cookingProgress - 2, 0, this.cookingTotalTime);
@@ -114,22 +127,11 @@ public class EssenceFurnaceTileEntity extends PVZTileEntity implements ISidedInv
                     this.cookingTotalTime = this.getTotalCookTime();
                     this.litTime = this.getBurnDuration(fuelStack ,irecipe);
                     this.litDuration = this.litTime;
-                    if (this.isLit()) {
-                        flag1 = true;
-                        if (fuelStack.hasContainerItem()) {
-                            this.handler.setStackInSlot(1, fuelStack.getContainerItem());
-                        } else if (!fuelStack.isEmpty()) {
-                            fuelStack .shrink(1);
-                            if (fuelStack .isEmpty()) {
-                                this.handler.setStackInSlot(1, fuelStack .getContainerItem());
-                            }
-                        }
-                    }
                 }
 
                 if (this.isLit() && this.canBurn(irecipe)) {
                     ++this.cookingProgress;
-                    if (this.cookingProgress == this.cookingTotalTime) {
+                    if (this.cookingProgress >= this.cookingTotalTime) {
                         this.cookingProgress = 0;
                         this.cookingTotalTime = this.getTotalCookTime();
                         this.burn(irecipe);
@@ -237,11 +239,19 @@ public class EssenceFurnaceTileEntity extends PVZTileEntity implements ISidedInv
     }
 
     protected int getFuelBurnTime() {
-        return this.getCurrentRecipe().getCookingTime() <=0 ? 200 : this.getCurrentRecipe().getFuelTime();
+        EssenceFurnaceRecipe recipe = this.getCurrentRecipe();
+        if (recipe == null) {
+            return 200;
+        }
+        return recipe.getCookingTime() <= 0 ? 200 : recipe.getFuelTime();
     }
 
     protected int getTotalCookTime() {
-        return this.getCurrentRecipe().getCookingTime() <=0 ? this.getFuelBurnTime() : this.getCurrentRecipe().getCookingTime();
+        EssenceFurnaceRecipe recipe = this.getCurrentRecipe();
+        if (recipe == null) {
+            return 0;
+        }
+        return recipe.getCookingTime() > 0 ? recipe.getCookingTime() : this.getFuelBurnTime();
     }
 
     public int[] getSlotsForFace(Direction direction) {

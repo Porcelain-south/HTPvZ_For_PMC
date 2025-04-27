@@ -43,14 +43,14 @@ public class PVZJEIPlugin implements IModPlugin {
     public void registerRecipeCatalysts(IRecipeCatalystRegistration registration) {
         registration.addRecipeCatalyst(BlockRegister.FRAGMENT_SPLICE.get().asItem().getDefaultInstance(), FragmentRecipe.UID);
         registration.addRecipeCatalyst(BlockRegister.CARD_FUSION_TABLE.get().asItem().getDefaultInstance(), FusionRecipe.UID);
-        registration.addRecipeCatalyst(BlockRegister.ESSENCE_FURNACE.get().asItem().getDefaultInstance(), FusionRecipe.UID);
+        registration.addRecipeCatalyst(BlockRegister.ESSENCE_FURNACE.get().asItem().getDefaultInstance(), EssenceFurnaceRecipe.UID);
     }
 
     @Override
     public void registerRecipeTransferHandlers(IRecipeTransferRegistration registration) {
         registration.addRecipeTransferHandler(FragmentSpliceContainer.class, FragmentRecipe.UID, 2, 25, 27, 36);
         registration.addRecipeTransferHandler(CardFusionContainer.class, FusionRecipe.UID, 3, 9, 12, 36);
-        registration.addRecipeTransferHandler(EssenceFurnaceContainer.class, EssenceFurnaceRecipe.UID, 0, 2, 0, 39);
+        registration.addRecipeTransferHandler(EssenceFurnaceContainer.class, EssenceFurnaceRecipe.UID, 0, 2, 3, 36);
     }
 
     @Override
