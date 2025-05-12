@@ -90,18 +90,18 @@ public class RecipeGenerator extends ForgeRecipeProvider{
 		registerEssenceRefine(consumer, ItemRegister.PEA.get(),ItemRegister.ICE_ESSENCE.get(), ItemRegister.SNOW_PEA.get(), 1,20, 20, "snow_pea");
 		registerEssenceRefine(consumer, ItemRegister.CORN.get(),ItemRegister.EXPLOSION_ESSENCE.get(), ItemRegister.POP_CORN.get(),3, 20, 80, "pop_corn");
 
-		registerEssenceRefine(consumer, Blocks.GRASS_BLOCK,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.APPEASE_ESSENCE.get(), 1,40, 40, "appease_essence");
-		registerEssenceRefine(consumer, BlockRegister.LUNAR_STONE.get(),ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.LIGHT_ESSENCE.get(), 1,40, 40, "light_essence");
-		registerEssenceRefine(consumer, Blocks.REDSTONE_BLOCK,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.EXPLOSION_ESSENCE.get(), 1,40, 40, "explosion_essence");
-		registerEssenceRefine(consumer, Blocks.GRANITE,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.DEFENCE_ESSENCE.get(), 1,40, 40, "defence_essence");
-		registerEssenceRefine(consumer, Blocks.BLUE_ICE,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.ICE_ESSENCE.get(),1, 40, 40, "ice_essence");
-		registerEssenceRefine(consumer, Blocks.ANDESITE,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.ENFORCE_ESSENCE.get(),1, 40, 40, "enforce_essence");
-		registerEssenceRefine(consumer, Blocks.MYCELIUM,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.TOXIC_ESSENCE.get(),1, 40, 40, "toxic_essence");
-		registerEssenceRefine(consumer, Blocks.DIORITE,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.ASSIST_ESSENCE.get(), 1,40, 40, "assist_essence");
-		registerEssenceRefine(consumer, Blocks.SOUL_SAND,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.MAGIC_ESSENCE.get(),1, 40, 40, "magic_essence");
-		registerEssenceRefine(consumer, Blocks.MAGMA_BLOCK,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.FLAME_ESSENCE.get(),1, 40, 40, "flame_essence");
-		registerEssenceRefine(consumer, Blocks.GRAVEL,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.SPEAR_ESSENCE.get(),1, 40, 40, "spear_essence");
-		registerEssenceRefine(consumer, Blocks.SANDSTONE,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.ARMA_ESSENCE.get(),1, 40, 40, "arma_essence");
+		registerEssenceRefine(consumer, Blocks.GRASS_BLOCK,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.APPEASE_ESSENCE.get(), 4,40, 40, "appease_essence");
+		registerEssenceRefine(consumer, BlockRegister.LUNAR_STONE.get(),ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.LIGHT_ESSENCE.get(), 4,40, 40, "light_essence");
+		registerEssenceRefine(consumer, Blocks.REDSTONE_BLOCK,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.EXPLOSION_ESSENCE.get(), 4,40, 40, "explosion_essence");
+		registerEssenceRefine(consumer, Blocks.GRANITE,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.DEFENCE_ESSENCE.get(), 4,40, 40, "defence_essence");
+		registerEssenceRefine(consumer, Blocks.BLUE_ICE,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.ICE_ESSENCE.get(),4, 40, 40, "ice_essence");
+		registerEssenceRefine(consumer, Blocks.ANDESITE,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.ENFORCE_ESSENCE.get(),4, 40, 40, "enforce_essence");
+		registerEssenceRefine(consumer, Blocks.MYCELIUM,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.TOXIC_ESSENCE.get(),4, 40, 40, "toxic_essence");
+		registerEssenceRefine(consumer, Blocks.DIORITE,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.ASSIST_ESSENCE.get(), 4,40, 40, "assist_essence");
+		registerEssenceRefine(consumer, Blocks.SOUL_SAND,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.MAGIC_ESSENCE.get(),4, 40, 40, "magic_essence");
+		registerEssenceRefine(consumer, Blocks.MAGMA_BLOCK,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.FLAME_ESSENCE.get(),4, 40, 40, "flame_essence");
+		registerEssenceRefine(consumer, Blocks.GRAVEL,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.SPEAR_ESSENCE.get(),4, 40, 40, "spear_essence");
+		registerEssenceRefine(consumer, Blocks.SANDSTONE,ItemRegister.ORIGIN_ESSENCE.get(), ItemRegister.ARMA_ESSENCE.get(),4, 40, 40, "arma_essence");
 
 		//fragment splice
 		PVZAPI.get().getPlants().forEach(p -> {
