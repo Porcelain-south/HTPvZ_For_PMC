@@ -1,0 +1,15 @@
+{
+  "type": "pvz:essence_furnace",
+  "ingredient": {
+    "item": "pvz:corn"
+  },
+  "fuel": {
+    "item": "pvz:explosion_essence",
+    "fueltime": 20
+  },
+  "result": {
+    "item": "pvz:pop_corn",
+    "count": 3
+  },
+  "cookingtime": 80
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "SSS",
+    "OMO",
+    "SBS"
+  ],
+  "key": {
+    "S": {
+      "item": "minecraft:stone"
+    },
+    "O": {
+      "item": "minecraft:obsidian"
+    },
+    "M": {
+      "item": "pvz:magic_essence"
+    },
+    "B": {
+      "item": "pvz:origin_block"
+    }
+  },
+  "result": {
+    "item": "pvz:essence_furnace"
+  }
+}

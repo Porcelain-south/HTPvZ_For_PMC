@@ -1,0 +1,15 @@
+{
+  "type": "pvz:essence_furnace",
+  "ingredient": {
+    "item": "minecraft:magma_block"
+  },
+  "fuel": {
+    "item": "pvz:origin_essence",
+    "fueltime": 40
+  },
+  "result": {
+    "item": "pvz:flame_essence",
+    "count": 4
+  },
+  "cookingtime": 40
+}

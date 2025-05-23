@@ -1,0 +1,15 @@
+{
+  "type": "pvz:essence_furnace",
+  "ingredient": {
+    "item": "minecraft:granite"
+  },
+  "fuel": {
+    "item": "pvz:origin_essence",
+    "fueltime": 40
+  },
+  "result": {
+    "item": "pvz:defence_essence",
+    "count": 4
+  },
+  "cookingtime": 40
+}

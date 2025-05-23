@@ -1,0 +1,15 @@
+{
+  "type": "pvz:essence_furnace",
+  "ingredient": {
+    "item": "minecraft:grass_block"
+  },
+  "fuel": {
+    "item": "pvz:origin_essence",
+    "fueltime": 40
+  },
+  "result": {
+    "item": "pvz:appease_essence",
+    "count": 4
+  },
+  "cookingtime": 40
+}

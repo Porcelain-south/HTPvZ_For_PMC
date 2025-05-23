@@ -1,0 +1,14 @@
+{
+  "type": "pvz:essence_furnace",
+  "ingredient": {
+    "item": "pvz:pea"
+  },
+  "fuel": {
+    "item": "pvz:flame_essence",
+    "fueltime": 20
+  },
+  "result": {
+    "item": "pvz:flame_pea"
+  },
+  "cookingtime": 20
+}

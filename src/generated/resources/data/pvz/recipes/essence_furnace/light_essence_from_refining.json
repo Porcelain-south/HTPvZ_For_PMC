@@ -1,0 +1,15 @@
+{
+  "type": "pvz:essence_furnace",
+  "ingredient": {
+    "item": "pvz:lunar_stone"
+  },
+  "fuel": {
+    "item": "pvz:origin_essence",
+    "fueltime": 40
+  },
+  "result": {
+    "item": "pvz:light_essence",
+    "count": 4
+  },
+  "cookingtime": 40
+}

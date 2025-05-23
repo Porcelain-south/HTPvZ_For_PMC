@@ -1,0 +1,15 @@
+{
+  "type": "pvz:essence_furnace",
+  "ingredient": {
+    "item": "minecraft:soul_sand"
+  },
+  "fuel": {
+    "item": "pvz:origin_essence",
+    "fueltime": 40
+  },
+  "result": {
+    "item": "pvz:magic_essence",
+    "count": 4
+  },
+  "cookingtime": 40
+}
