@@ -37,13 +37,13 @@
         },
         {
             "type": "spotlight",
-            "item": "bhtpvz:wisdom_sapling",
+            "item": "bpmc:wisdom_sapling",
             "title": "万藏本源",
             "text": "在万藏世界中，如果没有玩家的加入，万藏本源的总量是几乎恒定的。$(br2)随着时间的推进，关键节点的不同选择导致了时间片的复制和分裂，稀疏了每条世界线的万藏本源"
         },
         {
             "type": "spotlight",
-            "item": "bhtpvz:wisdom_sapling",
+            "item": "bpmc:wisdom_sapling",
             "title": "万藏本源",
             "text": "当时间片的万藏本源稀疏到不再能维系自身的分裂，它将会在虚空中崩坏，逸散的万藏本源会重新汇聚到万藏本身，平均的供给给每一个分支$(br2)伴随着时间片不断的产生和消逝，万藏世界逐渐只剩下一些强大而能一直延续的时间线……"
         },

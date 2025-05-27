@@ -52,7 +52,7 @@ public final class OtherPlants extends PlantType {
 	);
 	
 	public static final IPlantType ANGEL_STAR_FRUIT = new OtherPlants("angel_star_fruit", new PlantFeatures()
-			.cost(225).requiredLevel(125)
+			.cost(225).requiredLevel(200)
 			.cd(CoolDowns.LITTLE_FAST).rank(RankTypes.PURPLE).essence(EssenceTypes.APPEASE)
 			.entityType(() -> EntityRegister.ANGEL_STAR_FRUIT.get())
 			.summonCard(() -> ItemRegister.ANGEL_STAR_FRUIT_CARD.get())

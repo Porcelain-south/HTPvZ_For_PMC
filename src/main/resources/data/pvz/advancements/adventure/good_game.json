@@ -10,7 +10,7 @@
       "translate": "advancement.pvz.good_game.desc"
     },
     "frame": "challenge",
-    "background": "bhtpvz:textures/block/damson_crystal_block.png",
+    "background": "bpmc:textures/block/damson_crystal_block.png",
     "announce_to_chat": true,
     "hidden": true
   },

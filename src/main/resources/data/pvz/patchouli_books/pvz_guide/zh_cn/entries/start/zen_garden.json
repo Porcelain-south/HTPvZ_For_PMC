@@ -15,7 +15,7 @@
         },
         {
             "type": "spotlight",
-            "item": "bhtpvz:squash",
+            "item": "bpmc:squash",
             "title": "倭瓜",
             "text": "$(l)倭瓜$()同样非常稀有，并且拥有极佳的保护色，曾多次在僵尸的眼皮底下逃之夭夭。"
         },
@@ -27,13 +27,13 @@
         },
         {
             "type": "spotlight",
-            "item": "bhtpvz:cherry",
+            "item": "bpmc:cherry",
             "title": "樱桃树",
             "text": "$(l)樱桃树$()上结满了多汁的樱桃，这看着就很好吃。"
         },
         {
             "type": "spotlight",
-            "item": "bhtpvz:starfruit",
+            "item": "bpmc:starfruit",
             "title": "杨桃树",
             "text": "$(l)杨桃树$()树上遍布了丰满的杨桃，这看着就很好吃"
         }
