@@ -84,8 +84,7 @@ public class ChomperEntity extends PVZPlantEntity {
 		//summon ground chomper
 		final float range = 5F;
 		int cnt = this.getSuperAttackCnt();
-		while (true)
-		{
+		for (int loopCount = 0; loopCount < 5; loopCount++) {
 			for (LivingEntity target : EntityUtil.getTargetableLivings(this, EntityUtil.getEntityAABB(this, range, range))) {
 				if(! target.isOnGround() || this.getRandom().nextInt(5) != 0) {
 					//按顺序，每个敌人只有20%的概率被锁定

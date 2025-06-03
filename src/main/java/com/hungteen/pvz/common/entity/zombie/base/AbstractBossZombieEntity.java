@@ -2,6 +2,7 @@ package com.hungteen.pvz.common.entity.zombie.base;
 
 import com.hungteen.pvz.common.entity.plant.PVZPlantEntity;
 import com.hungteen.pvz.common.entity.zombie.PVZZombieEntity;
+import com.hungteen.pvz.common.entity.zombie.roof.Edgar090505Entity;
 import com.hungteen.pvz.common.misc.PVZEntityDamageSource;
 import com.hungteen.pvz.utils.EntityUtil;
 import com.hungteen.pvz.utils.ZombieUtil;
@@ -96,13 +97,19 @@ public abstract class AbstractBossZombieEntity extends PVZZombieEntity {
 	public void startSeenByPlayer(ServerPlayerEntity player) {
 		super.startSeenByPlayer(player);
 		this.bossInfo.addPlayer(player);
-		this.bossInnerInfo.addPlayer(player);
+		if (this instanceof Edgar090505Entity)
+		{
+			this.bossInnerInfo.addPlayer(player);
+		}
 	}
 
 	public void stopSeenByPlayer(ServerPlayerEntity player) {
 		super.stopSeenByPlayer(player);
 		this.bossInfo.removePlayer(player);
-		this.bossInnerInfo.removePlayer(player);
+		if (this instanceof Edgar090505Entity)
+		{
+			this.bossInnerInfo.removePlayer(player);
+		}
 	}
 	
 	@Override
