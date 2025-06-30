@@ -6,7 +6,10 @@ import com.hungteen.pvz.common.block.BlockRegister;
 import com.hungteen.pvz.common.entity.EntityRegister;
 import com.hungteen.pvz.common.impl.EssenceTypes;
 import com.hungteen.pvz.common.impl.RankTypes;
-import com.hungteen.pvz.common.impl.plant.*;
+import com.hungteen.pvz.common.impl.plant.CustomPlants;
+import com.hungteen.pvz.common.impl.plant.MemePlants;
+import com.hungteen.pvz.common.impl.plant.OtherPlants;
+import com.hungteen.pvz.common.impl.plant.PVZPlants;
 import com.hungteen.pvz.common.item.armor.*;
 import com.hungteen.pvz.common.item.display.AlmanacItem;
 import com.hungteen.pvz.common.item.display.ChallengeEnvelopeItem;
@@ -24,7 +27,10 @@ import com.hungteen.pvz.common.item.tool.TimeKeyItem;
 import com.hungteen.pvz.common.item.tool.ZombieDollItem;
 import com.hungteen.pvz.common.item.tool.mc.OriginShovelItem;
 import com.hungteen.pvz.common.item.tool.mc.OriginSwordItem;
-import com.hungteen.pvz.common.item.tool.plant.*;
+import com.hungteen.pvz.common.item.tool.plant.CardPackItem;
+import com.hungteen.pvz.common.item.tool.plant.PeaGunItem;
+import com.hungteen.pvz.common.item.tool.plant.ResourceCollectorItem;
+import com.hungteen.pvz.common.item.tool.plant.SunStorageSaplingItem;
 import com.hungteen.pvz.common.item.tool.zombie.*;
 import com.hungteen.pvz.common.misc.sound.SoundRegister;
 import com.hungteen.pvz.utils.enums.Colors;
@@ -45,8 +51,8 @@ public class ItemRegister {
      */
     
     /* seeds & crops */
-  	public static final RegistryObject<Item> PEA = ITEMS.register("pea",() -> new BlockItem(BlockRegister.PEA_PLANT.get(), new Item.Properties().tab(PVZItemGroups.PVZ_MISC)));
-  	public static final RegistryObject<Item> NUT = ITEMS.register("nut", PVZMiscItem::new);
+    public static final RegistryObject<Item> PEA = ITEMS.register("pea", () -> new BlockItem(BlockRegister.PEA_PLANT.get(), new Item.Properties().tab(PVZItemGroups.PVZ_MISC)));
+    public static final RegistryObject<Item> NUT = ITEMS.register("nut", PVZMiscItem::new);
   	public static final RegistryObject<Item> SPORE = ITEMS.register("spore",()-> new BlockItem(BlockRegister.TOXIC_SHROOM.get(),new Item.Properties().tab(PVZItemGroups.PVZ_MISC)));
   	public static final RegistryObject<Item> CABBAGE_SEEDS = ITEMS.register("cabbage_seeds", () -> new BlockItem(BlockRegister.CABBAGE.get(), new Item.Properties().tab(PVZItemGroups.PVZ_MISC)));
   	public static final RegistryObject<Item> CORN_SEEDS = ITEMS.register("corn_seeds", () -> new BlockItem(BlockRegister.CORN.get(), new Item.Properties().tab(PVZItemGroups.PVZ_MISC)));

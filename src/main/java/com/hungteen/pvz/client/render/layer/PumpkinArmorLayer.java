@@ -3,6 +3,7 @@ package com.hungteen.pvz.client.render.layer;
 import com.hungteen.pvz.client.model.entity.plant.defence.PumpkinModel;
 import com.hungteen.pvz.client.render.layer.component.ComponentLayer;
 import com.hungteen.pvz.common.entity.plant.PVZPlantEntity;
+import com.hungteen.pvz.common.entity.plant.defence.PumpkinEntity;
 import com.hungteen.pvz.common.impl.plant.PVZPlants;
 import com.mojang.blaze3d.matrix.MatrixStack;
 import com.mojang.blaze3d.vertex.IVertexBuilder;
@@ -14,7 +15,8 @@ import net.minecraft.client.renderer.texture.OverlayTexture;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.vector.Vector3d;
 
-public class PumpkinArmorLayer<T extends PVZPlantEntity> extends ComponentLayer<T>{
+public class
+PumpkinArmorLayer<T extends PVZPlantEntity> extends ComponentLayer<T>{
 	
 	public PumpkinArmorLayer(IEntityRenderer<T, EntityModel<T>> entityRendererIn) {
 		super(entityRendererIn, new PumpkinModel.PumpkinArmorModel<>());
@@ -47,8 +49,18 @@ public class PumpkinArmorLayer<T extends PVZPlantEntity> extends ComponentLayer<
 		return entity.getOuterDefenceLife() > 0;
 	}
 
+	protected ResourceLocation genArmorResource() {
+		final String sep = PVZPlants.PUMPKIN.getEssence().toString();
+		return new ResourceLocation(PVZPlants.PUMPKIN.getModID(), "textures/entity/plant/" + sep + "/" + "pumpkin_armor" + ".png");
+	}
+
+	private boolean isSuperPumpkin(T plants){
+		double health = plants.getOuterDefenceLife();
+		return health > PumpkinEntity.PumpkinInfo.getLife() && health <= PumpkinEntity.PumpkinInfo.getSuperPumpkinLife();
+	}
+
 	public ResourceLocation getRenderTexture(T plant) {
-		return PVZPlants.PUMPKIN.getRenderResource();
+		return 	this.isSuperPumpkin(plant)?this.genArmorResource():PVZPlants.PUMPKIN.getRenderResource();
 	}
 	
 }

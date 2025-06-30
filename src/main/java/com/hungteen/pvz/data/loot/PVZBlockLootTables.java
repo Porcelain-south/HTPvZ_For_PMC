@@ -60,8 +60,14 @@ public class PVZBlockLootTables extends BlockLootTables {
 				});
 		// crop
 		this.tmpBuilder = getAgeBuilder(BlockRegister.CABBAGE.get(), 3);
+
 		this.add(BlockRegister.CABBAGE.get(),
 				createCropDrops(BlockRegister.CABBAGE.get(), ItemRegister.CABBAGE.get(), this.tmpBuilder));
+
+		this.tmpBuilder = getAgeBuilder(BlockRegister.PEA_PLANT.get(), 3);
+		this.add(BlockRegister.PEA_PLANT.get(),
+				createCropDrops(BlockRegister.PEA_PLANT.get(), ItemRegister.PEA.get(), this.tmpBuilder));
+
 		this.tmpBuilder = getAgeBuilder(BlockRegister.CORN.get(), 7);
 		this.add(BlockRegister.CORN.get(),
 				createCropDrops(BlockRegister.CORN.get(), ItemRegister.CORN.get(), this.tmpBuilder));

@@ -1,9 +1,6 @@
 package com.hungteen.pvz.common.block.plants;
 
-import java.util.Random;
-
 import com.hungteen.pvz.common.item.ItemRegister;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropsBlock;
@@ -17,6 +14,8 @@ import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
 import net.minecraft.world.server.ServerWorld;
+
+import java.util.Random;
 
 public class CabbageBlock extends CropsBlock {
 
@@ -58,8 +57,11 @@ public class CabbageBlock extends CropsBlock {
 		builder.add(AGE);
 	}
 
+	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-		return SHAPE[state.getValue(this.getAgeProperty())];
+		int age = state.getValue(this.getAgeProperty());
+		if (age < 0 || age >= SHAPE.length) return SHAPE								[0];
+		return SHAPE[age];
 	}
 
 }

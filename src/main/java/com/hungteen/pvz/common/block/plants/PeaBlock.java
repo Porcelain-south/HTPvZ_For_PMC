@@ -1,44 +1,43 @@
 package com.hungteen.pvz.common.block.plants;
 
 import com.hungteen.pvz.common.item.ItemRegister;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.CropsBlock;
-import net.minecraft.entity.item.ItemEntity;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.item.ItemStack;
-import net.minecraft.util.ActionResultType;
-import net.minecraft.util.Hand;
 import net.minecraft.util.IItemProvider;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.shapes.ISelectionContext;
 import net.minecraft.util.math.shapes.VoxelShape;
 import net.minecraft.world.IBlockReader;
-import net.minecraft.world.World;
 
 public class PeaBlock extends CropsBlock{
+	//public static final IntegerProperty AGE = BlockStateProperties.AGE_3;
 
-    private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
+	private static final VoxelShape[] SHAPE_BY_AGE = new VoxelShape[]{
     		Block.box(0.0D, 0.0D, 0.0D, 16.0D, 2.0D, 16.0D), 
     		Block.box(0.0D, 0.0D, 0.0D, 16.0D, 4.0D, 16.0D), 
     		Block.box(0.0D, 0.0D, 0.0D, 16.0D, 6.0D, 16.0D), 
     		Block.box(0.0D, 0.0D, 0.0D, 16.0D, 8.0D, 16.0D), 
-    		Block.box(0.0D, 0.0D, 0.0D, 16.0D, 10.0D, 16.0D), 
-    		Block.box(0.0D, 0.0D, 0.0D, 16.0D, 12.0D, 16.0D), 
-    		Block.box(0.0D, 0.0D, 0.0D, 16.0D, 14.0D, 16.0D), 
-    		Block.box(0.0D, 0.0D, 0.0D, 16.0D, 16.0D, 16.0D)
-    };
+	};
 
 	public PeaBlock(Properties properties) {
 		super(properties);
 	}
 
+	//public IntegerProperty getAgeProperty() {
+	//	return BlockStateProperties.AGE_3;
+	//}
+
+	public int getMaxAge() {
+		return 3;
+	}
+
     @Override
-    public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
-    	return SHAPE_BY_AGE[state.getValue(this.getAgeProperty())];
-    }
+	public VoxelShape getShape(BlockState state, IBlockReader worldIn, BlockPos pos, ISelectionContext context) {
+		int age = state.getValue(this.getAgeProperty());
+		if (age < 0 || age >= SHAPE_BY_AGE.length) return SHAPE_BY_AGE[0];
+		return SHAPE_BY_AGE[age];
+	}
 
 	@SuppressWarnings("deprecation")
 //	@Override

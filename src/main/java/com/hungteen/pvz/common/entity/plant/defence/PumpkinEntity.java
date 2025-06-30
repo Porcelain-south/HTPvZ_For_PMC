@@ -31,8 +31,8 @@ public class PumpkinEntity extends PVZPlantEntity{
 		return 0;
 	}
 	
-	public static class PumpkinInfo extends PlantInfo{
-		
+	public static class PumpkinInfo extends PlantInfo {
+
 		private static final float NORMAL_PUMPKIN_LIFE = 100;
 		private static final float SUPER_PUMPKIN_LIFE = 200;
 
@@ -42,7 +42,7 @@ public class PumpkinEntity extends PVZPlantEntity{
 			plantEntity.setPumpkin(true);
 			plantEntity.setOuterDefenceLife(SUPER_PUMPKIN_LIFE);
 		}
-		
+
 		@Override
 		public void placeOn(IPlantEntity plantEntity, int sunCost) {
 			super.placeOn(plantEntity, sunCost);
@@ -55,7 +55,15 @@ public class PumpkinEntity extends PVZPlantEntity{
 			final float max = plantEntity.getOuterDefenceLife() > NORMAL_PUMPKIN_LIFE ? SUPER_PUMPKIN_LIFE : NORMAL_PUMPKIN_LIFE;
 			plantEntity.setOuterDefenceLife(MathHelper.clamp(plantEntity.getOuterDefenceLife() * (1 + percent), 0, max));
 		}
+
+		public static float getLife() {
+			return NORMAL_PUMPKIN_LIFE;
+		}
+
+		public static float getSuperPumpkinLife() {
+			return SUPER_PUMPKIN_LIFE;
+		}
 	}
-	
+
 
 }

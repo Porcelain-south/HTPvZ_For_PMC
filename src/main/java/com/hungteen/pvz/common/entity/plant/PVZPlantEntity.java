@@ -8,11 +8,13 @@ import com.hungteen.pvz.api.paz.IPlantInfo;
 import com.hungteen.pvz.api.types.IEssenceType;
 import com.hungteen.pvz.api.types.IPAZType;
 import com.hungteen.pvz.api.types.IPlantType;
+import com.hungteen.pvz.client.particle.ParticleRegister;
 import com.hungteen.pvz.common.advancement.trigger.PlantSuperTrigger;
 import com.hungteen.pvz.common.entity.AbstractPAZEntity;
 import com.hungteen.pvz.common.entity.EntityRegister;
 import com.hungteen.pvz.common.entity.ai.goal.PVZLookRandomlyGoal;
 import com.hungteen.pvz.common.entity.misc.drop.SunEntity;
+import com.hungteen.pvz.common.entity.plant.defence.PumpkinEntity;
 import com.hungteen.pvz.common.entity.plant.enforce.SquashEntity;
 import com.hungteen.pvz.common.entity.plant.explosion.DoomShroomEntity;
 import com.hungteen.pvz.common.entity.plant.light.GoldLeafEntity;
@@ -23,9 +25,8 @@ import com.hungteen.pvz.common.impl.SkillTypes;
 import com.hungteen.pvz.common.impl.plant.PVZPlants;
 import com.hungteen.pvz.common.item.spawn.card.PlantCardItem;
 import com.hungteen.pvz.common.misc.PVZEntityDamageSource;
-import com.hungteen.pvz.common.potion.EffectRegister;
-import com.hungteen.pvz.client.particle.ParticleRegister;
 import com.hungteen.pvz.common.misc.sound.SoundRegister;
+import com.hungteen.pvz.common.potion.EffectRegister;
 import com.hungteen.pvz.remove.MetalTypes;
 import com.hungteen.pvz.utils.AlgorithmUtil;
 import com.hungteen.pvz.utils.EffectUtil;
@@ -653,8 +654,13 @@ public abstract class PVZPlantEntity extends AbstractPAZEntity implements IPlant
 		if (compound.contains("immune_to_weak")) {
 			this.isImmuneToWeak = compound.getBoolean("immune_to_weak");
 		}
-		if (compound.contains("plant_state")) {
-			this.setPAZState(compound.getInt("plant_state"));
+		if (compound.contains("paz_states")) {
+			this.setPAZState(compound.getInt("paz_states"));
+			if (this.hasPumpkin()){
+				IPlantInfo info = new PumpkinEntity.PumpkinInfo();
+				this.outerPlant = info;
+				this.outerPlant.setType(info.getType());
+			}
 		}
 	}
 

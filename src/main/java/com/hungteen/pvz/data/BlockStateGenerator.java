@@ -8,9 +8,9 @@ import com.hungteen.pvz.common.block.plants.ToxicShroomBlock;
 import com.hungteen.pvz.utils.StringUtil;
 import com.mojang.datafixers.util.Pair;
 import net.minecraft.block.Block;
-import net.minecraft.block.CropsBlock;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.state.Property;
+import net.minecraft.state.properties.BlockStateProperties;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.ConfiguredModel;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -41,13 +41,13 @@ public class BlockStateGenerator extends BlockStateProvider {
 				));
 		//crops
 		Arrays.asList(
-				Pair.of(BlockRegister.PEA_PLANT.get(), CropsBlock.AGE), 
+				Pair.of(BlockRegister.PEA_PLANT.get(), BlockStateProperties.AGE_3),
 				Pair.of(BlockRegister.TOXIC_SHROOM.get(), ToxicShroomBlock.AGE),
-				Pair.of(BlockRegister.CABBAGE.get(), CabbageBlock.AGE), 
+				Pair.of(BlockRegister.CABBAGE.get(), CabbageBlock.AGE),
 				Pair.of(BlockRegister.CORN.get(), CornBlock.AGE)
-				).forEach(pair -> {
-				cropBlockState(pair.getFirst(), pair.getSecond());
-				});
+		).forEach(pair -> {
+			cropBlockState(pair.getFirst(), pair.getSecond());
+		});
 		//last step for all normal block models.
 		for(Block b : ForgeRegistries.BLOCKS) {
 			if(b.getRegistryName().getNamespace().equals(PVZMod.MOD_ID) && ! addedBlocks.contains(b)) {

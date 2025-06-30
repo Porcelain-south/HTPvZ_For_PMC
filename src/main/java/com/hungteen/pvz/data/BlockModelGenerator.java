@@ -35,7 +35,7 @@ public class BlockModelGenerator extends BlockModelProvider{
 		//crop
 		genCrop(BlockRegister.CABBAGE.get(), 3);
 		genCrop(BlockRegister.CORN.get(), 6);
-		genCrop(BlockRegister.PEA_PLANT.get(), 7);
+		genCrop(BlockRegister.PEA_PLANT.get(), 4);
 		genCrop(BlockRegister.TOXIC_SHROOM.get(), 3);
 		//up down side
 		Arrays.asList(BlockRegister.FRAGMENT_SPLICE.get(), BlockRegister.SLOT_MACHINE.get(), BlockRegister.ARMA_ORE.get(), BlockRegister.TOXIC_ORE.get()
