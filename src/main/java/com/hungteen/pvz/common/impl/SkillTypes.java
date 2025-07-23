@@ -193,7 +193,7 @@ public class SkillTypes {
 
     //kernel pult
     public static final ISkillType MORE_KERNEL_DAMAGE = new SkillType("more_kernel_damage",
-            ArrayUtil.getAverageArray(4, 8F, 16F),
+            ArrayUtil.getAverageArray(4, 8F, 17F),
             Arrays.asList(2, 3, 3)
     );
 
