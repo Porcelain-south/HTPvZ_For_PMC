@@ -37,22 +37,25 @@ public class PlantInfo implements IPlantInfo {
 	/**
 	 * read nbt from plant entity.
 	 */
-	public static void read(IPlantInfo info, CompoundNBT compound, String flag) {
+	public static IPlantInfo read(CompoundNBT compound, String flag) {
 		if (compound.contains(flag)) {
 			CompoundNBT nbt = compound.getCompound(flag);
 			if(nbt.contains("plant_type")) {
-				final String string = compound.getString("plant_type");
+				final String string = nbt.getString("plant_type");
 				Optional<IPlantType> op = PlantType.getPlantByName(string);
 				if(op.isPresent()) {// choose plant info type.
+					IPlantInfo info;
 					if(op.get().isOuterPlant()) {
 						info = op.get().getOuterPlant().get();
 					} else {
 						info = new PlantInfo(op.get());
 					}
 					info.read(nbt);
+					return info;
 				}
 			}
 		}
+		return null;
 	}
 
 	/**

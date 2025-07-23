@@ -649,18 +649,26 @@ public abstract class PVZPlantEntity extends AbstractPAZEntity implements IPlant
 		if(compound.contains("plant_sleep_time")) {
 			this.sleepTime = compound.getInt("plant_sleep_time");
 		}
-		PlantInfo.read(this.innerPlant, compound, "inner_plant_info");
-		PlantInfo.read(this.outerPlant, compound, "outer_plant_info");
-		if (compound.contains("immune_to_weak")) {
-			this.isImmuneToWeak = compound.getBoolean("immune_to_weak");
-		}
+
 		if (compound.contains("paz_states")) {
 			this.setPAZState(compound.getInt("paz_states"));
-			if (this.hasPumpkin()){
-				IPlantInfo info = new PumpkinEntity.PumpkinInfo();
-				this.outerPlant = info;
-				this.outerPlant.setType(info.getType());
-			}
+		}
+
+		IPlantInfo innerInfo = PlantInfo.read(compound, "inner_plant_info");
+		if (innerInfo != null) {
+			this.innerPlant = innerInfo;
+		}
+
+		IPlantInfo outerInfo = PlantInfo.read(compound, "outer_plant_info");
+		if (outerInfo != null) {
+			this.outerPlant = outerInfo;
+		} else if (this.hasPumpkin()) {
+			IPlantInfo info = new PumpkinEntity.PumpkinInfo();
+			this.outerPlant = info;
+		}
+
+		if (compound.contains("immune_to_weak")) {
+			this.isImmuneToWeak = compound.getBoolean("immune_to_weak");
 		}
 	}
 

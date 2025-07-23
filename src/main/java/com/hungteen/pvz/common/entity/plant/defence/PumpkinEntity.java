@@ -36,6 +36,10 @@ public class PumpkinEntity extends PVZPlantEntity{
 		private static final float NORMAL_PUMPKIN_LIFE = 100;
 		private static final float SUPER_PUMPKIN_LIFE = 200;
 
+		public PumpkinInfo() {
+			super(PVZPlants.PUMPKIN);
+		}
+
 		@Override
 		public void onSuper(IPlantEntity plantEntity) {
 			super.onSuper(plantEntity);
