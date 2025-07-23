@@ -116,7 +116,7 @@ public class StrangeCatEntity extends PVZPlantEntity {
 	 * max damage to target
 	 */
 	public float getAttackDamage() {
-		return 10;
+		return 20;
 	}
 	
 	public int getSuperAttackCount() {

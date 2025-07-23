@@ -193,7 +193,7 @@ public class SkillTypes {
 
     //kernel pult
     public static final ISkillType MORE_KERNEL_DAMAGE = new SkillType("more_kernel_damage",
-            ArrayUtil.getAverageArray(4, 4F, 10F),
+            ArrayUtil.getAverageArray(4, 8F, 16F),
             Arrays.asList(2, 3, 3)
     );
 
@@ -273,7 +273,7 @@ public class SkillTypes {
 
     //butter pult
     public static final ISkillType MORE_BUTTER_DAMAGE = new SkillType("more_butter_damage",
-            ArrayUtil.getAverageArray(5, 2F, 10F),
+            ArrayUtil.getAverageArray(5, 12F, 20F),
             Arrays.asList(1, 2, 2, 3)
     );
 //    public static final ISkillType BIG_PEA = new SkillType("big_pea", "pvz:special_pea",
