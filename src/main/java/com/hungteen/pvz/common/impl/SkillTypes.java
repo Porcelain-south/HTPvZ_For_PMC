@@ -23,7 +23,7 @@ public class SkillTypes {
      */
     public static final ISkillType FAST_CD = new SkillType("fast_cd",
             ArrayUtil.getAverageArray(COOL_DOWN_LEVEL + 1, 0F, 3F),
-            Arrays.asList(3, 4, 5)
+            Arrays.asList(2, 3, 4)
     );
 
     public static final ISkillType LESS_SUN = new SkillType("less_sun",
