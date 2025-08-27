@@ -23,7 +23,7 @@ public class SkillTypes {
      */
     public static final ISkillType FAST_CD = new SkillType("fast_cd",
             ArrayUtil.getAverageArray(COOL_DOWN_LEVEL + 1, 0F, 3F),
-            Arrays.asList(3, 4, 5)
+            Arrays.asList(2, 3, 4)
     );
 
     public static final ISkillType LESS_SUN = new SkillType("less_sun",
@@ -193,7 +193,7 @@ public class SkillTypes {
 
     //kernel pult
     public static final ISkillType MORE_KERNEL_DAMAGE = new SkillType("more_kernel_damage",
-            ArrayUtil.getAverageArray(4, 4F, 10F),
+            ArrayUtil.getAverageArray(4, 8F, 17F),
             Arrays.asList(2, 3, 3)
     );
 
@@ -273,7 +273,7 @@ public class SkillTypes {
 
     //butter pult
     public static final ISkillType MORE_BUTTER_DAMAGE = new SkillType("more_butter_damage",
-            ArrayUtil.getAverageArray(5, 2F, 10F),
+            ArrayUtil.getAverageArray(5, 12F, 20F),
             Arrays.asList(1, 2, 2, 3)
     );
 //    public static final ISkillType BIG_PEA = new SkillType("big_pea", "pvz:special_pea",

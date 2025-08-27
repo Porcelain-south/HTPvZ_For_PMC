@@ -3,6 +3,7 @@ package com.hungteen.pvz.common.entity.plant.explosion;
 import com.hungteen.pvz.api.interfaces.IAlmanacEntry;
 import com.hungteen.pvz.api.types.IPlantType;
 import com.hungteen.pvz.client.model.entity.plant.explosion.PotatoMineModel;
+import com.hungteen.pvz.client.particle.ParticleRegister;
 import com.hungteen.pvz.common.entity.bullet.itembullet.PotatoEntity;
 import com.hungteen.pvz.common.entity.plant.PVZPlantEntity;
 import com.hungteen.pvz.common.entity.plant.base.PlantCloserEntity;
@@ -11,7 +12,6 @@ import com.hungteen.pvz.common.impl.SkillTypes;
 import com.hungteen.pvz.common.impl.plant.PVZPlants;
 import com.hungteen.pvz.common.misc.PVZEntityDamageSource;
 import com.hungteen.pvz.common.misc.sound.SoundRegister;
-import com.hungteen.pvz.client.particle.ParticleRegister;
 import com.hungteen.pvz.utils.EntityUtil;
 import com.hungteen.pvz.utils.MathUtil;
 import com.hungteen.pvz.utils.WorldUtil;
@@ -118,7 +118,7 @@ public class PotatoMineEntity extends PlantCloserEntity{
 	}
 	
 	public int getShootNum() {
-		return 3;
+		return 5;
 	}
 
 	public float getExplodeRange(){

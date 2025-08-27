@@ -24,7 +24,7 @@ import java.util.List;
 public class KernelPultEntity extends PlantPultEntity {
 
 	private static final DataParameter<Integer> CURRENT_BULLET = EntityDataManager.defineId(KernelPultEntity.class, DataSerializers.INT);
-	private static final int BUTTER_CHANCE = 10;
+	private static final int BUTTER_CHANCE = 25;
 	private KernelPultEntity upgradeEntity;
 	
 	public KernelPultEntity(EntityType<? extends CreatureEntity> type, World worldIn) {

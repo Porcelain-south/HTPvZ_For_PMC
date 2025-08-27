@@ -45,5 +45,9 @@ public class ButterPultEntity extends KernelPultEntity {
 	public IPlantType getPlantType() {
 		return CustomPlants.BUTTER_PULT;
 	}
-	
+
+	@Override
+	public int getPultCD() {
+		return 120;
+	}
 }

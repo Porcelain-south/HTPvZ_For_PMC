@@ -1,11 +1,10 @@
 package com.hungteen.pvz.common.entity.bullet.itembullet;
 
 import com.hungteen.pvz.PVZMod;
+import com.hungteen.pvz.common.entity.EntityRegister;
 import com.hungteen.pvz.common.entity.plant.PVZPlantEntity;
 import com.hungteen.pvz.common.entity.plant.explosion.PotatoMineEntity;
-import com.hungteen.pvz.common.entity.EntityRegister;
 import com.hungteen.pvz.utils.PlantUtil;
-
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
@@ -43,7 +42,9 @@ public class PotatoEntity extends PVZItemBulletEntity{
             	return ;
             }
             PotatoMineEntity mine = EntityRegister.POTATO_MINE.get().create(level);
-            PlantUtil.copyPlantData(mine, (PVZPlantEntity) getThrower());
+			PVZPlantEntity owner = (PVZPlantEntity) getThrower();
+            PlantUtil.copyPlantData(mine, owner);
+			mine.setImmuneToWeak(owner.isImmuneToWeak());
             mine.setPos(this.getX(), this.getY(), this.getZ());
             mine.setRisingFromDirt();
             this.level.addFreshEntity(mine);
