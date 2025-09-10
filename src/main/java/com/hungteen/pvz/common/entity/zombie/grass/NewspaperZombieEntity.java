@@ -41,7 +41,7 @@ public class NewspaperZombieEntity extends DefenceZombieEntity {
 		super.onOuterDefenceBroken();
 		if(! this.level.isClientSide){
 			this.addEffect(EffectUtil.effect(Effects.MOVEMENT_SPEED, 120000, 1));
-			this.addEffect(EffectUtil.effect(Effects.DAMAGE_BOOST, 120000, MathUtil.getRandomMinMax(this.random, 1, this.getAngryLevel())));
+			this.addEffect(EffectUtil.effect(Effects.DAMAGE_BOOST, 120000, MathUtil.getRandomMinMax(this.random, this.getAngryLevel()-3, this.getAngryLevel()-1)));
 			EntityUtil.playSound(this, SoundRegister.ZOMBIE_ANGRY.get());
 		}
 	}

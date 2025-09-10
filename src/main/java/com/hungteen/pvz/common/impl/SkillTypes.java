@@ -61,13 +61,13 @@ public class SkillTypes {
 
     //wall nut.
     public static final ISkillType NUT_MORE_LIFE = new SkillType("nut_more_life",
-            ArrayUtil.getAverageArray(6, 250F, 500F),
+            ArrayUtil.getAverageArray(6, 500F, 1000F),
             Arrays.asList(1, 1, 2, 3, 3)
     );
 
     //tall wall nut.
     public static final ISkillType TALL_NUT_MORE_LIFE = new SkillType("tall_nut_more_life",
-            ArrayUtil.getAverageArray(6, 325F, 700F),
+            ArrayUtil.getAverageArray(6, 650F, 1400F),
             Arrays.asList(2, 2, 3, 3, 5)
     );
 
@@ -241,7 +241,7 @@ public class SkillTypes {
 
     //garlic
     public static final ISkillType MORE_GARLIC_LIFE = new SkillType("more_garlic_life",
-            ArrayUtil.getAverageArray(4, 100F, 250F),
+            ArrayUtil.getAverageArray(4, 200F, 500F),
             Arrays.asList(2, 3, 5)
     );
 
@@ -257,7 +257,7 @@ public class SkillTypes {
 
     //water guard
     public static final ISkillType MORE_GUARD_LIFE = new SkillType("more_guard_life",
-            ArrayUtil.getAverageArray(6, 150F, 400F),
+            ArrayUtil.getAverageArray(6, 300F, 800F),
             Arrays.asList(2, 3, 4, 4, 5)
     );
 

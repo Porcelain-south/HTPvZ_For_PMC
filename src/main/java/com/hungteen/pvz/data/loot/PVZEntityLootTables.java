@@ -91,7 +91,7 @@ public class PVZEntityLootTables implements Consumer<BiConsumer<ResourceLocation
 		t.accept(PVZLoot.LAVA_ZOMBIE, getRottenFleshLootTable()
 				.withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1))
 				        .add(ItemLootEntry.lootTableItem(ItemRegister.PEPPER.get()))
-				        .when(RandomChanceWithLooting.randomChanceAndLootingBoost(0.025F, 0.02F))
+				        .when(RandomChanceWithLooting.randomChanceAndLootingBoost(0.1F, 0.02F))
 		));
 		t.accept(PVZLoot.PUMPKIN_ZOMBIE, getLootTable()
 				.withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1))
@@ -99,7 +99,7 @@ public class PVZEntityLootTables implements Consumer<BiConsumer<ResourceLocation
 				        .when(RandomChanceWithLooting.randomChanceAndLootingBoost(0.2F, 0.04F))
 				).withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1))
 						.add(ItemLootEntry.lootTableItem(ItemRegister.PUMPKIN_ENJOY_CARD.get()))
-						.when(RandomChanceWithLooting.randomChanceAndLootingBoost(0.01F, 0.02F))
+						.when(RandomChanceWithLooting.randomChanceAndLootingBoost(0.1F, 0.0F))
 		));
 		t.accept(PVZLoot.TRICK_ZOMBIE, getRottenFleshLootTable()
 				.withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1))
@@ -176,32 +176,32 @@ public class PVZEntityLootTables implements Consumer<BiConsumer<ResourceLocation
 		t.accept(PVZLoot.PEASHOOTER_ZOMBIE, getLootTable()
 				.withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1))
 				        .add(ItemLootEntry.lootTableItem(ItemRegister.PEA_SHOOTER_ENJOY_CARD.get()))
-				        .when(RandomChanceWithLooting.randomChanceAndLootingBoost(0.01F, 0.02F))
+				        .when(RandomChanceWithLooting.randomChanceAndLootingBoost(0.1F, 0.0F))
 		));
 		t.accept(PVZLoot.WALLNUT_ZOMBIE, getLootTable()
 				.withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1))
 				        .add(ItemLootEntry.lootTableItem(ItemRegister.WALL_NUT_ENJOY_CARD.get()))
-				        .when(RandomChanceWithLooting.randomChanceAndLootingBoost(0.01F, 0.02F))
+				        .when(RandomChanceWithLooting.randomChanceAndLootingBoost(0.1F, 0.0F))
 		));
 		t.accept(PVZLoot.GATLINGPEA_ZOMBIE, getLootTable()
 				.withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1))
 				        .add(ItemLootEntry.lootTableItem(ItemRegister.GATLING_PEA_ENJOY_CARD.get()))
-				        .when(RandomChanceWithLooting.randomChanceAndLootingBoost(0.005F, 0.01F))
+				        .when(RandomChanceWithLooting.randomChanceAndLootingBoost(0.05F, 0.0F))
 		));
 		t.accept(PVZLoot.TALLNUT_ZOMBIE, getLootTable()
 				.withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1))
 				        .add(ItemLootEntry.lootTableItem(ItemRegister.TALL_NUT_ENJOY_CARD.get()))
-				        .when(RandomChanceWithLooting.randomChanceAndLootingBoost(0.01F, 0.02F))
+				        .when(RandomChanceWithLooting.randomChanceAndLootingBoost(0.1F, 0.0F))
 		));
 		t.accept(PVZLoot.SQUASH_ZOMBIE, getLootTable()
 				.withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1))
 				        .add(ItemLootEntry.lootTableItem(ItemRegister.SQUASH_ENJOY_CARD.get()))
-				        .when(RandomChanceWithLooting.randomChanceAndLootingBoost(0.01F, 0.02F))
+				        .when(RandomChanceWithLooting.randomChanceAndLootingBoost(0.1F, 0.0F))
 		));
 		t.accept(PVZLoot.JALAPENO_ZOMBIE, getLootTable()
 				.withPool(LootPool.lootPool().setRolls(ConstantRange.exactly(1))
 				        .add(ItemLootEntry.lootTableItem(ItemRegister.JALAPENO_ENJOY_CARD.get()))
-				        .when(RandomChanceWithLooting.randomChanceAndLootingBoost(0.01F, 0.02F))
+				        .when(RandomChanceWithLooting.randomChanceAndLootingBoost(0.2F, 0.0F))
 		));
 	}
 	
