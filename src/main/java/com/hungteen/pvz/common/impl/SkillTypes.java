@@ -173,6 +173,12 @@ public class SkillTypes {
             Arrays.asList(2, 2, 3, 3)
     );
 
+    //Multiple pea shooting.
+    public static final ISkillType MULTIPLE_SHOOTING = new SkillType("multiple_shooting",
+            ArrayUtil.getAverageArray(3, 0F, 2.0F),
+            Arrays.asList(5, 9)
+    );
+
     //star fruit.
     public static final ISkillType MORE_STAR_DAMAGE = new SkillType("more_star_damage",
             ArrayUtil.getAverageArray(5, 6F, 10F),

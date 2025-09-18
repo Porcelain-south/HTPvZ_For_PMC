@@ -1100,6 +1100,8 @@
   "skill.pvz.blow_strength.desc": "增加风力伤害",
   "skill.pvz.split_double_chance": "前重后轻",
   "skill.pvz.split_double_chance.desc": "增加前方是双发豌豆的概率",
+  "skill.pvz.multiple_shooting": "多重射击",
+  "skill.pvz.multiple_shooting.desc": "增加每次射出的豌豆数量",
   "skill.pvz.more_star_damage": "闪耀",
   "skill.pvz.more_star_damage.desc": "增加星星果的伤害",
   "skill.pvz.less_work_cd": "效率",

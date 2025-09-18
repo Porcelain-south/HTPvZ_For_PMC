@@ -1,6 +1,7 @@
 package com.hungteen.pvz.common.entity.plant.appease;
 
 import com.hungteen.pvz.api.types.IPlantType;
+import com.hungteen.pvz.common.impl.SkillTypes;
 import com.hungteen.pvz.common.impl.plant.PVZPlants;
 import com.hungteen.pvz.utils.AnimationUtil;
 import net.minecraft.entity.CreatureEntity;
@@ -42,7 +43,7 @@ public class ThreePeaterEntity extends PeaShooterEntity {
 
 	@Override
 	public void startShootAttack() {
-		this.setAttackTime(2);
+		this.setAttackTime(1 + (int)this.getSkillValue(SkillTypes.MULTIPLE_SHOOTING));
 	}
 
 	@Override
