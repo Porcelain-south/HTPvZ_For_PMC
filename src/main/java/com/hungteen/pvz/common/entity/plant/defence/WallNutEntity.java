@@ -23,7 +23,7 @@ public class WallNutEntity extends PlantDefenderEntity{
 	
 	@Override
 	public float getSuperLife() {
-		return 300;
+		return 600;
 	}
 
 	@Override

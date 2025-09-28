@@ -1,6 +1,7 @@
 package com.hungteen.pvz.common.entity.plant.light;
 
 import com.hungteen.pvz.api.types.IPlantType;
+import com.hungteen.pvz.common.impl.SkillTypes;
 import com.hungteen.pvz.common.impl.plant.PVZPlants;
 import net.minecraft.entity.CreatureEntity;
 import net.minecraft.entity.EntitySize;
@@ -37,6 +38,11 @@ public class TwinSunFlowerEntity extends SunFlowerEntity{
 	@Override
 	public IPlantType getPlantType() {
 		return PVZPlants.TWIN_SUNFLOWER;
+	}
+
+	@Override
+	protected float getLife() {
+		return this.getSkillValue(SkillTypes.PLANT_MORE_LIFE) * 2;
 	}
 	
 }

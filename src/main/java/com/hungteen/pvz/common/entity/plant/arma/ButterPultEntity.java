@@ -28,7 +28,7 @@ public class ButterPultEntity extends KernelPultEntity {
 
 	@Override
 	public float getSuperDamage() {
-		return 3 * this.getAttackDamage();
+		return 2 * this.getAttackDamage();
 	};
 
 	@Override
