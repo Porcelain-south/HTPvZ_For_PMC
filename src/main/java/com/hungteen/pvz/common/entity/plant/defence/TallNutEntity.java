@@ -22,17 +22,17 @@ public class TallNutEntity extends WallNutEntity{
 
 	@Override
 	public float getSuperLife() {
-		return 500;
+		return 1000;
 	}
 
 	@Override
 	public int getArmor() {
-		return 18;
+		return 22;
 	}
 
 	@Override
 	public int getArmorToughness() {
-		return 10;
+		return 20;
 	}
 
 	@Override

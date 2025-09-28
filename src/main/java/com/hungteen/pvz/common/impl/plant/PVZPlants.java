@@ -255,7 +255,7 @@ public final class PVZPlants extends PlantType {
 			.summonCard(() -> ItemRegister.THREE_PEATER_CARD.get())
 			.enjoyCard(() -> ItemRegister.THREE_PEATER_ENJOY_CARD.get())
 			.plantModel(() -> ThreePeaterModel::new).scale(0.98F)
-			.commonSunSkill(Arrays.asList(SkillTypes.PEA_DAMAGE))
+			.commonSunSkill(Arrays.asList(SkillTypes.PEA_DAMAGE, SkillTypes.MULTIPLE_SHOOTING))
 	);
 	
 	public static final IPlantType TANGLE_KELP = new PVZPlants("tangle_kelp", new PlantFeatures().isWaterPlant()
@@ -494,7 +494,7 @@ public final class PVZPlants extends PlantType {
 			.enjoyCard(() -> ItemRegister.GATLING_PEA_ENJOY_CARD.get())
 			.plantModel(() -> GatlingPeaModel::new).scale(1F)
 			.upgradeFrom(() -> PVZPlants.REPEATER)
-			.commonSunSkill(Arrays.asList(SkillTypes.PEA_DAMAGE))
+			.commonSunSkill(Arrays.asList(SkillTypes.PEA_DAMAGE, SkillTypes.MULTIPLE_SHOOTING))
 	);
 	
 	public static final IPlantType TWIN_SUNFLOWER = new PVZPlants("twin_sunflower", new PlantFeatures()

@@ -1099,6 +1099,8 @@
     "skill.pvz.blow_strength.desc": "Increase blow damage",
     "skill.pvz.split_double_chance": "Split",
     "skill.pvz.split_double_chance.desc": "Increase repeater forward chance",
+    "skill.pvz.multiple_shooting": "Multiple shooting",
+    "skill.pvz.multiple_shooting.desc": "Increase the number of shots each time",
     "skill.pvz.more_star_damage": "Shoot Training",
     "skill.pvz.more_star_damage.desc": "Increase star damage",
     "skill.pvz.less_work_cd": "Efficiency",

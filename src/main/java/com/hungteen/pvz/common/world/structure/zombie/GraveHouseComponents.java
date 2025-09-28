@@ -1,16 +1,12 @@
 package com.hungteen.pvz.common.world.structure.zombie;
 
-import java.util.List;
-import java.util.Random;
-
-import com.hungteen.pvz.common.entity.zombie.grass.TombStoneEntity;
-import com.hungteen.pvz.common.world.structure.PVZTemplateComponent;
-import com.hungteen.pvz.common.misc.PVZLoot;
 import com.hungteen.pvz.common.entity.EntityRegister;
+import com.hungteen.pvz.common.entity.zombie.grass.TombStoneEntity;
+import com.hungteen.pvz.common.misc.PVZLoot;
+import com.hungteen.pvz.common.world.structure.PVZTemplateComponent;
 import com.hungteen.pvz.common.world.structure.StructureRegister;
 import com.hungteen.pvz.utils.EntityUtil;
 import com.hungteen.pvz.utils.StringUtil;
-
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.nbt.CompoundNBT;
@@ -30,12 +26,21 @@ import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
+import java.util.List;
+import java.util.Random;
+
 public class GraveHouseComponents {
 
-	public static final ResourceLocation res = StringUtil.prefix("zombie_house/graveyard");
+	public static final ResourceLocation[] VARIANTS = {
+		StringUtil.prefix("graveyard/graveyard_roc_bb"),
+		StringUtil.prefix("graveyard/graveyard_roc_rm"),
+		StringUtil.prefix("graveyard/graveyard_roc_rr")
+	};
 	
 	public static void generate(TemplateManager manager, BlockPos pos1, Rotation rotation, List<StructurePiece> list, Random rand) {
-	      list.add(new GraveHouseComponent(manager, res, pos1, rotation));
+		// 随机选择一个变体，每个变体概率相同
+		ResourceLocation selectedVariant = VARIANTS[rand.nextInt(VARIANTS.length)];
+		list.add(new GraveHouseComponent(manager, selectedVariant, pos1, rotation));
     }
 	
 	public static class GraveHouseComponent extends PVZTemplateComponent{
@@ -77,11 +82,19 @@ public class GraveHouseComponents {
 				this.createChest(worldIn, sbb, rand, pos, PVZLoot.GRAVE_YARD_CHEST, null);
 			} else if(function.equals("bonus_chest2")) {
 				this.createChest(worldIn, sbb, rand, pos, PVZLoot.GRAVE_YARD_CHEST, null);
-			} else if(function.equals("spawner")) {
+			} else if(function.equals("spawner1")) {
 				worldIn.setBlock(pos, Blocks.SPAWNER.defaultBlockState(), 2);
 				TileEntity te = worldIn.getBlockEntity(pos);
 				if(te instanceof MobSpawnerTileEntity) {
-					((MobSpawnerTileEntity)te).getSpawner().setEntityId(getRandomEntityType(rand));
+					EntityType<?> entityType = getEntityTypeByVariant(1);
+					((MobSpawnerTileEntity)te).getSpawner().setEntityId(entityType);
+				}
+			} else if(function.equals("spawner2")) {
+				worldIn.setBlock(pos, Blocks.SPAWNER.defaultBlockState(), 2);
+				TileEntity te = worldIn.getBlockEntity(pos);
+				if(te instanceof MobSpawnerTileEntity) {
+					EntityType<?> entityType = getEntityTypeByVariant(2);
+					((MobSpawnerTileEntity)te).getSpawner().setEntityId(entityType);
 				}
 			} else if(function.startsWith("tomb")) {
 				if(rand.nextInt(3) == 0) {
@@ -92,11 +105,27 @@ public class GraveHouseComponents {
 			}
 		}
 		
-		protected EntityType<?> getRandomEntityType(Random rand){
-			int num = rand.nextInt(2);
-			if(num == 0) return EntityRegister.GIGA_FOOTBALL_ZOMBIE.get();
-			else if(num == 1) return EntityRegister.FOOTBALL_ZOMBIE.get();
-			return null;
+		/**
+		 * 根据变体类型和计数器返回对应的实体类型
+		 * bb: 两个黑橄榄刷怪笼
+		 * rr: 两个红橄榄刷怪笼  
+		 * rm: 红橄榄和矿工刷怪笼
+		 */
+		protected EntityType<?> getEntityTypeByVariant(int spawnerIndex) {
+			String variantName = this.res.getPath();
+			
+			if(variantName.contains("bb")) {
+				return EntityRegister.GIGA_FOOTBALL_ZOMBIE.get();
+			} else if(variantName.contains("rr")) {
+				return EntityRegister.FOOTBALL_ZOMBIE.get();
+			} else if(variantName.contains("rm")) {
+				if(spawnerIndex == 1) {
+					return EntityRegister.FOOTBALL_ZOMBIE.get();
+				} else if(spawnerIndex == 2){
+					return EntityRegister.DIGGER_ZOMBIE.get();
+				}
+			}
+			return EntityRegister.FOOTBALL_ZOMBIE.get();
 		}
 		
 	}

@@ -1,14 +1,10 @@
 package com.hungteen.pvz.common.world.structure.zombie;
 
-import java.util.List;
-import java.util.Random;
-
-import com.hungteen.pvz.common.world.structure.PVZTemplateComponent;
-import com.hungteen.pvz.common.misc.PVZLoot;
 import com.hungteen.pvz.common.entity.EntityRegister;
+import com.hungteen.pvz.common.misc.PVZLoot;
+import com.hungteen.pvz.common.world.structure.PVZTemplateComponent;
 import com.hungteen.pvz.common.world.structure.StructureRegister;
 import com.hungteen.pvz.utils.StringUtil;
-
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.nbt.CompoundNBT;
@@ -23,12 +19,21 @@ import net.minecraft.world.gen.feature.structure.IStructurePieceType;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
+import java.util.List;
+import java.util.Random;
+
 public class DolphinHouseComponents {
 
-	public static final ResourceLocation res = StringUtil.prefix("zombie_house/dolphin_house");
+	public static final ResourceLocation[] VARIANTS = {
+		StringUtil.prefix("dolphin_house/dolphin_house_roc_large"),
+		StringUtil.prefix("dolphin_house/dolphin_house_roc_small"),
+		StringUtil.prefix("dolphin_house/dolphin_house_roc_steeped")
+	};
 	
 	public static void generate(TemplateManager manager, BlockPos pos1, Rotation rotation, List<StructurePiece> list, Random rand) {
-	      list.add(new DolphinHouseComponent(manager, res, pos1, rotation));
+		// 随机选择一个变体，每个变体概率相同
+		ResourceLocation selectedVariant = VARIANTS[rand.nextInt(VARIANTS.length)];
+		list.add(new DolphinHouseComponent(manager, selectedVariant, pos1, rotation));
     }
 	
 	public static class DolphinHouseComponent extends PVZTemplateComponent {
@@ -63,10 +68,8 @@ public class DolphinHouseComponents {
 			int num = rand.nextInt(3);
 			if(num == 0) return EntityRegister.SNORKEL_ZOMBIE.get();
 			else if(num == 1) return EntityRegister.LAVA_ZOMBIE.get();
-			else if(num == 2) return EntityRegister.DOLPHIN_RIDER_ZOMBIE.get();
-			return null;
+			else return EntityRegister.DOLPHIN_RIDER_ZOMBIE.get();
 		}
-		
 	}
 		
 }

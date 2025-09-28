@@ -1,16 +1,12 @@
 package com.hungteen.pvz.common.world.structure.shop;
 
-import java.util.List;
-import java.util.Random;
-
-import com.hungteen.pvz.common.entity.npc.SunDaveEntity;
-import com.hungteen.pvz.common.world.structure.PVZTemplateComponent;
-import com.hungteen.pvz.common.misc.PVZLoot;
 import com.hungteen.pvz.common.entity.EntityRegister;
+import com.hungteen.pvz.common.entity.npc.SunDaveEntity;
+import com.hungteen.pvz.common.misc.PVZLoot;
+import com.hungteen.pvz.common.world.structure.PVZTemplateComponent;
 import com.hungteen.pvz.common.world.structure.StructureRegister;
 import com.hungteen.pvz.utils.EntityUtil;
 import com.hungteen.pvz.utils.StringUtil;
-
 import net.minecraft.block.Blocks;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.tileentity.MobSpawnerTileEntity;
@@ -28,9 +24,12 @@ import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
+import java.util.List;
+import java.util.Random;
+
 public class SunTempleComponents {
 
-	public static final ResourceLocation res = StringUtil.prefix("shop/sun_temple");
+	public static final ResourceLocation res = StringUtil.prefix("sun_temple/sun_temple_roc");
 	
 	public static void generate(TemplateManager manager, BlockPos pos1, Rotation rotation, List<StructurePiece> list, Random rand) {
 	      list.add(new SunTempleComponent(manager, res, pos1, rotation));

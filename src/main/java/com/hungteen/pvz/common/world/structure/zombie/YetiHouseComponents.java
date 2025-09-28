@@ -1,16 +1,12 @@
 package com.hungteen.pvz.common.world.structure.zombie;
 
-import java.util.List;
-import java.util.Random;
-
-import com.hungteen.pvz.common.entity.zombie.pool.YetiZombieEntity;
-import com.hungteen.pvz.common.world.structure.PVZTemplateComponent;
-import com.hungteen.pvz.common.misc.PVZLoot;
 import com.hungteen.pvz.common.entity.EntityRegister;
+import com.hungteen.pvz.common.entity.zombie.pool.YetiZombieEntity;
+import com.hungteen.pvz.common.misc.PVZLoot;
+import com.hungteen.pvz.common.world.structure.PVZTemplateComponent;
 import com.hungteen.pvz.common.world.structure.StructureRegister;
 import com.hungteen.pvz.utils.EntityUtil;
 import com.hungteen.pvz.utils.StringUtil;
-
 import net.minecraft.block.Blocks;
 import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.util.ResourceLocation;
@@ -27,9 +23,12 @@ import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
+import java.util.List;
+import java.util.Random;
+
 public class YetiHouseComponents {
 
-	public static final ResourceLocation res1 = StringUtil.prefix("zombie_house/yeti_house");
+	public static final ResourceLocation res1 = StringUtil.prefix("yeti_house/yeti_house_roc");
 	
 	public static void generate(TemplateManager manager, BlockPos pos1, Rotation rotation, List<StructurePiece> list, Random rand) {
 	      list.add(new YetiHouseComponent(manager, res1, pos1, rotation));
