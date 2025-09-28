@@ -130,7 +130,10 @@ dependencies {
     
     compileOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}:api")
     runtimeOnly fg.deobf("mezz.jei:jei-${mc_version}:${jei_version}")
-    
+
+    runtimeOnly fg.deobf("curse.maven:quark-243121:3642325")
+    runtimeOnly fg.deobf("curse.maven:autoreglib-250363:3326041")
+
     implementation fg.deobf("curse.maven:jade-324717:${jade_version}")
 
     implementation fg.deobf("curse.maven:waystones-245755:${waystone_version}")

@@ -1,20 +1,16 @@
 package com.hungteen.pvz.common.world.structure.shop;
 
-import java.util.List;
-import java.util.Random;
-
+import com.hungteen.pvz.common.entity.EntityRegister;
 import com.hungteen.pvz.common.entity.npc.CrazyDaveEntity;
 import com.hungteen.pvz.common.entity.npc.PennyEntity;
 import com.hungteen.pvz.common.entity.plant.appease.PeaShooterEntity;
 import com.hungteen.pvz.common.entity.plant.defence.WallNutEntity;
 import com.hungteen.pvz.common.entity.plant.light.SunFlowerEntity;
-import com.hungteen.pvz.common.world.structure.PVZTemplateComponent;
 import com.hungteen.pvz.common.misc.PVZLoot;
-import com.hungteen.pvz.common.entity.EntityRegister;
+import com.hungteen.pvz.common.world.structure.PVZTemplateComponent;
 import com.hungteen.pvz.common.world.structure.StructureRegister;
 import com.hungteen.pvz.utils.EntityUtil;
 import com.hungteen.pvz.utils.StringUtil;
-
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
 import net.minecraft.nbt.CompoundNBT;
@@ -31,46 +27,16 @@ import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
+import java.util.List;
+import java.util.Random;
+
 public class DaveVillaComponents {
 	
 	public static final BlockState BASE_BLOCK = Blocks.DIRT.defaultBlockState();
-	public static final ResourceLocation res1 = StringUtil.prefix("dave_villa/davevilla1");
-	public static final ResourceLocation res2 = StringUtil.prefix("dave_villa/davevilla2");
-	public static final ResourceLocation res3 = StringUtil.prefix("dave_villa/davevilla3");
-	public static final ResourceLocation res4 = StringUtil.prefix("dave_villa/davevilla4");
+	public static final ResourceLocation res = StringUtil.prefix("dave_villa/davevilla_roc");
 	
 	public static void generate(TemplateManager manager, BlockPos pos1, Rotation rotation, List<StructurePiece> list, Random rand) {
-	      BlockPos pos2,pos3,pos4;
-	      switch (rotation) {
-		  case CLOCKWISE_90:{
-			  pos2=pos1.offset(0, 0, 32);
-			  pos3=pos1.offset(-32, 0, 0);
-			  pos4=pos2.offset(-32, 0, 0);
-			  break;
-		  }
-		  case CLOCKWISE_180:{
-			  pos2=pos1.offset(-32, 0, 0);
-			  pos3=pos1.offset(0, 0, -32);
-			  pos4=pos2.offset(0, 0, -32);
-			  break;
-		  }
-		  case COUNTERCLOCKWISE_90:{
-			  pos2=pos1.offset(0, 0, -32);
-			  pos3=pos1.offset(32, 0, 0);
-			  pos4=pos2.offset(32, 0, 0);
-			  break;
-		  }
-		  default:{
-			  pos2=pos1.offset(32, 0, 0);
-			  pos3=pos1.offset(0, 0, 32);
-			  pos4=pos2.offset(0, 0, 32);
-			  break;
-		  }
-		  }
-	      list.add(new DaveVillaComponent(manager, res1, pos1, rotation));
-	      list.add(new DaveVillaComponent(manager, res2, pos2, rotation));
-	      list.add(new DaveVillaComponent(manager, res3, pos3, rotation));
-	      list.add(new DaveVillaComponent(manager, res4, pos4, rotation));
+		list.add(new DaveVillaComponent(manager, res, pos1, rotation));
     }
 	
 	public static class DaveVillaComponent extends PVZTemplateComponent {

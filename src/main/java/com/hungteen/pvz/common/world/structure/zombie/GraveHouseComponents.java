@@ -1,16 +1,12 @@
 package com.hungteen.pvz.common.world.structure.zombie;
 
-import java.util.List;
-import java.util.Random;
-
-import com.hungteen.pvz.common.entity.zombie.grass.TombStoneEntity;
-import com.hungteen.pvz.common.world.structure.PVZTemplateComponent;
-import com.hungteen.pvz.common.misc.PVZLoot;
 import com.hungteen.pvz.common.entity.EntityRegister;
+import com.hungteen.pvz.common.entity.zombie.grass.TombStoneEntity;
+import com.hungteen.pvz.common.misc.PVZLoot;
+import com.hungteen.pvz.common.world.structure.PVZTemplateComponent;
 import com.hungteen.pvz.common.world.structure.StructureRegister;
 import com.hungteen.pvz.utils.EntityUtil;
 import com.hungteen.pvz.utils.StringUtil;
-
 import net.minecraft.block.Blocks;
 import net.minecraft.entity.EntityType;
 import net.minecraft.nbt.CompoundNBT;
@@ -30,12 +26,21 @@ import net.minecraft.world.gen.feature.structure.StructureManager;
 import net.minecraft.world.gen.feature.structure.StructurePiece;
 import net.minecraft.world.gen.feature.template.TemplateManager;
 
+import java.util.List;
+import java.util.Random;
+
 public class GraveHouseComponents {
 
-	public static final ResourceLocation res = StringUtil.prefix("zombie_house/graveyard");
+	public static final ResourceLocation[] VARIANTS = {
+		StringUtil.prefix("graveyard/graveyard_roc_bb"),
+		StringUtil.prefix("graveyard/graveyard_roc_rm"),
+		StringUtil.prefix("graveyard/graveyard_roc_rr")
+	};
 	
 	public static void generate(TemplateManager manager, BlockPos pos1, Rotation rotation, List<StructurePiece> list, Random rand) {
-	      list.add(new GraveHouseComponent(manager, res, pos1, rotation));
+		// 随机选择一个变体，每个变体概率相同
+		ResourceLocation selectedVariant = VARIANTS[rand.nextInt(VARIANTS.length)];
+		list.add(new GraveHouseComponent(manager, selectedVariant, pos1, rotation));
     }
 	
 	public static class GraveHouseComponent extends PVZTemplateComponent{

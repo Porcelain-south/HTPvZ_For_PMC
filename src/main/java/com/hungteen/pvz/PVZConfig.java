@@ -145,27 +145,27 @@ public class PVZConfig {
                     WorldSettings.BucketHouseDistance = builder
                             .translation("config.pvz.world.bucket_house_distance")
                             .comment("the distance value between bucket house.")
-                            .defineInRange("BucketHouseDistance", 36, 40, 100);
+                            .defineInRange("BucketHouseDistance", 36, 10, 100);
 
                     WorldSettings.DolphinHouseDistance = builder
                             .translation("config.pvz.world.dolphin_house_distance")
                             .comment("the distance value between dolphin house.")
-                            .defineInRange("DolphinHouseDistance", 32, 40, 100);
+                            .defineInRange("DolphinHouseDistance", 32, 10, 100);
 
                     WorldSettings.GraveHouseDistance = builder
                             .translation("config.pvz.world.grave_house_distance")
                             .comment("the distance value between grave house.")
-                            .defineInRange("GraveHouseDistance", 28, 40, 100);
+                            .defineInRange("GraveHouseDistance", 28, 10, 100);
 
                     WorldSettings.SunTempleDistance = builder
                             .translation("config.pvz.world.sun_temple_distance")
                             .comment("the distance value between sun temple.")
-                            .defineInRange("SunTempleDistance", 36, 40, 100);
+                            .defineInRange("SunTempleDistance", 36, 10, 100);
 
                     WorldSettings.YetiHouseDistance = builder
                             .translation("config.pvz.world.yeti_house_distance")
                             .comment("the distance value between yeti house.")
-                            .defineInRange("YetiHouseDistance", 28, 40, 100);
+                            .defineInRange("YetiHouseDistance", 28, 10, 100);
                 }
                 builder.pop();
 
@@ -345,7 +345,7 @@ public class PVZConfig {
             {
                 ItemSettings.JackBoxSurpriseChance = builder
                         .translation("config.pvz.item.jack_surprise_chance")
-                        .comment("The chance when player got a surprise when use jack box.the bigger the value is,the lower chance you get.(more specificly 1/x)")
+                        .comment("The chance when player got a surprise when use jack box.the bigger the value is,the lower chance you get.(more specifically 1/x)")
                         .defineInRange("JackBoxSurpriseChance", 10, 1, 1000000);
             }
             builder.pop();
